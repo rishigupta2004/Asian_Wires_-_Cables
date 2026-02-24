@@ -5,6 +5,8 @@ import { AnimatePresence } from 'framer-motion';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
 import { useScrollStore } from '@/stores/scrollStore';
+import { useDeviceCapabilities } from '@/hooks/useDeviceCapabilities';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 import ImmersiveBackground from '@/components/3d/ImmersiveBackground';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { IntroSection } from '@/components/sections/IntroSection';
@@ -24,6 +26,10 @@ export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
   
   const { progress, currentSection } = useScrollStore();
+  const { isMobile, gpuTier } = useDeviceCapabilities();
+  const prefersReducedMotion = useReducedMotion();
+  
+  const shouldDisable3D = isMobile || gpuTier === 'low' || prefersReducedMotion;
   
   // Initialize scroll progress tracking
   useScrollProgress();
@@ -44,13 +50,13 @@ export default function Home() {
       </AnimatePresence>
 
       <div ref={containerRef} className="relative bg-[#0A0A0A] overflow-x-hidden">
-        {/* Immersive 3D Background */}
-        <ImmersiveBackground showLogo={true} />
+        {/* Immersive 3D Background - disabled on low-end devices */}
+        {!shouldDisable3D && <ImmersiveBackground showLogo={true} />}
         
         <ScrollProgress />
         
-        {/* Global animated wire connection */}
-        {!showSplash && <GlobalWire />}
+        {/* Global animated wire connection - disabled on low-end devices */}
+        {!showSplash && !shouldDisable3D && <GlobalWire />}
         
         {/* Scroll Content */}
         <div className="relative z-10">
