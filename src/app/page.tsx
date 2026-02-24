@@ -29,7 +29,8 @@ export default function Home() {
   const { isMobile, gpuTier } = useDeviceCapabilities();
   const prefersReducedMotion = useReducedMotion();
   
-  const shouldDisable3D = isMobile || gpuTier === 'low' || prefersReducedMotion;
+  // Only enable 3D on high-end desktop devices
+  const shouldDisable3D = isMobile || gpuTier !== 'high' || prefersReducedMotion;
   
   // Initialize scroll progress tracking
   useScrollProgress();
@@ -50,13 +51,13 @@ export default function Home() {
       </AnimatePresence>
 
       <div ref={containerRef} className="relative bg-[#0A0A0A] overflow-x-hidden">
-        {/* Immersive 3D Background - disabled on low-end devices */}
-        {!shouldDisable3D && <ImmersiveBackground showLogo={true} />}
+        {/* Simple gradient background instead of heavy 3D */}
+        <div className="fixed inset-0 z-[-1] bg-gradient-to-b from-[#0A0A0A] via-[#111111] to-[#0A0A0A]" />
         
         <ScrollProgress />
         
-        {/* Global animated wire connection - disabled on low-end devices */}
-        {!showSplash && !shouldDisable3D && <GlobalWire />}
+        {/* Global animated wire connection */}
+        {!showSplash && !isMobile && <GlobalWire />}
         
         {/* Scroll Content */}
         <div className="relative z-10">
