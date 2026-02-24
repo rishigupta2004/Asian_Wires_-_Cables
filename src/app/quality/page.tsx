@@ -1,533 +1,192 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Check, X, Award, Shield, Zap, HelpCircle } from 'lucide-react';
-import OptimizedImage from '@/components/OptimizedImage';
-import { imagePaths } from '@/lib/imageMapping';
-import BrandLogo from '@/components/BrandLogo';
+import { Check, X, Award, Shield, Zap } from 'lucide-react';
+import { Barcode, GUIWindow } from '@/components/retro';
+import RetroNavigation from '@/components/RetroNavigation';
 
 const tiers = [
   {
-    name: 'True Master',
-    code: 'TRUE_MASTER',
+    name: 'TRUE_MASTER',
     color: '#FFD700',
-    bgColor: 'bg-yellow-500',
-    percentage: 100,
-    price: '₹₹₹',
-    tagline: 'Premium Quality',
-    description: 'Maximum durability and performance for critical applications',
+    label: 'TRUE MASTER',
     features: [
-      'Oxygen-free Copper (OFC) conductors',
-      'Premium grade insulation materials',
-      'Maximum durability - 15+ years lifespan',
-      'Extended 5-year warranty',
-      'Superior conductivity ratings',
-      'Temperature rating: -20°C to +80°C',
-      'Double shielding options',
-      'Gold-plated connectors (where applicable)',
-    ],
-    bestFor: [
-      'Critical industrial applications',
-      'High-end audio systems',
-      'Professional installations',
-      'Long-term infrastructure projects',
-      'Harsh environmental conditions',
-    ],
+      { name: 'Oxygen-Free Copper', included: true },
+      { name: '24K Gold Connectors', included: true },
+      { name: 'Quad Shielding', included: true },
+      { name: 'Braided Nylon Jacket', included: true },
+      { name: 'Lifetime Warranty', included: true },
+      { name: 'Premium Packaging', included: true },
+    ]
   },
   {
-    name: 'M1 VOICE',
-    code: 'M1_VOICE',
+    name: 'M1_VOICE',
     color: '#3B82F6',
-    bgColor: 'bg-blue-500',
-    percentage: 80,
-    price: '₹₹',
-    tagline: 'Professional Grade',
-    description: 'Balanced quality and value for professional use',
+    label: 'M1 VOICE',
     features: [
-      'High-purity copper conductors',
-      'Quality insulation materials',
-      'Good durability - 10+ years lifespan',
-      'Standard 3-year warranty',
-      'Reliable conductivity',
-      'Temperature rating: -15°C to +70°C',
-      'Standard shielding',
-      'Nickel-plated connectors',
-    ],
-    bestFor: [
-      'Commercial installations',
-      'Professional audio/visual',
-      'Regular industrial use',
-      'Office buildings',
-      'Retail spaces',
-    ],
+      { name: 'High-Purity Copper', included: true },
+      { name: 'Nickel Connectors', included: true },
+      { name: 'Dual Shielding', included: true },
+      { name: 'PVC Jacket', included: true },
+      { name: '5 Year Warranty', included: true },
+      { name: 'Retail Packaging', included: true },
+    ]
   },
   {
-    name: 'Pro Asian 1051',
-    code: 'PRO_ASIAN',
+    name: 'PRO_ASIAN',
     color: '#10B981',
-    bgColor: 'bg-green-500',
-    percentage: 60,
-    price: '₹',
-    tagline: 'Standard Quality',
-    description: 'Reliable performance at an affordable price',
+    label: 'PRO ASIAN',
     features: [
-      'Standard copper conductors',
-      'Standard PVC insulation',
-      'Decent durability - 5+ years lifespan',
-      'Basic 1-year warranty',
-      'Standard conductivity',
-      'Temperature rating: -10°C to +60°C',
-      'Basic shielding',
-      'Standard connectors',
-    ],
-    bestFor: [
-      'Residential installations',
-      'Budget-conscious projects',
-      'Temporary setups',
-      'Light commercial use',
-      'Standard home audio',
-    ],
+      { name: 'Standard Copper', included: true },
+      { name: 'Standard Connectors', included: true },
+      { name: 'Single Shielding', included: true },
+      { name: 'PVC Jacket', included: true },
+      { name: '1 Year Warranty', included: true },
+      { name: 'Bulk Packaging', included: true },
+    ]
   },
 ];
 
-const comparisonData = [
-  {
-    feature: 'Conductor Quality',
-    TRUE_MASTER: { value: 'Oxygen-free Copper (OFC)', rating: 5 },
-    M1_VOICE: { value: 'High-purity Copper', rating: 4 },
-    PRO_ASIAN: { value: 'Standard Copper', rating: 3 },
-  },
-  {
-    feature: 'Insulation Grade',
-    TRUE_MASTER: { value: 'Premium', rating: 5 },
-    M1_VOICE: { value: 'High Quality', rating: 4 },
-    PRO_ASIAN: { value: 'Standard', rating: 3 },
-  },
-  {
-    feature: 'Durability Rating',
-    TRUE_MASTER: { value: '15+ years', rating: 5 },
-    M1_VOICE: { value: '10+ years', rating: 4 },
-    PRO_ASIAN: { value: '5+ years', rating: 3 },
-  },
-  {
-    feature: 'Warranty Period',
-    TRUE_MASTER: { value: '5 Years', rating: 5 },
-    M1_VOICE: { value: '3 Years', rating: 4 },
-    PRO_ASIAN: { value: '1 Year', rating: 3 },
-  },
-  {
-    feature: 'Conductivity',
-    TRUE_MASTER: { value: 'Excellent', rating: 5 },
-    M1_VOICE: { value: 'Very Good', rating: 4 },
-    PRO_ASIAN: { value: 'Good', rating: 3 },
-  },
-  {
-    feature: 'Temperature Range',
-    TRUE_MASTER: { value: '-20°C to +80°C', rating: 5 },
-    M1_VOICE: { value: '-15°C to +70°C', rating: 4 },
-    PRO_ASIAN: { value: '-10°C to +60°C', rating: 3 },
-  },
-  {
-    feature: 'Shielding Quality',
-    TRUE_MASTER: { value: 'Double Shield', rating: 5 },
-    M1_VOICE: { value: 'Standard Shield', rating: 4 },
-    PRO_ASIAN: { value: 'Basic Shield', rating: 3 },
-  },
-  {
-    feature: 'Price Point',
-    TRUE_MASTER: { value: '₹₹₹ Premium', rating: 5 },
-    M1_VOICE: { value: '₹₹ Mid-range', rating: 4 },
-    PRO_ASIAN: { value: '₹ Budget', rating: 5 },
-  },
+const tests = [
+  { name: 'Conductor Resistance', method: 'IS:10810 Part 4', tm: '✓ PASS', mv: '✓ PASS', pa: '✓ PASS' },
+  { name: 'Insulation Resistance', method: 'IS:10810 Part 6', tm: '✓ PASS', mv: '✓ PASS', pa: '✓ PASS' },
+  { name: 'High Voltage Test', method: 'IS:10810 Part 7', tm: '✓ PASS', mv: '✓ PASS', pa: '✓ PASS' },
+  { name: 'Tensile Strength', method: 'IS:10810 Part 8', tm: '✓ PASS', mv: '✓ PASS', pa: '✓ PASS' },
+  { name: 'Elongation Test', method: 'IS:10810 Part 8', tm: '✓ PASS', mv: '✓ PASS', pa: '✓ PASS' },
+  { name: 'Spark Test', method: 'IS:10810 Part 9', tm: '✓ PASS', mv: '✓ PASS', pa: '✓ PASS' },
+  { name: 'Fire Retardant', method: 'IS:10810 Part 20', tm: '✓ PASS', mv: '✓ PASS', pa: '✓ PASS' },
+  { name: 'Cold Bend Test', method: 'IS:10810 Part 21', tm: '✓ PASS', mv: '✓ PASS', pa: '✓ PASS' },
 ];
 
-const useCases = [
-  {
-    scenario: 'Industrial Manufacturing Plant',
-    recommendation: 'TRUE_MASTER',
-    reason: 'Critical operations require maximum reliability and durability',
-  },
-  {
-    scenario: 'Commercial Office Building',
-    recommendation: 'M1_VOICE',
-    reason: 'Balanced performance and cost for professional environments',
-  },
-  {
-    scenario: 'Residential Home Installation',
-    recommendation: 'PRO_ASIAN',
-    reason: 'Cost-effective solution for standard home use',
-  },
-  {
-    scenario: 'Professional Recording Studio',
-    recommendation: 'TRUE_MASTER',
-    reason: 'Premium audio quality demands superior conductivity',
-  },
-  {
-    scenario: 'Retail Store / Showroom',
-    recommendation: 'M1_VOICE',
-    reason: 'Reliable performance with moderate usage',
-  },
-  {
-    scenario: 'Temporary Event Setup',
-    recommendation: 'PRO_ASIAN',
-    reason: 'Short-term use where budget is priority',
-  },
-];
-
-export default function Quality() {
+export default function QualityPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
-      {/* Hero */}
-      <section className="py-24 bg-[#171717]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center"
-          >
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
-              QUALITY <span className="text-[#E85D04]">COMPARISON</span>
-            </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Choose the right quality level for your needs. All our products meet 
-              ISO 9001:2008 standards, with varying grades for different applications.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <div className="flex flex-col lg:flex-row min-h-screen bg-[#E4E3DB] text-[#0F0F0F] font-sans overflow-x-hidden selection:bg-[#F23A18] selection:text-[#0F0F0F] cursor-none relative">
+      <RetroNavigation />
+      
+      <main className="w-full lg:w-[calc(100%-320px)] mt-[72px] lg:mt-0 relative z-10 bg-[#E4E3DB]">
+        
+        {/* Hero */}
+        <section className="border-b-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-8 lg:p-12">
+          <h1 className="font-grotesk text-5xl lg:text-7xl font-black uppercase tracking-tighter mb-4">
+            Quality <span className="text-[#F23A18]">Spec Sheets</span>
+          </h1>
+          <p className="font-mono-custom text-lg">
+            Every cable undergoes rigorous testing to ensure maximum performance and safety.
+          </p>
+        </section>
 
-      {/* Tier Cards */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {tiers.map((tier, index) => (
-              <motion.div
-                key={tier.code}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="relative"
-              >
-                <div 
-                  className="bg-[#171717] border-2 p-8 h-full"
-                  style={{ borderColor: tier.color }}
-                >
-                  {/* Brand Logo */}
-                  <div className="flex justify-center mb-6">
-                    {tier.code === 'TRUE_MASTER' && <BrandLogo brand="true" size="md" />}
-                    {tier.code === 'M1_VOICE' && <BrandLogo brand="m1" size="md" />}
-                    {tier.code === 'PRO_ASIAN' && <BrandLogo brand="asian" size="md" />}
-                  </div>
-
-                  {/* Product Image */}
-                  <div className="relative h-40 mb-6 overflow-hidden border border-[#262626]">
-                    <OptimizedImage
-                      src={tier.code === 'TRUE_MASTER' ? imagePaths.products.product12 : tier.code === 'M1_VOICE' ? imagePaths.products.product13 : imagePaths.products.product14}
-                      alt={`${tier.name} Quality Wire`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                    />
-                  </div>
-
-                  {/* Header */}
-                  <div className="flex justify-between items-start mb-6">
-                    <div>
-                      <div 
-                        className="text-sm font-bold uppercase tracking-wider mb-2"
-                        style={{ color: tier.color }}
-                      >
-                        {tier.tagline}
-                      </div>
-                      <h2 className="text-3xl font-bold">{tier.name}</h2>
-                    </div>
-                    <div 
-                      className="text-3xl font-bold font-mono"
-                      style={{ color: tier.color }}
-                    >
-                      {tier.price}
-                    </div>
-                  </div>
-
-                  <p className="text-gray-400 mb-6">{tier.description}</p>
-
-                  {/* Progress Bar */}
-                  <div className="mb-6">
-                    <div className="flex justify-between text-sm mb-2">
-                      <span className="text-gray-500">Quality Level</span>
-                      <span style={{ color: tier.color }}>{tier.percentage}%</span>
-                    </div>
-                    <div className="h-2 bg-[#0a0a0a] rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${tier.percentage}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.5 }}
-                        className="h-full"
-                        style={{ backgroundColor: tier.color }}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Features */}
-                  <h3 className="font-bold mb-4 flex items-center">
-                    <Award className="w-5 h-5 mr-2" style={{ color: tier.color }} />
-                    Key Features
-                  </h3>
-                  <ul className="space-y-2 mb-6">
-                    {tier.features.slice(0, 5).map((feature, idx) => (
-                      <li key={idx} className="flex items-start text-sm text-gray-300">
-                        <Check className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" style={{ color: tier.color }} />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Best For */}
-                  <h3 className="font-bold mb-4 flex items-center">
-                    <Zap className="w-5 h-5 mr-2" style={{ color: tier.color }} />
-                    Best For
-                  </h3>
-                  <ul className="space-y-1">
-                    {tier.bestFor.slice(0, 3).map((use, idx) => (
-                      <li key={idx} className="text-sm text-gray-400">
-                        • {use}
+        {/* Tier Comparison */}
+        <section className="border-b-4 border-[#0F0F0F] p-8 lg:p-12 bg-[#D7D6CD]">
+          <h2 className="font-grotesk text-4xl font-black uppercase tracking-tighter mb-8">Tier Comparison</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {tiers.map((tier, idx) => (
+              <div key={idx} className="border-4 border-[#0F0F0F] bg-[#E4E3DB] shadow-[8px_8px_0px_#0F0F0F]">
+                <div className="p-6 border-b-4 border-[#0F0F0F]" style={{ backgroundColor: tier.color }}>
+                  <h3 className="font-grotesk font-black text-2xl uppercase text-center text-[#0F0F0F]">{tier.label}</h3>
+                </div>
+                <div className="p-6">
+                  <ul className="space-y-3 font-mono-custom text-sm">
+                    {tier.features.map((feature, fIdx) => (
+                      <li key={fIdx} className="flex items-center gap-3">
+                        {feature.included ? (
+                          <Check className="w-5 h-5 text-green-600 font-bold" strokeWidth={3} />
+                        ) : (
+                          <X className="w-5 h-5 text-red-600" strokeWidth={3} />
+                        )}
+                        <span className={feature.included ? '' : 'opacity-50'}>{feature.name}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Detailed Comparison */}
-      <section className="py-24 bg-[#171717]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold mb-4">
-              DETAILED <span className="text-[#E85D04]">COMPARISON</span>
-            </h2>
-            <p className="text-gray-400">Compare specifications across all quality tiers</p>
-          </motion.div>
-
+        {/* Test Results */}
+        <section className="border-b-4 border-[#0F0F0F] p-8 lg:p-12 bg-[#E4E3DB]">
+          <h2 className="font-grotesk text-4xl font-black uppercase tracking-tighter mb-8">Test Results</h2>
+          
           <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b-2 border-[#262626]">
-                  <th className="text-left py-4 px-4 font-bold">Feature</th>
-                  {tiers.map((tier) => (
-                    <th key={tier.code} className="text-center py-4 px-4">
-                      <div 
-                        className="inline-block px-4 py-2 font-bold"
-                        style={{ backgroundColor: tier.color, color: '#000' }}
-                      >
-                        {tier.name}
-                      </div>
-                    </th>
-                  ))}
+            <table className="w-full border-4 border-[#0F0F0F] font-mono-custom text-sm">
+              <thead className="bg-[#0F0F0F] text-[#E4E3DB]">
+                <tr>
+                  <th className="p-4 text-left border-r-2 border-[#E4E3DB]/20">TEST PARAMETER</th>
+                  <th className="p-4 text-left border-r-2 border-[#E4E3DB]/20">TEST METHOD</th>
+                  <th className="p-4 text-center border-r-2 border-[#E4E3DB]/20 text-[#FFD700]">TRUE MASTER</th>
+                  <th className="p-4 text-center border-r-2 border-[#E4E3DB]/20 text-[#3B82F6]">M1 VOICE</th>
+                  <th className="p-4 text-center text-[#10B981]">PRO ASIAN</th>
                 </tr>
               </thead>
-              <tbody>
-                {comparisonData.map((row, index) => (
-                  <tr key={index} className="border-b border-[#262626] hover:bg-[#0a0a0a]">
-                    <td className="py-4 px-4 font-medium">{row.feature}</td>
-                    {tiers.map((tier) => {
-                      const data = row[tier.code as keyof typeof row] as { value: string; rating: number };
-                      return (
-                        <td key={tier.code} className="py-4 px-4 text-center">
-                          <div className="text-gray-300">{data.value}</div>
-                          <div className="flex justify-center gap-1 mt-2">
-                            {[...Array(5)].map((_, i) => (
-                              <div
-                                key={i}
-                                className="w-2 h-2 rounded-full"
-                                style={{
-                                  backgroundColor: i < data.rating ? tier.color : '#262626',
-                                }}
-                              />
-                            ))}
-                          </div>
-                        </td>
-                      );
-                    })}
+              <tbody className="bg-[#D7D6CD]">
+                {tests.map((test, idx) => (
+                  <tr key={idx} className="border-b-2 border-[#0F0F0F]/20 hover:bg-[#E4E3DB]">
+                    <td className="p-4 font-bold border-r-2 border-[#0F0F0F]/20">{test.name}</td>
+                    <td className="p-4 text-xs border-r-2 border-[#0F0F0F]/20">{test.method}</td>
+                    <td className="p-4 text-center border-r-2 border-[#0F0F0F]/20 font-bold">{test.tm}</td>
+                    <td className="p-4 text-center border-r-2 border-[#0F0F0F]/20 font-bold">{test.mv}</td>
+                    <td className="p-4 text-center font-bold">{test.pa}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Use Case Guide */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold mb-4">
-              WHICH TIER FOR <span className="text-[#E85D04]">WHICH USE</span>?
-            </h2>
-            <p className="text-gray-400">Recommendations based on application</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {useCases.map((useCase, index) => {
-              const recommendedTier = tiers.find(t => t.code === useCase.recommendation);
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-[#171717] border border-[#262626] p-6 hover:border-[#E85D04] transition-all"
-                >
-                  <h3 className="font-bold text-lg mb-3">{useCase.scenario}</h3>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-gray-400">Recommended:</span>
-                    <span 
-                      className="font-bold px-2 py-1 text-sm"
-                      style={{ 
-                        backgroundColor: recommendedTier?.color,
-                        color: '#000'
-                      }}
-                    >
-                      {recommendedTier?.name}
-                    </span>
-                  </div>
-                  <p className="text-gray-400 text-sm">{useCase.reason}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Quality Process */}
-      <section className="py-24 bg-[#171717]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold mb-4">
-              OUR QUALITY <span className="text-[#E85D04]">PROCESS</span>
-            </h2>
-            <p className="text-gray-400">How we ensure consistent quality across all tiers</p>
-          </motion.div>
-
+        {/* Quality Features */}
+        <section className="border-b-4 border-[#0F0F0F] p-8 lg:p-12 bg-[#D7D6CD]">
+          <h2 className="font-grotesk text-4xl font-black uppercase tracking-tighter mb-8">Quality Features</h2>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              {
-                step: '01',
-                title: 'Raw Material Selection',
-                description: 'Only certified copper and premium-grade materials sourced from trusted suppliers.',
-              },
-              {
-                step: '02',
-                title: 'Precision Manufacturing',
-                description: 'State-of-the-art machinery with automated quality checks at every stage.',
-              },
-              {
-                step: '03',
-                title: 'Rigorous Testing',
-                description: 'Conductivity, insulation resistance, and durability tests for every batch.',
-              },
-              {
-                step: '04',
-                title: 'Final Inspection',
-                description: 'Visual inspection, length verification, and packaging quality check.',
-              },
-            ].map((process, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-[#0a0a0a] border border-[#262626] p-6 text-center"
-              >
-                <div className="text-4xl font-bold text-[#E85D04] mb-4 font-mono">
-                  {process.step}
-                </div>
-                <h3 className="font-bold mb-2">{process.title}</h3>
-                <p className="text-gray-400 text-sm">{process.description}</p>
-              </motion.div>
+              { icon: Shield, title: 'FRLS Technology', desc: 'Flame Retardant Low Smoke cables for safety' },
+              { icon: Zap, title: 'High Conductivity', desc: '99.97% pure electrolytic grade copper' },
+              { icon: Award, title: 'ISO Certified', desc: 'ISO 9001:2015 quality management' },
+              { icon: Check, title: 'Tested Every Meter', desc: '100% spark testing on production line' },
+            ].map((item, idx) => (
+              <div key={idx} className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 shadow-[8px_8px_0px_#0F0F0F]">
+                <item.icon className="w-12 h-12 text-[#F23A18] mb-4" strokeWidth={1.5} />
+                <h3 className="font-grotesk font-black text-lg uppercase mb-2">{item.title}</h3>
+                <p className="font-mono-custom text-xs">{item.desc}</p>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Warranty Info */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#171717] border border-[#262626] p-8 lg:p-12">
-            <div className="flex flex-col lg:flex-row items-center gap-8">
-              <div className="flex-1">
-                <h2 className="text-3xl font-bold mb-4">
-                  WARRANTY <span className="text-[#E85D04]">COVERAGE</span>
-                </h2>
-                <p className="text-gray-400 mb-6">
-                  All our products come with warranty coverage against manufacturing defects. 
-                  The warranty period varies by quality tier, reflecting our confidence in each product line.
-                </p>
-                <div className="grid grid-cols-3 gap-4">
-                  {tiers.map((tier) => (
-                    <div key={tier.code} className="text-center p-4 bg-[#0a0a0a]">
-                      <div 
-                        className="text-2xl font-bold mb-1"
-                        style={{ color: tier.color }}
-                      >
-                        {tier.code === 'TRUE_MASTER' ? '5' : tier.code === 'M1_VOICE' ? '3' : '1'}
-                      </div>
-                      <div className="text-xs text-gray-400">Year{tier.code !== 'PRO_ASIAN' ? 's' : ''}</div>
-                      <div className="text-xs text-gray-500 mt-1">{tier.name}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="flex-1">
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Shield className="w-6 h-6 text-[#E85D04] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="font-bold">Manufacturing Defects</h4>
-                      <p className="text-gray-400 text-sm">Full replacement for any defects in materials or workmanship</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Shield className="w-6 h-6 text-[#E85D04] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="font-bold">Performance Guarantee</h4>
-                      <p className="text-gray-400 text-sm">Products meet or exceed stated specifications</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Shield className="w-6 h-6 text-[#E85D04] flex-shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="font-bold">Technical Support</h4>
-                      <p className="text-gray-400 text-sm">Expert assistance throughout the warranty period</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        {/* Standards */}
+        <section className="border-b-4 border-[#0F0F0F] p-8 lg:p-12 bg-[#E4E3DB]">
+          <h2 className="font-grotesk text-4xl font-black uppercase tracking-tighter mb-8">Compliance Standards</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="border-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-6 shadow-[8px_8px_0px_#F23A18]">
+              <h3 className="font-grotesk font-black text-2xl mb-4">Indian Standards</h3>
+              <ul className="font-mono-custom text-sm space-y-2">
+                <li>• IS:694 - PVC Insulated Cables</li>
+                <li>• IS:10810 - Test Methods for Cables</li>
+                <li>• IS:7098 - XLPE Insulated Cables</li>
+                <li>• IS:1554 - PVC Insulated Heavy Duty Cables</li>
+              </ul>
+            </div>
+            <div className="border-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-6 shadow-[8px_8px_0px_#F23A18]">
+              <h3 className="font-grotesk font-black text-2xl mb-4">International Standards</h3>
+              <ul className="font-mono-custom text-sm space-y-2">
+                <li>• IEC 60227 - PVC Cables</li>
+                <li>• IEC 60502 - XLPE Cables</li>
+                <li>• BS 6004 - PVC Cables</li>
+                <li>• BS 5467 - Armored Cables</li>
+              </ul>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Footer */}
+        <footer className="bg-[#0F0F0F] text-[#E4E3DB] p-6 border-t-4 border-[#0F0F0F]">
+          <div className="flex justify-between items-center">
+            <div className="font-grotesk font-black text-2xl text-[#F23A18]">ASIAN</div>
+            <Barcode className="w-20 h-4 opacity-50" />
+          </div>
+        </footer>
+      </main>
     </div>
   );
 }

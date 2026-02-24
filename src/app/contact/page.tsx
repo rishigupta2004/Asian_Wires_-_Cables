@@ -1,412 +1,229 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { MapPin, Phone, Mail, Send, CheckCircle } from 'lucide-react';
+import { Barcode, GUIWindow } from '@/components/retro';
+import RetroNavigation from '@/components/RetroNavigation';
 
 const CONTACT_INFO = {
   address: {
-    street: 'Ground Floor, 1051, Mahavir Bhawan',
-    locality: 'Sita Ram Bazar',
-    city: 'New Delhi',
-    state: 'Delhi',
-    postalCode: '110006',
     full: 'Ground Floor, 1051, Mahavir Bhawan, Sita Ram Bazar, New Delhi - 110006',
   },
   phone: {
     mobile: '+91-9811733043',
     landline: '011-40079555',
-    mobileDisplay: '+91 98117 33043',
-    landlineDisplay: '011-4007-9555',
   },
   email: {
     primary: 'brijasian@gmail.com',
-    secondary: 'asianwires@yahoo.com',
+    sales: 'sales@asianwires.com',
   },
-  hours: {
-    weekdays: 'Monday - Saturday: 9:00 AM - 7:00 PM',
-    sunday: 'Sunday: Closed',
-  },
+  hours: 'Mon - Sat: 9:00 AM - 7:00 PM',
 };
 
-const productCategories = [
-  'Speaker Wires',
-  'Audio Cables',
-  'CCTV Cables',
-  'Multi-Core Cables',
-  'Digital Mic Cables',
-  'Industrial Cables',
-  'General Inquiry',
-];
-
-export default function Contact() {
+export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
-    company: '',
-    phone: '',
     email: '',
+    phone: '',
+    company: '',
     product: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
     setIsSubmitted(true);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
-      {/* Hero */}
-      <section className="py-24 bg-[#171717]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center"
-          >
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
-              LET'S <span className="text-[#E85D04]">CONNECT</span>
-            </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Get in touch for personalized quotes, product inquiries, or expert guidance 
-              on choosing the right cables for your project.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <div className="flex flex-col lg:flex-row min-h-screen bg-[#E4E3DB] text-[#0F0F0F] font-sans overflow-x-hidden selection:bg-[#F23A18] selection:text-[#0F0F0F] cursor-none relative">
+      <RetroNavigation />
+      
+      <main className="w-full lg:w-[calc(100%-320px)] mt-[72px] lg:mt-0 relative z-10 bg-[#E4E3DB]">
+        
+        {/* Hero */}
+        <section className="border-b-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-8 lg:p-12">
+          <h1 className="font-grotesk text-5xl lg:text-7xl font-black uppercase tracking-tighter mb-4">
+            Comm <span className="text-[#F23A18]">Link</span>
+          </h1>
+          <p className="font-mono-custom text-lg">
+            Get in touch with our team for product inquiries, quotes, and technical support.
+          </p>
+        </section>
 
-      {/* Contact Cards */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Visit Us */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-[#171717] border border-[#262626] p-8 hover:border-[#E85D04] transition-all group"
-            >
-              <div className="w-16 h-16 bg-[#E85D04]/10 border border-[#E85D04] flex items-center justify-center mb-6 group-hover:bg-[#E85D04]/20 transition-all">
-                <MapPin className="w-8 h-8 text-[#E85D04]" />
-              </div>
-              <h2 className="text-2xl font-bold mb-4">Visit Us</h2>
-              <address className="not-italic text-gray-300 space-y-1">
-                <p>Ground Floor, 1051</p>
-                <p>Mahavir Bhawan</p>
-                <p>Sita Ram Bazar</p>
-                <p>New Delhi - 110006</p>
-              </address>
-              <a 
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center mt-4 text-[#E85D04] hover:gap-2 transition-all"
-              >
-                Get Directions <ArrowRight className="w-4 h-4 ml-1" />
-              </a>
-            </motion.div>
-
-            {/* Call Us */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-[#171717] border border-[#262626] p-8 hover:border-[#E85D04] transition-all group"
-            >
-              <div className="w-16 h-16 bg-[#E85D04]/10 border border-[#E85D04] flex items-center justify-center mb-6 group-hover:bg-[#E85D04]/20 transition-all">
-                <Phone className="w-8 h-8 text-[#E85D04]" />
-              </div>
-              <h2 className="text-2xl font-bold mb-4">Call Us</h2>
-              <div className="space-y-4">
-                <div>
-                  <p className="text-sm text-gray-500 mb-1">Mobile</p>
-                  <a 
-                    href={`tel:${CONTACT_INFO.phone.mobile}`}
-                    className="text-2xl font-bold text-[#E85D04] hover:text-[#CD853F] transition-colors"
-                  >
-                    {CONTACT_INFO.phone.mobileDisplay}
-                  </a>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500 mb-1">Landline</p>
-                  <a 
-                    href={`tel:${CONTACT_INFO.phone.landline}`}
-                    className="text-xl font-bold text-gray-300 hover:text-[#E85D04] transition-colors"
-                  >
-                    {CONTACT_INFO.phone.landlineDisplay}
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Email Us */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-[#171717] border border-[#262626] p-8 hover:border-[#E85D04] transition-all group"
-            >
-              <div className="w-16 h-16 bg-[#E85D04]/10 border border-[#E85D04] flex items-center justify-center mb-6 group-hover:bg-[#E85D04]/20 transition-all">
-                <Mail className="w-8 h-8 text-[#E85D04]" />
-              </div>
-              <h2 className="text-2xl font-bold mb-4">Email Us</h2>
-              <div className="space-y-4">
-                <div>
-                  <p className="text-sm text-gray-500 mb-1">Primary</p>
-                  <a 
-                    href={`mailto:${CONTACT_INFO.email.primary}`}
-                    className="text-lg font-bold text-[#E85D04] hover:text-[#CD853F] transition-colors"
-                  >
-                    {CONTACT_INFO.email.primary}
-                  </a>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500 mb-1">Secondary</p>
-                  <a 
-                    href={`mailto:${CONTACT_INFO.email.secondary}`}
-                    className="text-gray-300 hover:text-[#E85D04] transition-colors"
-                  >
-                    {CONTACT_INFO.email.secondary}
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Business Hours */}
-      <section className="py-12 bg-[#171717] border-y border-[#262626]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-            <div className="flex items-center gap-3">
-              <Clock className="w-6 h-6 text-[#E85D04]" />
-              <span className="font-bold">Business Hours:</span>
-            </div>
-            <div className="flex flex-col md:flex-row gap-4 md:gap-8 text-center md:text-left">
-              <span className="text-gray-300">{CONTACT_INFO.hours.weekdays}</span>
-              <span className="text-[#E85D04]">{CONTACT_INFO.hours.sunday}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-[#171717] border border-[#262626] p-8 lg:p-12"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold mb-2">Send Us a Message</h2>
-              <p className="text-gray-400">Fill out the form below and we'll get back to you shortly</p>
-            </div>
-
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          {/* Contact Form */}
+          <section className="p-8 lg:p-12 border-b-4 lg:border-b-0 lg:border-r-4 border-[#0F0F0F] bg-[#E4E3DB]">
+            <h2 className="font-grotesk text-3xl font-black uppercase tracking-tighter mb-8">Send Message</h2>
+            
             {isSubmitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-12"
-              >
-                <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>
-                <p className="text-gray-400 mb-6">Thank you for contacting us. We'll get back to you within 24 hours.</p>
-                <button
-                  onClick={() => {
-                    setIsSubmitted(false);
-                    setFormData({
-                      name: '',
-                      company: '',
-                      phone: '',
-                      email: '',
-                      product: '',
-                      message: '',
-                    });
-                  }}
-                  className="text-[#E85D04] hover:underline"
-                >
-                  Send another message
-                </button>
-              </motion.div>
+              <GUIWindow title="MESSAGE_SENT.EXE" className="w-full">
+                <div className="bg-[#E4E3DB] p-8 border-t-4 border-[#0F0F0F] text-center">
+                  <CheckCircle className="w-16 h-16 mx-auto mb-4 text-[#10B981]" />
+                  <h3 className="font-grotesk font-black text-2xl mb-2">MESSAGE TRANSMITTED</h3>
+                  <p className="font-mono-custom text-sm">Our team will respond within 24 hours.</p>
+                  <button 
+                    onClick={() => setIsSubmitted(false)}
+                    className="mt-6 px-6 py-3 bg-[#0F0F0F] text-[#E4E3DB] font-mono-custom font-bold border-4 border-[#0F0F0F] hover:bg-[#F23A18] transition-colors"
+                  >
+                    SEND ANOTHER
+                  </button>
+                </div>
+              </GUIWindow>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Name */}
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">
-                      Full Name *
-                    </label>
+                    <label className="font-mono-custom text-xs font-bold uppercase tracking-widest mb-2 block">Name *</label>
                     <input
                       type="text"
-                      id="name"
                       name="name"
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-[#0a0a0a] border-b-2 border-[#262626] focus:border-[#E85D04] px-0 py-3 text-white placeholder-gray-600 outline-none transition-colors"
-                      placeholder="John Doe"
+                      className="w-full border-4 border-[#0F0F0F] bg-[#E4E3DB] p-4 font-mono-custom focus:outline-none shadow-[4px_4px_0px_#0F0F0F]"
+                      placeholder="YOUR NAME"
                     />
                   </div>
-
-                  {/* Company */}
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-400 mb-2">
-                      Company Name
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full bg-[#0a0a0a] border-b-2 border-[#262626] focus:border-[#E85D04] px-0 py-3 text-white placeholder-gray-600 outline-none transition-colors"
-                      placeholder="Your Company Ltd."
-                    />
-                  </div>
-
-                  {/* Phone */}
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-2">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      required
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full bg-[#0a0a0a] border-b-2 border-[#262626] focus:border-[#E85D04] px-0 py-3 text-white placeholder-gray-600 outline-none transition-colors"
-                      placeholder="+91 98765 43210"
-                    />
-                  </div>
-
-                  {/* Email */}
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
-                      Email Address *
-                    </label>
+                    <label className="font-mono-custom text-xs font-bold uppercase tracking-widest mb-2 block">Email *</label>
                     <input
                       type="email"
-                      id="email"
                       name="email"
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-[#0a0a0a] border-b-2 border-[#262626] focus:border-[#E85D04] px-0 py-3 text-white placeholder-gray-600 outline-none transition-colors"
-                      placeholder="john@company.com"
+                      className="w-full border-4 border-[#0F0F0F] bg-[#E4E3DB] p-4 font-mono-custom focus:outline-none shadow-[4px_4px_0px_#0F0F0F]"
+                      placeholder="EMAIL@ADDRESS.COM"
                     />
                   </div>
                 </div>
-
-                {/* Product Interest */}
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="font-mono-custom text-xs font-bold uppercase tracking-widest mb-2 block">Phone</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full border-4 border-[#0F0F0F] bg-[#E4E3DB] p-4 font-mono-custom focus:outline-none shadow-[4px_4px_0px_#0F0F0F]"
+                      placeholder="+91-XXXXXXXXXX"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-mono-custom text-xs font-bold uppercase tracking-widest mb-2 block">Company</label>
+                    <input
+                      type="text"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="w-full border-4 border-[#0F0F0F] bg-[#E4E3DB] p-4 font-mono-custom focus:outline-none shadow-[4px_4px_0px_#0F0F0F]"
+                      placeholder="COMPANY NAME"
+                    />
+                  </div>
+                </div>
+                
                 <div>
-                  <label htmlFor="product" className="block text-sm font-medium text-gray-400 mb-2">
-                    Interested In
-                  </label>
+                  <label className="font-mono-custom text-xs font-bold uppercase tracking-widest mb-2 block">Product Interest</label>
                   <select
-                    id="product"
                     name="product"
                     value={formData.product}
                     onChange={handleChange}
-                    className="w-full bg-[#0a0a0a] border-b-2 border-[#262626] focus:border-[#E85D04] px-0 py-3 text-white outline-none transition-colors"
+                    className="w-full border-4 border-[#0F0F0F] bg-[#E4E3DB] p-4 font-mono-custom focus:outline-none shadow-[4px_4px_0px_#0F0F0F]"
                   >
-                    <option value="">Select a product category</option>
-                    {productCategories.map((category) => (
-                      <option key={category} value={category}>{category}</option>
-                    ))}
+                    <option value="">SELECT PRODUCT</option>
+                    <option value="speaker">Speaker Wires</option>
+                    <option value="audio">Audio Cables</option>
+                    <option value="cctv">CCTV Cables</option>
+                    <option value="multicore">Multi-Core Cables</option>
+                    <option value="industrial">Industrial Cables</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
-
-                {/* Message */}
+                
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">
-                    Message *
-                  </label>
+                  <label className="font-mono-custom text-xs font-bold uppercase tracking-widest mb-2 block">Message *</label>
                   <textarea
-                    id="message"
                     name="message"
                     required
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full bg-[#0a0a0a] border-b-2 border-[#262626] focus:border-[#E85D04] px-0 py-3 text-white placeholder-gray-600 outline-none transition-colors resize-none"
-                    placeholder="Tell us about your project and requirements..."
+                    className="w-full border-4 border-[#0F0F0F] bg-[#E4E3DB] p-4 font-mono-custom focus:outline-none shadow-[4px_4px_0px_#0F0F0F] resize-none"
+                    placeholder="ENTER YOUR MESSAGE..."
                   />
                 </div>
-
-                {/* Submit */}
-                <div className="pt-4">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-[#E85D04] text-black font-bold uppercase tracking-wider py-4 hover:bg-[#CD853F] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Send Message <Send className="w-5 h-5" />
-                      </>
-                    )}
-                  </button>
-                </div>
-
-                <p className="text-center text-gray-500 text-sm">
-                  By submitting this form, you agree to our{' '}
-                  <Link href="#" className="text-[#E85D04] hover:underline">
-                    privacy policy
-                  </Link>
-                  .
-                </p>
+                
+                <button
+                  type="submit"
+                  className="w-full px-8 py-4 bg-[#F23A18] border-4 border-[#0F0F0F] text-[#0F0F0F] font-mono-custom font-bold shadow-[8px_8px_0px_#0F0F0F] hover:shadow-[4px_4px_0px_#0F0F0F] hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-2 active:translate-y-2 transition-all flex items-center justify-center gap-2"
+                >
+                  <Send className="w-5 h-5" />
+                  TRANSMIT MESSAGE
+                </button>
               </form>
             )}
-          </motion.div>
-        </div>
-      </section>
+          </section>
 
-      {/* Quick Contact Bar */}
-      <section className="py-12 bg-[#171717] border-t border-[#262626]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl font-bold mb-2">Need Immediate Assistance?</h3>
-              <p className="text-gray-400">Call us directly for urgent inquiries</p>
+          {/* Contact Info */}
+          <section className="p-8 lg:p-12 bg-[#D7D6CD]">
+            <h2 className="font-grotesk text-3xl font-black uppercase tracking-tighter mb-8">Contact Info</h2>
+            
+            <div className="space-y-6">
+              <div className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 shadow-[8px_8px_0px_#0F0F0F]">
+                <div className="flex items-start gap-4">
+                  <MapPin className="w-8 h-8 text-[#F23A18] flex-shrink-0" strokeWidth={1.5} />
+                  <div>
+                    <h3 className="font-mono-custom text-xs font-bold uppercase tracking-widest mb-2">Address</h3>
+                    <p className="font-mono-custom text-sm">{CONTACT_INFO.address.full}</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 shadow-[8px_8px_0px_#0F0F0F]">
+                <div className="flex items-start gap-4">
+                  <Phone className="w-8 h-8 text-[#F23A18] flex-shrink-0" strokeWidth={1.5} />
+                  <div>
+                    <h3 className="font-mono-custom text-xs font-bold uppercase tracking-widest mb-2">Phone</h3>
+                    <p className="font-mono-custom text-sm">{CONTACT_INFO.phone.mobile}</p>
+                    <p className="font-mono-custom text-sm">{CONTACT_INFO.phone.landline}</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 shadow-[8px_8px_0px_#0F0F0F]">
+                <div className="flex items-start gap-4">
+                  <Mail className="w-8 h-8 text-[#F23A18] flex-shrink-0" strokeWidth={1.5} />
+                  <div>
+                    <h3 className="font-mono-custom text-xs font-bold uppercase tracking-widest mb-2">Email</h3>
+                    <p className="font-mono-custom text-sm">{CONTACT_INFO.email.primary}</p>
+                    <p className="font-mono-custom text-sm">{CONTACT_INFO.email.sales}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-6 shadow-[8px_8px_0px_#F23A18]">
+                <h3 className="font-mono-custom text-xs font-bold uppercase tracking-widest mb-2">Business Hours</h3>
+                <p className="font-mono-custom text-sm">{CONTACT_INFO.hours}</p>
+              </div>
             </div>
-            <a
-              href={`tel:${CONTACT_INFO.phone.mobile}`}
-              className="inline-flex items-center justify-center px-8 py-4 bg-[#E85D04] text-black font-bold uppercase tracking-wider hover:bg-[#CD853F] transition-colors"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              {CONTACT_INFO.phone.mobileDisplay}
-            </a>
-          </div>
+          </section>
         </div>
-      </section>
+
+        {/* Footer */}
+        <footer className="bg-[#0F0F0F] text-[#E4E3DB] p-6 border-t-4 border-[#0F0F0F]">
+          <div className="flex justify-between items-center">
+            <div className="font-grotesk font-black text-2xl text-[#F23A18]">ASIAN</div>
+            <Barcode className="w-20 h-4 opacity-50" />
+          </div>
+        </footer>
+      </main>
     </div>
   );
 }
