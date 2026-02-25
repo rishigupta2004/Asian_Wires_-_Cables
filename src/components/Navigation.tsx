@@ -188,7 +188,7 @@ export default function Navigation() {
               className="w-full py-8 border-t border-[var(--background-secondary)]/20 relative z-10"
             >
               <div className="container mx-auto px-6 md:px-12 flex justify-between items-center text-[var(--background-secondary)] text-sm font-medium uppercase tracking-widest">
-                <span>© {new Date().getFullYear()}</span>
+                <span>(c) {new Date().getFullYear()}</span>
                 <span>ISO 9001:2008 Certified</span>
               </div>
             </motion.div>

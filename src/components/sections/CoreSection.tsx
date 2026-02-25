@@ -8,7 +8,7 @@ import { Wire3D } from '../3d/Wire3D';
 const features = [
   { title: 'Core', desc: '99.9% Pure Copper' },
   { title: 'Strands', desc: 'Multi-strand Construction' },
-  { title: 'Rating', desc: '105°C Temperature' },
+  { title: 'Rating', desc: '105degC Temperature' },
   { title: 'Shielding', desc: 'Flame Retardant PVC' },
   { title: 'Sheath', desc: 'UV Resistant Outer' },
   { title: 'Capacity', desc: 'High Current Transfer' }

@@ -255,6 +255,46 @@ export const PRODUCT_TIERS = {
 } as const;
 
 // ============================================
+// BRAND ARCHITECTURE (NEW)
+// ============================================
+
+export const BRANDS = {
+  ASIAN: {
+    id: 'ASIAN',
+    tier: 1,
+    tagline: 'HEAVY DUTY — MAXIMUM SHIELDING',
+    description: 'The flagship brand. EC-grade copper conductors with heavy-gauge multi-layer shielding. Built for harsh industrial environments, high-tension infrastructure, and applications demanding zero compromise. Thicker armoring, superior insulation tolerance, and the highest current ratings in the range.',
+    shieldingLevel: 'HEAVY-DUTY MULTI-LAYER',
+    conductorGrade: 'EC Grade — 99.97% Pure Copper',
+    typicalUse: 'Power grid, petrochemical, mining, metro rail, data centres',
+    badge: 'bg-[#0F0F0F] text-[#E4E3DB]',
+    accentColor: '#FF3300',
+  },
+  M1: {
+    id: 'M1',
+    tier: 2,
+    tagline: 'PERFORMANCE — SINGLE-LAYER SHIELDING',
+    description: 'The performance mid-range. Same conductor purity as ASIAN, with single-layer shielding optimised for commercial construction, light industrial, and professional audio/AV installations. Excellent quality at a more accessible price point for volume projects.',
+    shieldingLevel: 'SINGLE-LAYER STANDARD',
+    conductorGrade: 'EC Grade Copper — IS:8130',
+    typicalUse: 'Commercial construction, light industrial, public address systems',
+    badge: 'bg-[#D7D6CD] text-[#0F0F0F]',
+    accentColor: '#0F0F0F',
+  },
+  TRUE_MASTER: {
+    id: 'TRUE_MASTER',
+    tier: 3,
+    tagline: 'RELIABLE — STANDARD SHIELDING',
+    description: 'The dependable choice for everyday wiring requirements. Standard-grade shielding for residential, light commercial, and consumer audio/music applications where performance requirements are well-defined and cost efficiency matters.',
+    shieldingLevel: 'STANDARD SINGLE-LAYER',
+    conductorGrade: 'EC Grade Copper — IS:694',
+    typicalUse: 'Residential, retail, music venues, PA systems, studio wiring',
+    badge: 'bg-[#E4E3DB] text-[#0F0F0F] border-2 border-[#0F0F0F]',
+    accentColor: '#888',
+  },
+} as const;
+
+// ============================================
 // ANIMATION DURATIONS
 // ============================================
 

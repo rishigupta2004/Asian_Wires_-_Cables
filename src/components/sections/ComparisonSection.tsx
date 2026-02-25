@@ -14,7 +14,7 @@ const tiers = [
     features: [
       { name: 'Copper Purity', value: '99.9%', highlight: false },
       { name: 'Insulation', value: 'PVC', highlight: false },
-      { name: 'Temperature', value: '70°C', highlight: false },
+      { name: 'Temperature', value: '70degC', highlight: false },
       { name: 'Voltage Rating', value: '1100V', highlight: false },
       { name: 'Fire Retardant', value: true, highlight: false },
       { name: 'Warranty', value: 'Standard', highlight: false },
@@ -30,7 +30,7 @@ const tiers = [
     features: [
       { name: 'Copper Purity', value: '99.97%', highlight: true },
       { name: 'Insulation', value: 'FR-LSH PVC', highlight: true },
-      { name: 'Temperature', value: '105°C', highlight: true },
+      { name: 'Temperature', value: '105degC', highlight: true },
       { name: 'Voltage Rating', value: '1100V', highlight: false },
       { name: 'Fire Retardant', value: true, highlight: true },
       { name: 'Warranty', value: 'Extended', highlight: true },
@@ -46,7 +46,7 @@ const tiers = [
     features: [
       { name: 'Copper Purity', value: '99.95%', highlight: false },
       { name: 'Insulation', value: 'FR PVC', highlight: false },
-      { name: 'Temperature', value: '85°C', highlight: false },
+      { name: 'Temperature', value: '85degC', highlight: false },
       { name: 'Voltage Rating', value: '1100V', highlight: false },
       { name: 'Fire Retardant', value: true, highlight: false },
       { name: 'Warranty', value: 'Standard', highlight: false },

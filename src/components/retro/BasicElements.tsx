@@ -6,8 +6,8 @@ export const NoiseOverlay = () => (
       <filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch" /></filter>
       <rect width="100%" height="100%" filter="url(#noiseFilter)" />
     </svg>
-    <div className="absolute inset-0 opacity-[0.15] pointer-events-none mix-blend-multiply" 
-         style={{ backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%)', backgroundSize: '100% 4px' }}></div>
+    <div className="absolute inset-0 opacity-[0.15] pointer-events-none mix-blend-multiply"
+      style={{ backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%)', backgroundSize: '100% 4px' }}></div>
     <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.8)] pointer-events-none"></div>
   </div>
 );
@@ -28,4 +28,16 @@ export const RegistrationMarks = () => (
     <div className="absolute bottom-4 left-4 w-6 h-6 border-b-4 border-l-4 border-[#0F0F0F] pointer-events-none"></div>
     <div className="absolute bottom-4 right-4 w-6 h-6 border-b-4 border-r-4 border-[#0F0F0F] pointer-events-none"></div>
   </>
+);
+
+export const BlueprintGrid = () => (
+  <div className="absolute inset-0 pointer-events-none z-0 opacity-100"
+    style={{
+      backgroundImage: `
+        linear-gradient(rgba(100,120,140,0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100,120,140,0.12) 1px, transparent 1px)
+      `,
+      backgroundSize: '32px 32px'
+    }}
+  />
 );

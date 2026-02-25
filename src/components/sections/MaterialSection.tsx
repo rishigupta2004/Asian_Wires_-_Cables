@@ -63,7 +63,7 @@ export const MaterialSection = () => {
             {[
               { label: 'Conductivity', value: '101%', unit: 'IACS', desc: 'International Standard' },
               { label: 'Purity Grade', value: '99.97%', unit: 'Cu', desc: 'Electrolytic Tough Pitch' },
-              { label: 'Thermal', value: '105°C', unit: 'Max', desc: 'Operating Temp' },
+              { label: 'Thermal', value: '105degC', unit: 'Max', desc: 'Operating Temp' },
               { label: 'Flexibility', value: 'Class 5', unit: 'IEC', desc: 'High Flex Conductor' },
             ].map((spec, index) => (
               <div key={index} className="relative group perspective-[1000px]">

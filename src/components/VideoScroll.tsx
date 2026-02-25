@@ -120,7 +120,7 @@ export const VideoScroll: React.FC<VideoScrollProps> = ({
             }`}
           />
           <span className="text-[var(--foreground-primary)] font-mono text-[10px] uppercase tracking-wider">
-            {tier} Series • {wireType}
+            {tier} Series - {wireType}
           </span>
         </div>
       </div>

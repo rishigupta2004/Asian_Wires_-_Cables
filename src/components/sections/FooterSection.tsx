@@ -107,7 +107,7 @@ export const FooterSection = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-6 font-mono text-xs font-bold uppercase tracking-widest text-[var(--foreground-disabled)]">
-          <p>© {new Date().getFullYear()} Asian Wires. All rights reserved.</p>
+          <p>(c) {new Date().getFullYear()} Asian Wires. All rights reserved.</p>
           <div className="flex gap-8">
             <Link href="#" className="hover:text-[var(--background-primary)] transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-[var(--background-primary)] transition-colors">Terms</Link>
