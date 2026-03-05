@@ -10,14 +10,14 @@ export const CustomCursor = () => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Spring configuration for trailing box
-  const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
+  // Spring configuration for trailing box (Snappy)
+  const springConfig = { damping: 20, stiffness: 400, mass: 0.1 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
-  // Separate heavier spring for the text readout trail (lags behind)
-  const textXSpring = useSpring(cursorX, { damping: 30, stiffness: 100, mass: 1.2 });
-  const textYSpring = useSpring(cursorY, { damping: 30, stiffness: 100, mass: 1.2 });
+  // Separate heavier spring for the text readout trail (lags behind just a bit)
+  const textXSpring = useSpring(cursorX, { damping: 25, stiffness: 250, mass: 0.5 });
+  const textYSpring = useSpring(cursorY, { damping: 25, stiffness: 250, mass: 0.5 });
 
   useEffect(() => {
     const updateCursor = (e: globalThis.MouseEvent) => {

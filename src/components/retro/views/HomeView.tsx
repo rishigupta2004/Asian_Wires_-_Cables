@@ -3,12 +3,16 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, Zap, Building2, Sun, Factory, Train, Flame, ArrowUpRight, Radio, Cpu, Music, Satellite } from 'lucide-react';
 import { TextReveal } from '../TextReveal';
-import { CableAnatomySVG, WireCoilHero3D } from '../';
+import dynamic from 'next/dynamic';
+
+const CableAnatomySVG = dynamic(() => import('../').then(mod => mod.CableAnatomySVG), { ssr: false });
+const WireCoilHero3D = dynamic(() => import('../').then(mod => mod.WireCoilHero3D), { ssr: false });
 import { GUIWindow } from '../GUIWindow';
 import { HalftoneGrid, BlueprintGrid, RegistrationMarks } from '../BasicElements';
 import { DraggableSticker } from '../DraggableSticker';
 import { motion } from 'framer-motion';
 import { BRANDS } from '../../../lib/constants';
+import { animate, stagger } from 'animejs';
 
 interface HomeViewProps {
     handleNav: (id: string) => void;
@@ -25,6 +29,21 @@ export const HomeView = ({ handleNav, toggleGlitch, mousePos }: HomeViewProps) =
         setWinDim({ w: window.innerWidth, h: window.innerHeight });
         const handleResize = () => setWinDim({ w: window.innerWidth, h: window.innerHeight });
         window.addEventListener('resize', handleResize);
+
+        animate('.sector-card', {
+            translateY: [20, 0],
+            opacity: [0, 1],
+            delay: stagger(100, { start: 300 }),
+            easing: 'easeOutElastic(1, .8)'
+        });
+
+        animate('.category-card', {
+            translateY: [30, 0],
+            opacity: [0, 1],
+            delay: stagger(150, { start: 600 }),
+            easing: 'easeOutExpo'
+        });
+
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
@@ -99,7 +118,7 @@ export const HomeView = ({ handleNav, toggleGlitch, mousePos }: HomeViewProps) =
                         return (
                             <div
                                 key={s.id}
-                                className="border-4 border-[#0F0F0F] p-6 bg-[#E4E3DB] shadow-[4px_4px_0px_#0F0F0F] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all group cursor-pointer relative"
+                                className="sector-card opacity-0 border-4 border-[#0F0F0F] p-6 bg-[#E4E3DB] shadow-[4px_4px_0px_#0F0F0F] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all group cursor-pointer relative"
                             >
                                 {/* ID badge top-right */}
                                 <div className="absolute top-3 right-3 font-mono text-[8px] text-[#0F0F0F]/30">{s.id}</div>
@@ -130,8 +149,8 @@ export const HomeView = ({ handleNav, toggleGlitch, mousePos }: HomeViewProps) =
                     <DraggableSticker />
                 </div>
 
-                {/* Left column (55%) */}
-                <div className="md:w-[55%] border-r-0 md:border-r-4 border-[#0F0F0F] p-8 lg:p-24 flex flex-col justify-center relative z-10 w-full min-h-[50vh] overflow-visible">
+                {/* Left column (60%) */}
+                <div className="md:w-[60%] border-r-0 md:border-r-4 border-[#0F0F0F] p-8 lg:p-24 flex flex-col justify-center relative z-20 w-full min-h-[50vh] overflow-visible">
                     {/* Status badge */}
                     <div className="inline-flex items-center border-4 border-[#0F0F0F] px-4 py-2 font-mono text-[10px] mb-8 md:mb-12 w-fit bg-[#E4E3DB] text-[#0F0F0F] uppercase tracking-widest shadow-[4px_4px_0px_#0F0F0F]">
                         <div className="w-2 h-2 bg-[#FF3300] animate-pulse mr-3 border border-[#0F0F0F]" />
@@ -215,8 +234,8 @@ export const HomeView = ({ handleNav, toggleGlitch, mousePos }: HomeViewProps) =
                     </TextReveal>
                 </div>
 
-                {/* Right column (45%) */}
-                <div className="md:w-[45%] bg-[#D7D6CD] p-4 lg:p-8 flex flex-col items-center justify-center relative overflow-hidden w-full min-h-[50vh] border-t-4 md:border-t-0 border-[#0F0F0F]">
+                {/* Right column (40%) */}
+                <div className="md:w-[40%] bg-[#D7D6CD] p-4 lg:p-8 flex flex-col items-center justify-center relative overflow-hidden w-full min-h-[50vh] border-t-4 md:border-t-0 border-[#0F0F0F] z-10">
                     <HalftoneGrid />
                     {showAnatomy ? (
                         <GUIWindow title="CABLE_ANATOMY.EXE" className="w-[90%] max-w-[500px] relative z-10" defaultMinimized={false}>

@@ -5,13 +5,15 @@ import { BootScreen } from './BootScreen';
 import { Sidebar } from './Sidebar';
 import { CustomCursor } from './CustomCursor';
 import { NoiseOverlay } from './BasicElements';
-import { HomeView } from './views/HomeView';
-import { CatalogView } from './views/CatalogView';
-import { ProductView } from './views/ProductView';
-import { ProcurementView } from './views/ProcurementView';
-import { TechSpecsView } from './views/TechSpecsView';
-import { PlantCapView } from './views/PlantCapView';
-import { CertRegistryView } from './views/CertRegistryView';
+import dynamic from 'next/dynamic';
+
+const HomeView = dynamic(() => import('./views/HomeView').then(mod => mod.HomeView));
+const CatalogView = dynamic(() => import('./views/CatalogView').then(mod => mod.CatalogView));
+const ProductView = dynamic(() => import('./views/ProductView').then(mod => mod.ProductView));
+const ProcurementView = dynamic(() => import('./views/ProcurementView').then(mod => mod.ProcurementView));
+const TechSpecsView = dynamic(() => import('./views/TechSpecsView').then(mod => mod.TechSpecsView));
+const PlantCapView = dynamic(() => import('./views/PlantCapView').then(mod => mod.PlantCapView));
+const CertRegistryView = dynamic(() => import('./views/CertRegistryView').then(mod => mod.CertRegistryView));
 import { Menu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 

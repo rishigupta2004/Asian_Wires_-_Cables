@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { TextReveal } from '../TextReveal';
 import { GUIWindow } from '../GUIWindow';
@@ -12,7 +12,9 @@ import { BRANDS } from '../../../lib/constants';
 export const CatalogView = ({ handleNav, mousePos, setSelectedProduct }: any) => {
     const [filter, setFilter] = useState('ALL');
     const [brandFilter, setBrandFilter] = useState('ALL BRANDS');
+    const [viewMode, setViewMode] = useState<'LIST' | 'GROUP'>('LIST');
     const [hoveredRow, setHoveredRow] = useState<any>(null);
+    const [expandedRowId, setExpandedRowId] = useState<string | null>(null);
     const [compareList, setCompareList] = useState<any[]>([]);
     const [showConfigurator, setShowConfigurator] = useState(false);
     const [configStep, setConfigStep] = useState(1);
@@ -28,11 +30,29 @@ export const CatalogView = ({ handleNav, mousePos, setSelectedProduct }: any) =>
     };
 
     const filteredCatalog = fullCatalog.filter(c =>
+        // Main list should only show parent items (items with variants array)
+        c.variants && c.variants.length > 0 &&
         (filter === 'ALL' || c.cat === filter) &&
-        (brandFilter === 'ALL BRANDS' || c.brand === brandFilter)
+        (brandFilter === 'ALL BRANDS' || c.variants.some((v: any) => v.brand === brandFilter))
     );
 
-    const categories = ['ALL', 'RESIDENTIAL', 'INDUSTRIAL', 'GRID', 'RENEWABLE', 'AUDIO'];
+    const categories = useMemo(() => {
+        const uniqueCats = Array.from(new Set(fullCatalog.map(c => c.cat))).sort();
+        return ['ALL', ...uniqueCats];
+    }, []);
+
+    const getGroupedData = () => {
+        if (viewMode === 'LIST') return [[null, filteredCatalog]] as [string | null, any[]][];
+
+        const groupByField = filter === 'ALL' ? 'cat' : 'type';
+        const groups = new Map<string, any[]>();
+        filteredCatalog.forEach(item => {
+            const key = item[groupByField] || 'OTHER';
+            if (!groups.has(key)) groups.set(key, []);
+            groups.get(key)!.push(item);
+        });
+        return Array.from(groups.entries());
+    };
 
     return (
         <div className="p-4 md:p-8 min-h-screen relative w-full overflow-hidden">
@@ -133,20 +153,28 @@ export const CatalogView = ({ handleNav, mousePos, setSelectedProduct }: any) =>
                     </button>
                 ))}
 
-                <button
-                    onClick={() => setShowConfigurator(true)}
-                    className="ml-auto bg-[#FF3300] text-[#E4E3DB] border-4 border-[#0F0F0F] px-4 py-2 hover:bg-[#0F0F0F] transition-colors shadow-[4px_4px_0px_#0F0F0F] active:shadow-none active:translate-x-1 active:translate-y-1 cursor-none flex items-center gap-2"
-                >
-                    <div className="w-2 h-2 bg-[#E4E3DB] animate-pulse" />
-                    BUILD YOUR SPEC
-                </button>
+                <div className="ml-auto flex gap-4 items-center">
+                    <button
+                        onClick={() => setViewMode(viewMode === 'LIST' ? 'GROUP' : 'LIST')}
+                        className={`border-4 border-[#0F0F0F] px-4 py-2 cursor-none transition-colors shadow-[4px_4px_0px_#0F0F0F] active:shadow-none active:translate-x-1 active:translate-y-1 ${viewMode === 'GROUP' ? 'bg-[#0F0F0F] text-[#E4E3DB]' : 'bg-[#E4E3DB] text-[#0F0F0F] hover:bg-[#0F0F0F] hover:text-[#E4E3DB]'}`}
+                    >
+                        [{viewMode} VIEW]
+                    </button>
+                    <button
+                        onClick={() => setShowConfigurator(true)}
+                        className="bg-[#FF3300] text-[#E4E3DB] border-4 border-[#0F0F0F] px-4 py-2 hover:bg-[#0F0F0F] transition-colors shadow-[4px_4px_0px_#0F0F0F] active:shadow-none active:translate-x-1 active:translate-y-1 cursor-none flex items-center gap-2"
+                    >
+                        <div className="w-2 h-2 bg-[#E4E3DB] animate-pulse" />
+                        BUILD YOUR SPEC
+                    </button>
+                </div>
             </div>
 
             {/* Spreadsheet Table (Lotus 1-2-3 / Blue Screen style) */}
             <div className="w-full overflow-x-auto border-4 border-[#0F0F0F] bg-[#0000AA] shadow-[16px_16px_0px_#0F0F0F] relative z-10">
                 <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#FF3300] z-20" />
                 <table className="w-full text-left font-mono text-sm min-w-[900px] border-collapse relative z-10 pb-1.5">
-                    <thead className="bg-[#E4E3DB] text-[#0F0F0F] text-xs tracking-widest border-b-4 border-[#0F0F0F]">
+                    <thead className="bg-[#E4E3DB] text-[#0F0F0F] text-xs tracking-widest border-b-4 border-[#0F0F0F] sticky top-0 z-20">
                         <tr>
                             <th className="p-4 font-black border-r-4 border-[#0F0F0F]">REF_ID</th>
                             <th className="p-4 font-black border-r-4 border-[#0F0F0F]">BRAND</th>
@@ -158,40 +186,74 @@ export const CatalogView = ({ handleNav, mousePos, setSelectedProduct }: any) =>
                         </tr>
                     </thead>
                     <tbody className="text-[#E4E3DB]">
-                        {filteredCatalog.map(item => (
-                            <tr
-                                key={item.id}
-                                onMouseEnter={() => setHoveredRow(item)}
-                                onMouseLeave={() => setHoveredRow(null)}
-                                onClick={() => { setSelectedProduct(item); handleNav('PRODUCT'); }}
-                                className={`hover:bg-[#E4E3DB] hover:text-[#0F0F0F] transition-colors cursor-none group border-b-2 border-[#E4E3DB]/15 ${compareList.find(c => c.id === item.id) ? 'border-l-4 border-l-[#FF3300] bg-[#0000AA]' : ''}`}
-                            >
-                                <td className="p-4 font-black group-hover:text-[#FF3300] border-r-2 border-[#E4E3DB]/15 transition-colors">
-                                    {item.id}
-                                </td>
-                                <td className="p-4 border-r-2 border-[#E4E3DB]/15">
-                                    <span className={`font-mono text-[9px] font-bold tracking-widest px-2 py-0.5 border border-[#E4E3DB]/20 ${(BRANDS as any)[item.brand]?.badge}`}>
-                                        {item.brand.replace('_', ' ')}
-                                    </span>
-                                </td>
-                                <td className="p-4 font-grotesk font-black text-2xl tracking-tight uppercase group-hover:pl-8 transition-all border-r-2 border-[#E4E3DB]/15">
-                                    {item.type}
-                                </td>
-                                <td className="p-4 font-bold border-r-2 border-[#E4E3DB]/15">{item.core}</td>
-                                <td className="p-4 font-bold border-r-2 border-[#E4E3DB]/15">{item.area}</td>
-                                <td className="p-4 font-bold font-black border-r-2 border-[#E4E3DB]/15">{item.volt}</td>
-                                <td className="p-4 font-bold flex items-center justify-between">
-                                    <span className="group-hover:text-[#FF3300] transition-colors flex items-center">
-                                        VIEW <ArrowUpRight className="inline w-4 h-4 ml-1" />
-                                    </span>
-                                    <button
-                                        onClick={(e) => toggleCompare(e, item)}
-                                        className={`font-black opacity-40 hover:opacity-100 transition-opacity ${compareList.find(c => c.id === item.id) ? 'text-[#FF3300] opacity-100' : 'group-hover:text-[#FF3300]'}`}
-                                    >
-                                        [+]
-                                    </button>
-                                </td>
-                            </tr>
+                        {getGroupedData().map(([groupName, items]) => (
+                            <React.Fragment key={groupName || 'all'}>
+                                {groupName && (
+                                    <tr className="bg-[#111122] text-[#E4E3DB] border-b-2 border-t-4 border-[#0F0F0F]">
+                                        <td colSpan={7} className="p-3 font-black tracking-widest text-xs uppercase pl-4">
+                                            <span className="text-[#FF3300] mr-2">++</span>
+                                            {filter === 'ALL' ? 'CATEGORY' : 'TYPE'} :: {groupName}
+                                        </td>
+                                    </tr>
+                                )}
+                                {items.map(item => (
+                                    <React.Fragment key={item.id}>
+                                        <tr
+                                            onMouseEnter={() => setHoveredRow(item)}
+                                            onMouseLeave={() => setHoveredRow(null)}
+                                            onClick={() => setExpandedRowId(expandedRowId === item.id ? null : item.id)}
+                                            className={`even:bg-black/20 hover:bg-[#E4E3DB] hover:text-[#0F0F0F] transition-colors cursor-none group border-b-2 border-[#E4E3DB]/15 ${expandedRowId === item.id ? 'bg-[#E4E3DB] text-[#0F0F0F]' : compareList.find(c => c.id === item.id) ? 'border-l-4 border-l-[#FF3300] bg-[#0000AA]' : ''}`}
+                                        >
+                                            <td className="p-4 font-black group-hover:text-[#FF3300] border-r-2 border-[#E4E3DB]/15 transition-colors">
+                                                {item.id}
+                                            </td>
+                                            <td className="p-4 border-r-2 border-[#E4E3DB]/15">
+                                                <div className="flex gap-1">
+                                                    {item.variants?.map((v: any) => (
+                                                        <div key={v.id} title={v.brand.replace('_', ' ')} className={`w-3 h-3 ${(BRANDS as any)[v.brand]?.badge || 'bg-[#0F0F0F] text-[#E4E3DB]'}`} />
+                                                    ))}
+                                                </div>
+                                            </td>
+                                            <td className="p-4 font-grotesk font-black text-2xl tracking-tight uppercase group-hover:pl-8 transition-all border-r-2 border-[#E4E3DB]/15">
+                                                {item.type}
+                                            </td>
+                                            <td className="p-4 font-bold border-r-2 border-[#E4E3DB]/15">{item.core}</td>
+                                            <td className="p-4 font-bold border-r-2 border-[#E4E3DB]/15">{item.area}</td>
+                                            <td className="p-4 font-bold font-black border-r-2 border-[#E4E3DB]/15">{item.volt}</td>
+                                            <td className="p-4 font-bold flex items-center justify-between">
+                                                <span className={`${expandedRowId === item.id ? 'text-[#FF3300]' : 'group-hover:text-[#FF3300]'} transition-colors flex items-center`}>
+                                                    {expandedRowId === item.id ? 'CLOSE' : 'VARIANTS'} <ArrowUpRight className={`inline w-4 h-4 ml-1 transition-transform ${expandedRowId === item.id ? 'rotate-180' : ''}`} />
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        {expandedRowId === item.id && item.variants?.map((variant: any) => (
+                                            <tr key={variant.id} className="bg-[#1A1A1A] text-[#E4E3DB] border-b-2 border-[#E4E3DB]/10">
+                                                <td className="p-3 pl-8 font-mono text-xs font-bold text-[#E4E3DB]/50 border-r-2 border-[#E4E3DB]/10">↳ {variant.id}</td>
+                                                <td className="p-3 border-r-2 border-[#E4E3DB]/10">
+                                                    <span className={`font-mono text-[9px] font-bold tracking-widest px-2 py-0.5 border border-[#E4E3DB]/20 ${(BRANDS as any)[variant.brand]?.badge || 'bg-[#0F0F0F] text-[#E4E3DB]'}`}>
+                                                        {variant.brand.replace('_', ' ')}
+                                                    </span>
+                                                </td>
+                                                <td className="p-3 border-r-2 border-[#E4E3DB]/10 text-xs font-mono opacity-80">{variant.shielding} SHIELDING</td>
+                                                <td colSpan={3} className="p-3 border-r-2 border-[#E4E3DB]/10 font-mono text-[10px] opacity-60">
+                                                    {variant.desc}
+                                                </td>
+                                                <td className="p-3 flex items-center justify-between gap-4">
+                                                    <button onClick={(e) => { e.stopPropagation(); setSelectedProduct(variant); handleNav('PRODUCT'); }} className="hover:text-[#FF3300] transition-colors font-bold text-xs uppercase flex items-center">
+                                                        VIEW <ArrowUpRight className="inline w-3 h-3 ml-1" />
+                                                    </button>
+                                                    <button
+                                                        onClick={(e) => toggleCompare(e, variant)}
+                                                        className={`font-black opacity-40 hover:opacity-100 transition-opacity ${compareList.find(c => c.id === variant.id) ? 'text-[#FF3300] opacity-100' : 'hover:text-[#FF3300]'}`}
+                                                    >
+                                                        [+]
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </React.Fragment>
+                                ))}
+                            </React.Fragment>
                         ))}
                     </tbody>
                 </table>
