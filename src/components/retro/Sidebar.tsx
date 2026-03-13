@@ -43,7 +43,7 @@ export const Sidebar = ({ activeView, handleNav, mobileMenu, setMobileMenu, time
             </div>
 
             {/* Nav Section */}
-            <nav className="flex-1 p-8 border-b-4 border-[#0F0F0F] flex flex-col gap-4 font-mono text-sm font-bold tracking-widest overflow-y-auto relative">
+            <nav className="flex-1 p-8 border-b-4 border-[#0F0F0F] flex flex-col gap-4 font-mono text-sm font-bold tracking-widest overflow-y-auto relative z-20">
                 <BlueprintGrid />
 
                 <div className="text-[#0F0F0F] text-[11px] border-b-4 border-[#0F0F0F] pb-2 uppercase flex items-center justify-between relative z-10">
@@ -63,9 +63,10 @@ export const Sidebar = ({ activeView, handleNav, mobileMenu, setMobileMenu, time
                     { id: 'CERTS', label: '[DIR] CERT_REGISTRY.ISO' },
                 ].map(item => (
                     <button
+                        type="button"
                         key={item.id}
                         onClick={() => handleNav(item.id)}
-                        className={`flex items-center justify-between p-5 border-4 border-[#0F0F0F] transition-all duration-100 relative z-10 cursor-none ${activeView === item.id
+                        className={`flex items-center justify-between p-5 border-4 border-[#0F0F0F] transition-all duration-100 relative z-30 cursor-none ${activeView === item.id
                             ? 'bg-[#0F0F0F] text-[#E4E3DB] shadow-[inset_6px_6px_0px_rgba(255,255,255,0.15)]'
                             : 'bg-[#E4E3DB] text-[#0F0F0F] shadow-[6px_6px_0px_#0F0F0F] hover:translate-x-1 hover:translate-y-1 hover:shadow-[2px_2px_0px_#0F0F0F]'
                             }`}
@@ -78,8 +79,9 @@ export const Sidebar = ({ activeView, handleNav, mobileMenu, setMobileMenu, time
                 ))}
 
                 <button
+                    type="button"
                     onClick={() => setFounderPopupOpen(true)}
-                    className="flex items-center justify-between p-5 border-4 border-[#FF3300] bg-[#FF3300]/10 text-[#FF3300] shadow-[6px_6px_0px_#0F0F0F] hover:translate-x-1 hover:translate-y-1 hover:shadow-[2px_2px_0px_#0F0F0F] transition-all duration-100 relative z-10 cursor-none"
+                    className="flex items-center justify-between p-5 border-4 border-[#FF3300] bg-[#FF3300]/10 text-[#FF3300] shadow-[6px_6px_0px_#0F0F0F] hover:translate-x-1 hover:translate-y-1 hover:shadow-[2px_2px_0px_#0F0F0F] transition-all duration-100 relative z-30 cursor-none"
                 >
                     <span className="flex items-center gap-2">
                         <User className="w-4 h-4" />
