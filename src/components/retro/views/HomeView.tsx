@@ -5,8 +5,8 @@ import { ArrowRight, Zap, Building2, Sun, Factory, Train, Flame, ArrowUpRight, R
 import { TextReveal } from '../TextReveal';
 import dynamic from 'next/dynamic';
 
-const CableAnatomySVG = dynamic(() => import('../CableAnatomySVG').then(mod => mod.default), { ssr: false });
-const WireCoilHero3D = dynamic(() => import('../').then(mod => mod.WireCoilHero3D), { ssr: false });
+const CableAnatomySVG = dynamic(() => import('../CableAnatomySVG').then(mod => mod.default), { ssr: false, loading: () => <div className="w-full aspect-square bg-[#D7D6CD] animate-pulse" /> });
+const WireCoilHero3D = dynamic(() => import('../WireCoilHero3D').then(mod => mod.default), { ssr: false, loading: () => <div className="w-full aspect-square bg-[#D7D6CD] animate-pulse" /> });
 import { GUIWindow } from '../GUIWindow';
 import { HalftoneGrid, BlueprintGrid, RegistrationMarks } from '../BasicElements';
 import { DraggableSticker } from '../DraggableSticker';

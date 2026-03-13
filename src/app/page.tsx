@@ -1,7 +1,5 @@
 "use client";
 import dynamic from 'next/dynamic';
-import LenisProvider from '@/components/providers/LenisProvider';
-import { GSAPProvider } from '@/components/providers/GSAPProvider';
 
 const RetroApp = dynamic(() => import('@/components/retro/RetroApp'), { 
   ssr: false,
@@ -13,11 +11,5 @@ const RetroApp = dynamic(() => import('@/components/retro/RetroApp'), {
 });
 
 export default function Home() {
-  return (
-    <LenisProvider>
-      <GSAPProvider>
-        <RetroApp />
-      </GSAPProvider>
-    </LenisProvider>
-  );
+  return <RetroApp />;
 }
