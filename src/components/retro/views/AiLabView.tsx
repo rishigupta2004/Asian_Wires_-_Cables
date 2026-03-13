@@ -16,7 +16,7 @@ export const AiLabView: React.FC<AiLabViewProps> = ({ handleNav }) => {
     const [connectionMessage, setConnectionMessage] = useState('LLM_OFFLINE');
     const [temperature, setTemperature] = useState(0.7);
     const [maxTokens, setMaxTokens] = useState(1024);
-    const [systemPrompt, setSystemPrompt] = useState(`You are WIRES_AI, an expert technical assistant for Asian Wires & Cables,
+    const [systemPrompt, setSystemPrompt] = useState(`You are WIRES_AI, an expert technical assistant for Aisan Computeronics & Electronics,
 a wire and cable manufacturer. You have deep knowledge of:
 
 - All cable types: LT/HT/EHT, XLPE, FRLS, Solar DC, Submersible

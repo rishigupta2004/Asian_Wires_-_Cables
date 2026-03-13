@@ -7,13 +7,19 @@ import { CustomCursor } from './CustomCursor';
 import { NoiseOverlay } from './BasicElements';
 import dynamic from 'next/dynamic';
 
-const HomeView = dynamic(() => import('./views/HomeView').then(mod => mod.HomeView));
-const CatalogView = dynamic(() => import('./views/CatalogView').then(mod => mod.CatalogView));
-const ProductView = dynamic(() => import('./views/ProductView').then(mod => mod.ProductView));
-const ProcurementView = dynamic(() => import('./views/ProcurementView').then(mod => mod.ProcurementView));
-const TechSpecsView = dynamic(() => import('./views/TechSpecsView').then(mod => mod.TechSpecsView));
-const PlantCapView = dynamic(() => import('./views/PlantCapView').then(mod => mod.PlantCapView));
-const CertRegistryView = dynamic(() => import('./views/CertRegistryView').then(mod => mod.CertRegistryView));
+const LoadingPlaceholder = () => (
+    <div className="min-h-screen bg-[#E4E3DB] p-8 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-[#0F0F0F] border-t-[#FF3300] animate-spin rounded-full" />
+    </div>
+);
+
+const HomeView = dynamic(() => import('./views/HomeView').then(mod => mod.HomeView), { loading: LoadingPlaceholder });
+const CatalogView = dynamic(() => import('./views/CatalogView').then(mod => mod.CatalogView), { loading: LoadingPlaceholder });
+const ProductView = dynamic(() => import('./views/ProductView').then(mod => mod.ProductView), { loading: LoadingPlaceholder });
+const ProcurementView = dynamic(() => import('./views/ProcurementView').then(mod => mod.ProcurementView), { loading: LoadingPlaceholder });
+const TechSpecsView = dynamic(() => import('./views/TechSpecsView').then(mod => mod.TechSpecsView), { loading: LoadingPlaceholder });
+const PlantCapView = dynamic(() => import('./views/PlantCapView').then(mod => mod.PlantCapView), { loading: LoadingPlaceholder });
+const CertRegistryView = dynamic(() => import('./views/CertRegistryView').then(mod => mod.CertRegistryView), { loading: LoadingPlaceholder });
 import { Menu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -70,7 +76,7 @@ export default function RetroApp() {
             <div className="lg:hidden fixed top-0 w-full z-30 bg-[#0F0F0F] text-[#E4E3DB] p-4 flex justify-between items-center font-mono text-sm font-bold tracking-widest border-b-4 border-[#FF3300]">
                 <span className="flex items-center">
                     <div className="w-3 h-3 bg-[#FF3300] mr-2 border border-[#E4E3DB]" />
-                    ASIAN_SYS
+                    AISAN_SYS
                 </span>
                 <button
                     onClick={() => setMobileMenu(true)}
@@ -87,7 +93,7 @@ export default function RetroApp() {
                         className="font-grotesk font-black text-2xl text-[#0F0F0F] whitespace-nowrap rotate-90 animate-[marquee_15s_linear_infinite] w-[200vh] absolute"
                         style={{ transformOrigin: 'left center', left: '50%', top: '50%' }}
                     >
-                        ASIAN WIRES /// SYSTEM ONLINE /// INDUSTRIAL GRADE /// ZERO HALOGEN /// ASIAN WIRES ///
+                        AISAN COMPUTERONICS /// SYSTEM ONLINE /// INDUSTRIAL GRADE /// ZERO HALOGEN /// AISAN COMPUTERONICS ///
                     </div>
                 </div>
 

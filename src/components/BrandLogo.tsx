@@ -13,7 +13,7 @@ const logoConfig = {
   asian: {
     src: '/images/brands/ASIAN.png',
     fallbackSrc: '/images/brands/ASIAN.png',
-    alt: 'Asian Wires & Cables',
+    alt: 'Aisan Computeronics & Electronics',
     width: 200,
     height: 60,
   },

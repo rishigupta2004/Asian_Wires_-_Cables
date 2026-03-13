@@ -83,7 +83,7 @@ export default function Navigation() {
               className={`relative z-[60] text-xl font-bold font-display tracking-tighter uppercase transition-colors duration-500 ${isOpen ? 'text-[var(--background-primary)]' : 'text-white mix-blend-difference'}`}
               onClick={() => setIsOpen(false)}
             >
-              Asian Wires<span className="text-[var(--accent-primary)] mix-blend-normal">.</span>
+              Aisan Computeronics & Electronics<span className="text-[var(--accent-primary)] mix-blend-normal">.</span>
             </Link>
 
             {/* Menu Trigger */}

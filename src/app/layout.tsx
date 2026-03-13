@@ -3,8 +3,8 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ASIAN_SYS | Industrial Grade",
-  description: "Asian Wires - Engineering the nervous system of modern infrastructure.",
+  title: "AISAN_SYS | Industrial Grade",
+  description: "Aisan Computeronics & Electronics, Delhi, India - Engineering the nervous system of modern infrastructure.",
 };
 
 export default function RootLayout({

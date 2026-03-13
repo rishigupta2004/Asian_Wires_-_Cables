@@ -70,8 +70,8 @@ export const CONTACT_INFO = {
 // ============================================
 
 export const COMPANY_INFO = {
-  name: 'Asian Wires & Cables',
-  legalName: 'Asian Wires & Cables Pvt. Ltd.',
+  name: 'Aisan Computeronics & Electronics',
+  legalName: 'Aisan Computeronics & Electronics Pvt. Ltd.',
   tagline: 'Conducting Excellence Since 1990',
   shortTagline: 'Conducting Excellence',
   since: 1990,
@@ -79,7 +79,7 @@ export const COMPANY_INFO = {
   certification: 'ISO 9001:2008',
   industry: 'Electrical Wires & Cables Manufacturing',
   description:
-    'Leading manufacturer of high-quality electrical wires and cables in India. Delivering reliable power solutions for industrial, commercial, and residential applications.',
+    'Leading manufacturer of high-quality electrical wires and cables in Delhi, India. Delivering reliable power solutions for industrial, commercial, and residential applications.',
 } as const;
 
 // ============================================

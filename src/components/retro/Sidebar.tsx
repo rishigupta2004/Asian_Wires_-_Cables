@@ -1,8 +1,9 @@
-import React from 'react';
-import { X, Cpu, Info, Mail } from 'lucide-react';
+import React, { useState } from 'react';
+import { X, Cpu, Info, Mail, User } from 'lucide-react';
 import { HalftoneGrid, BlueprintGrid } from './BasicElements';
 import { Barcode } from './Barcode';
 import { SystemLoadGraph } from './SystemLoadGraph';
+import { FounderPopup } from './FounderPopup';
 
 interface SidebarProps {
     activeView: string;
@@ -13,6 +14,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ activeView, handleNav, mobileMenu, setMobileMenu, time }: SidebarProps) => {
+    const [founderPopupOpen, setFounderPopupOpen] = useState(false);
     return (
         <aside className={`fixed top-0 left-0 w-full lg:w-[320px] h-screen border-r-4 border-[#0F0F0F] bg-[#E4E3DB] z-40 flex flex-col transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${mobileMenu ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
 
@@ -22,14 +24,14 @@ export const Sidebar = ({ activeView, handleNav, mobileMenu, setMobileMenu, time
                 {/* Main company logo — inject the PRIMARY company logo here */}
                 {/* PLACEHOLDER until logo asset is injected: */}
                 <h1 className="font-grotesk text-5xl font-black leading-none tracking-tighter text-[#FF3300] relative z-10 mb-1 select-none">
-                    ASIAN
+                    AISAN
                 </h1>
                 <h2 className="font-mono text-[10px] uppercase tracking-widest text-[#E4E3DB] relative z-10 font-bold border-l-4 border-[#FF3300] pl-2 mt-2">
-                    Wires & Cables Pvt. Ltd.
+                    Computeronics & Electronics
                 </h2>
                 {/* Sub-brand strip below */}
                 <div className="flex gap-2 mt-4 relative z-10">
-                    {['ASIAN', 'M1', 'TRUE MASTER'].map((b) => (
+                    {['AISAN', 'M1', 'TRUE MASTER'].map((b) => (
                         <div key={b} className="border border-[#E4E3DB]/20 px-2 py-0.5 font-mono text-[7px] tracking-widest text-[#E4E3DB]/40">
                             {b}
                         </div>
@@ -74,6 +76,16 @@ export const Sidebar = ({ activeView, handleNav, mobileMenu, setMobileMenu, time
                         )}
                     </button>
                 ))}
+
+                <button
+                    onClick={() => setFounderPopupOpen(true)}
+                    className="flex items-center justify-between p-5 border-4 border-[#FF3300] bg-[#FF3300]/10 text-[#FF3300] shadow-[6px_6px_0px_#0F0F0F] hover:translate-x-1 hover:translate-y-1 hover:shadow-[2px_2px_0px_#0F0F0F] transition-all duration-100 relative z-10 cursor-none"
+                >
+                    <span className="flex items-center gap-2">
+                        <User className="w-4 h-4" />
+                        [SYS] ABOUT CREATOR
+                    </span>
+                </button>
             </nav>
 
             {/* System Stats Footer Panel */}
@@ -103,6 +115,8 @@ export const Sidebar = ({ activeView, handleNav, mobileMenu, setMobileMenu, time
                     </div>
                 </div>
             </div>
+
+            <FounderPopup isOpen={founderPopupOpen} onClose={() => setFounderPopupOpen(false)} />
 
         </aside >
     );

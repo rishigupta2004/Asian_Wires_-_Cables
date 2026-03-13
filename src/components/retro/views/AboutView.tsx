@@ -88,7 +88,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ handleNav }) => {
                             <div className="absolute top-0 right-0 w-8 h-8 bg-[#FF3300] border-l-4 border-b-4 border-[#0F0F0F]" />
                             <div className="font-mono text-xs lg:text-sm font-bold text-[#E4E3DB] leading-relaxed space-y-6">
                                 <p>
-                                    Founded in Mumbai, Asian Wires & Cables has been manufacturing
+                                    Founded in Delhi, Aisan Computeronics & Electronics has been manufacturing
                                     industrial-grade copper and aluminium conductors since 1989.
                                 </p>
                                 <p>

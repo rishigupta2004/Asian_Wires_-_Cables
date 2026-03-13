@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 
 export const BootScreen = ({ onComplete }: { onComplete: () => void }) => {
     const lines = [
-        "ASIAN_SYS BIOS v4.02",
-        "Copyright (C) 1998-2026, Asian Wires Ltd.",
+        "AISAN_SYS BIOS v4.02",
+        "Copyright (C) 1998-2026, Aisan Computeronics & Electronics Ltd.",
         "CPU: KINETIC_ENGINE_X 4.2GHz",
         "Memory Test: 64000K OK",
         "Loading generic drivers........................ [OK]",
@@ -26,7 +26,7 @@ export const BootScreen = ({ onComplete }: { onComplete: () => void }) => {
                 clearInterval(id);
                 return v;
             });
-        }, 80);
+        }, 15);
         return () => clearInterval(id);
     }, [lines.length]);
 
@@ -38,10 +38,10 @@ export const BootScreen = ({ onComplete }: { onComplete: () => void }) => {
                 if (currentProgress >= 100) {
                     currentProgress = 100;
                     clearInterval(interval);
-                    setTimeout(() => onComplete(), 600); // 600ms pause
+                    setTimeout(() => onComplete(), 150);
                 }
                 setProgress(currentProgress);
-            }, 100);
+            }, 20);
             return () => clearInterval(interval);
         }
     }, [visibleLines, lines.length, onComplete]);
@@ -79,7 +79,7 @@ export const BootScreen = ({ onComplete }: { onComplete: () => void }) => {
                 <div className="relative z-10 mt-8">
                     <div className="text-[#FF3300] mb-2">LOADING MEMORY: {progress}%</div>
                     <div className="h-4 border-2 border-[#E4E3DB] w-full max-w-md p-[2px]">
-                        <div className="h-full bg-[#E4E3DB] transition-all duration-75" style={{ width: `${progress}%` }} />
+                        <div className="h-full bg-[#E4E3DB] transition-all duration-0" style={{ width: `${progress}%` }} />
                     </div>
                 </div>
             )}
