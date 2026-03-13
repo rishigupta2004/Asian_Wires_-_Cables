@@ -5,10 +5,9 @@ import { ArrowRight, Zap, Building2, Sun, Factory, Train, Flame, ArrowUpRight, R
 import { TextReveal } from '../TextReveal';
 import dynamic from 'next/dynamic';
 
-const CableAnatomySVG = dynamic(() => import('../CableAnatomySVG').then(mod => mod.default), { ssr: false, loading: () => <div className="w-full aspect-square bg-[#D7D6CD] animate-pulse" /> });
 const WireCoilHero3D = dynamic(() => import('../WireCoilHero3D').then(mod => mod.default), { ssr: false, loading: () => <div className="w-full aspect-square bg-[#D7D6CD] animate-pulse" /> });
 import { GUIWindow } from '../GUIWindow';
-import { HalftoneGrid, BlueprintGrid, RegistrationMarks } from '../BasicElements';
+import { HalftoneGrid, BlueprintGrid } from '../BasicElements';
 import { DraggableSticker } from '../DraggableSticker';
 import { motion } from 'framer-motion';
 import { BRANDS } from '../../../lib/constants';
@@ -22,8 +21,6 @@ interface HomeViewProps {
 
 export const HomeView = ({ handleNav, toggleGlitch, mousePos }: HomeViewProps) => {
     const [winDim, setWinDim] = useState({ w: 1000, h: 800 });
-    const [cableVariant, setCableVariant] = useState<'3C_XLPE_11kV' | 'FRLS_MULTICORE' | 'SOLAR_DC_1500V'>('3C_XLPE_11kV');
-    const [showAnatomy, setShowAnatomy] = useState(false);
 
     useEffect(() => {
         setWinDim({ w: window.innerWidth, h: window.innerHeight });
@@ -237,57 +234,13 @@ export const HomeView = ({ handleNav, toggleGlitch, mousePos }: HomeViewProps) =
                 {/* Right column (40%) */}
                 <div className="md:w-[40%] bg-[#D7D6CD] p-4 lg:p-8 flex flex-col items-center justify-center relative overflow-hidden w-full min-h-[50vh] border-t-4 md:border-t-0 border-[#0F0F0F] z-10">
                     <HalftoneGrid />
-                    {showAnatomy ? (
-                        <GUIWindow title="CABLE_ANATOMY.EXE" className="w-[90%] max-w-[500px] relative z-10" defaultMinimized={false}>
-                            <div className="bg-[#E4E3DB] p-2 md:p-4 border-x-4 border-b-4 border-[#0F0F0F] flex flex-col items-center relative shadow-[inset_4px_4px_0px_rgba(0,0,0,0.05)] w-full">
-                                <RegistrationMarks />
-
-                                {/* Tabs */}
-                                <div className="flex w-full gap-2 mb-4 relative z-20">
-                                    {[
-                                        { label: '3C XLPE 11kV', val: '3C_XLPE_11kV' },
-                                        { label: 'FRLS MULTICORE', val: 'FRLS_MULTICORE' },
-                                        { label: 'SOLAR DC 1.5kV', val: 'SOLAR_DC_1500V' }
-                                    ].map((tab) => (
-                                        <button
-                                            key={tab.val}
-                                            onClick={() => setCableVariant(tab.val as any)}
-                                            className={`flex-1 py-1 font-mono text-[8px] md:text-[9px] font-bold border-4 border-[#0F0F0F] transition-colors cursor-none ${cableVariant === tab.val ? 'bg-[#FF3300] text-[#E4E3DB]' : 'bg-[#E4E3DB] text-[#0F0F0F] hover:bg-[#D7D6CD]'
-                                                }`}
-                                        >
-                                            [{tab.label}]
-                                        </button>
-                                    ))}
-                                </div>
-
-                                <div className="w-full aspect-square relative border-4 border-[#0F0F0F] overflow-hidden bg-[#E4E3DB]">
-                                    <CableAnatomySVG mousePos={mousePos} variant={cableVariant} />
-                                </div>
-
-                                {/* Data strip */}
-                                <div className="w-full border-t-4 border-[#0F0F0F] bg-[#0F0F0F] px-4 py-3 flex justify-between font-mono text-[9px] md:text-[10px] font-bold text-[#E4E3DB] mt-4 relative z-20">
-                                    <span>CORES: {cableVariant === '3C_XLPE_11kV' ? '3C × 240mm²' : cableVariant === 'FRLS_MULTICORE' ? '5C × 16mm²' : '1C × 6mm²'}</span>
-                                    <span>RATING: {cableVariant === '3C_XLPE_11kV' ? '11kV' : cableVariant === 'FRLS_MULTICORE' ? '1.1kV' : '1.5kV DC'}</span>
-                                    <span>STD: {cableVariant === '3C_XLPE_11kV' ? 'IS:7098 PT-II' : cableVariant === 'FRLS_MULTICORE' ? 'IS:1554' : 'TUV 2PfG'}</span>
-                                </div>
-
-                                <button
-                                    onClick={() => setShowAnatomy(false)}
-                                    className="w-full mt-2 py-2 border-4 border-[#0F0F0F] bg-[#E4E3DB] hover:bg-[#FF3300] hover:text-[#E4E3DB] text-[#0F0F0F] font-mono font-bold text-[10px] uppercase transition-colors cursor-none"
-                                >
-                                    [ RETURN TO COIL.EXE ]
-                                </button>
+                    <GUIWindow title="KINETIC_COIL.EXE" className="w-[90%] max-w-[500px] relative z-10" defaultMinimized={false}>
+                        <div className="bg-[#E4E3DB] p-2 md:p-4 border-x-4 border-b-4 border-[#0F0F0F] w-full h-full shadow-[inset_4px_4px_0px_rgba(0,0,0,0.05)]">
+                            <div className="w-full aspect-square">
+                                <WireCoilHero3D onAnatomyClick={() => {}} />
                             </div>
-                        </GUIWindow>
-                    ) : (
-                        <GUIWindow title="KINETIC_COIL.EXE" className="w-[90%] max-w-[500px] relative z-10" defaultMinimized={false}>
-                            <div className="bg-[#E4E3DB] p-2 md:p-4 border-x-4 border-b-4 border-[#0F0F0F] w-full h-full shadow-[inset_4px_4px_0px_rgba(0,0,0,0.05)]">
-                                <div className="w-full aspect-square">
-                                    <WireCoilHero3D onAnatomyClick={() => setShowAnatomy(true)} />
-                                </div>
-                            </div>
-                        </GUIWindow>
-                    )}
+                        </div>
+                    </GUIWindow>
                 </div>
             </div>
 
