@@ -41,7 +41,7 @@ export default function OptimizedImage({
         quality={quality}
         sizes={sizes}
         className={fill ? 'object-cover' : ''}
-        unoptimized={true} // Force bypass of Next.js Image Optimization API
+        loading="lazy"
       />
     </div>
   );

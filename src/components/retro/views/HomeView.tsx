@@ -5,7 +5,7 @@ import { ArrowRight, Zap, Building2, Sun, Factory, Train, Flame, ArrowUpRight, R
 import { TextReveal } from '../TextReveal';
 import dynamic from 'next/dynamic';
 
-const CableAnatomySVG = dynamic(() => import('../').then(mod => mod.CableAnatomySVG), { ssr: false });
+const CableAnatomySVG = dynamic(() => import('../CableAnatomySVG').then(mod => mod.default), { ssr: false });
 const WireCoilHero3D = dynamic(() => import('../').then(mod => mod.WireCoilHero3D), { ssr: false });
 import { GUIWindow } from '../GUIWindow';
 import { HalftoneGrid, BlueprintGrid, RegistrationMarks } from '../BasicElements';
@@ -55,10 +55,10 @@ export const HomeView = ({ handleNav, toggleGlitch, mousePos }: HomeViewProps) =
                     <span className="text-[#0F0F0F]/40 shrink-0 border-r-4 border-[#0F0F0F] pr-4">LIVE_MARKET ▸</span>
                     <div className="flex gap-10 animate-[marquee_40s_linear_infinite] min-w-max items-center">
                         {[
-                            { label: 'LME COPPER CASH', value: '$8,452.50/MT', change: '▲ +0.32%', up: true },
-                            { label: 'LME ALUMINIUM', value: '$2,245.00/MT', change: '▼ -0.18%', up: false },
+                            { label: 'LME COPPER CASH', value: '₹7,07,588/MT', change: '▲ +0.32%', up: true },
+                            { label: 'LME ALUMINIUM', value: '₹1,87,663/MT', change: '▼ -0.18%', up: false },
                             { label: 'USD/INR', value: '83.42', change: '▲ +0.05%', up: true },
-                            { label: 'BRENT CRUDE', value: '$82.15/BBL', change: '▲ +0.44%', up: true },
+                            { label: 'BRENT CRUDE', value: '₹6,867/BBL', change: '▲ +0.44%', up: true },
                             { label: 'PVC RESIN INDEX', value: 'STABLE', change: '— 0.00%', up: null },
                             { label: 'HDPE COMPOUND', value: '₹142.50/KG', change: '▼ -0.22%', up: false },
                         ].map((item, i) => (

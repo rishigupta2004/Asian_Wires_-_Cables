@@ -101,7 +101,7 @@ export default function RetroNavigation() {
             </div>
             <SystemLoadGraph />
             <div className="space-y-3 pt-2">
-              <div className="flex justify-between items-center"><span className="text-[#0F0F0F]/60">LME_Cu_IDX:</span> <span className="text-[#E4E3DB] bg-[#F23A18] px-2 font-black border-2 border-[#0F0F0F] shadow-[2px_2px_0px_#0F0F0F]">$8,450.00</span></div>
+              <div className="flex justify-between items-center"><span className="text-[#0F0F0F]/60">LME_Cu_IDX:</span> <span className="text-[#E4E3DB] bg-[#F23A18] px-2 font-black border-2 border-[#0F0F0F] shadow-[2px_2px_0px_#0F0F0F]">₹7,05,750</span></div>
               <div className="flex justify-between items-center"><span className="text-[#0F0F0F]/60">SYS_TIME:</span> <span className="bg-[#E4E3DB] border-2 border-[#0F0F0F] px-2 shadow-[2px_2px_0px_#0F0F0F]">{time}</span></div>
             </div>
           </div>

@@ -86,14 +86,21 @@ export const FounderPopup = ({ isOpen, onClose }: FounderPopupProps) => {
                                 <div className="border-l-4 border-[#FF3300] pl-4">
                                     <p className="text-[#0F0F0F] font-bold mb-1">NAME:</p>
                                     <p className="text-[#FF3300] font-black tracking-wider">
-                                        BRIJS ASIAN
+                                        BRIJ KUMAR GUPTA
                                     </p>
                                 </div>
 
                                 <div className="border-l-4 border-[#FF3300] pl-4">
                                     <p className="text-[#0F0F0F] font-bold mb-1">DESIGNATION:</p>
                                     <p className="text-[#0F0F0F]">
-                                        Founder & Managing Director
+                                        Owner, Director
+                                    </p>
+                                </div>
+
+                                <div className="border-l-4 border-[#FF3300] pl-4">
+                                    <p className="text-[#0F0F0F] font-bold mb-1">FOUNDER:</p>
+                                    <p className="text-[#0F0F0F]">
+                                        Late Shri Anil Kumar Gupta
                                     </p>
                                 </div>
 
@@ -124,6 +131,7 @@ export const FounderPopup = ({ isOpen, onClose }: FounderPopupProps) => {
                                         brijasian@gmail.com
                                     </a>
                                     <span className="text-[#0F0F0F] block">+91 98117 33043</span>
+                                    <span className="text-[#0F0F0F] block">011 40079555</span>
                                 </div>
                             </div>
 
