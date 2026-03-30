@@ -10,6 +10,7 @@ export default function WireCoilHero3D({ onAnatomyClick }: WireCoilHero3DProps) 
     const mousePosRef = useRef({ x: 0.5, y: 0.5 });
     const rafRef = useRef<number>(0);
     const timeRef = useRef(0);
+    const sizeRef = useRef({ width: 400, height: 400, dpr: 1 });
 
     // Throttled mouse handler — update ref only, no re-render
     const handleMouseMove = useCallback((e: MouseEvent) => {
@@ -24,23 +25,33 @@ export default function WireCoilHero3D({ onAnatomyClick }: WireCoilHero3DProps) 
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
-        const ctx = canvas.getContext('2d', { alpha: false });
+        const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
         if (!ctx) return;
 
-        // Lower resolution for performance — 400x400 instead of 800x800
-        const canvasW = 400;
-        const canvasH = 400;
-        canvas.width = canvasW;
-        canvas.height = canvasH;
-
-        const R = 110;
-        const pitch = 18;
         const numCoils = 6;
-        const steps = 150; // Reduced from 300
+        const steps = 150;
+        const resizeCanvas = () => {
+            if (!containerRef.current) return;
+            const rect = containerRef.current.getBoundingClientRect();
+            const width = Math.max(280, Math.round(rect.width));
+            const height = Math.max(280, Math.round(rect.height || rect.width));
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+            sizeRef.current = { width, height, dpr };
+            canvas.width = Math.round(width * dpr);
+            canvas.height = Math.round(height * dpr);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        };
+
+        resizeCanvas();
 
         const render = () => {
-            ctx.fillStyle = '#F4F0EB';
-            ctx.fillRect(0, 0, canvasW, canvasH);
+            const canvasW = sizeRef.current.width;
+            const canvasH = sizeRef.current.height;
+            const radius = canvasW * 0.27;
+            const pitch = canvasW * 0.045;
+
+            ctx.clearRect(0, 0, canvasW, canvasH);
 
             const mp = mousePosRef.current;
             const rotY = (timeRef.current * 0.003) + (mp.x - 0.5) * 2.0;
@@ -56,9 +67,9 @@ export default function WireCoilHero3D({ onAnatomyClick }: WireCoilHero3DProps) 
 
             for (let i = 0; i <= totalSteps; i++) {
                 const angle = (i / steps) * Math.PI * 2;
-                const rawX = R * Math.cos(angle);
+                const rawX = radius * Math.cos(angle);
                 const rawY = pitch * (i / steps) - (pitch * numCoils) / 2;
-                const rawZ = R * Math.sin(angle);
+                const rawZ = radius * Math.sin(angle);
 
                 const x = rawX * cosRotY - rawZ * sinRotY;
                 const z = rawX * sinRotY + rawZ * cosRotY;
@@ -81,7 +92,7 @@ export default function WireCoilHero3D({ onAnatomyClick }: WireCoilHero3DProps) 
 
             for (let j = 0; j < segments.length; j++) {
                 const seg = segments[j];
-                const t = 16 * seg.s;
+                const t = Math.max(4.8, canvasW * 0.04 * seg.s);
 
                 ctx.beginPath();
                 ctx.arc(seg.sx, seg.sy, t, 0, Math.PI * 2);
@@ -108,18 +119,22 @@ export default function WireCoilHero3D({ onAnatomyClick }: WireCoilHero3DProps) 
         };
 
         window.addEventListener('mousemove', handleMouseMove, { passive: true });
+        window.addEventListener('resize', resizeCanvas, { passive: true });
+        window.addEventListener('orientationchange', resizeCanvas);
         render();
 
         return () => {
             cancelAnimationFrame(rafRef.current);
             window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('resize', resizeCanvas);
+            window.removeEventListener('orientationchange', resizeCanvas);
         };
     }, [handleMouseMove]);
 
     return (
         <div
             ref={containerRef}
-            className="w-full aspect-square relative overflow-hidden"
+            className="w-full aspect-square relative overflow-hidden rounded-[26px] md:rounded-full [mask-image:radial-gradient(circle_at_center,black_63%,transparent_100%)]"
             onClick={onAnatomyClick}
         >
             <canvas

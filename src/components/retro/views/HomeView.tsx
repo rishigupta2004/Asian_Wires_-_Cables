@@ -226,7 +226,15 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
     }, { scope: containerRef, dependencies: [enableHeavyVisuals] });
 
     return (
-        <div ref={containerRef} className="w-full flex flex-col relative bg-[#F4F0EB] text-[#1C1C19]" style={{ perspective: '1200px' }}>
+        <div
+            ref={containerRef}
+            className="w-full flex flex-col relative bg-[#F4F0EB] text-[#1C1C19]"
+            style={{
+                perspective: '1200px',
+                backgroundImage:
+                    'radial-gradient(circle at 80% 45%, rgba(255,74,28,0.07), transparent 44%), radial-gradient(circle at 22% 72%, rgba(28,28,25,0.04), transparent 52%)'
+            }}
+        >
 
             {/* ═══════════════════════════════════════════════════════════
                 HERO — Center-Weighted Monumental Typography
@@ -236,8 +244,9 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
                 
                 {/* 3D Element — positioned absolutely BEHIND text, extremely subtle */}
                 {enableHeavyVisuals && (
-                    <div className="hero-3d-wrap absolute bottom-0 right-0 w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] z-0 opacity-15 pointer-events-none translate-x-[10%] translate-y-[10%]">
-                        <div className="absolute inset-0 bg-[#FF4A1C] rounded-full blur-[180px] opacity-20" />
+                    <div className="hero-3d-wrap absolute bottom-0 right-0 w-[42vw] h-[42vw] max-w-[520px] max-h-[520px] z-0 pointer-events-none translate-x-[9%] translate-y-[10%]">
+                        <div className="absolute inset-0 bg-[#FF4A1C] rounded-full blur-[160px] opacity-14" />
+                        <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_40%_35%,rgba(255,255,255,0.45),rgba(255,255,255,0)_62%)]" />
                         <WireCoilHero3D onAnatomyClick={() => {}} />
                     </div>
                 )}

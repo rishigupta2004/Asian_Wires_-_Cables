@@ -4,10 +4,12 @@ import Image from 'next/image';
 import { BRANDS } from '../../../lib/constants';
 import { CableDrumSVG } from '../';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
+import { getOptimizedCatalogImageSrc } from '@/lib/image-paths';
 
 export const ProductView = ({ handleNav, product }: any) => {
     const [activeTab, setActiveTab] = useState('SPECS');
     const prefersReducedMotion = useReducedMotion();
+    const productImage = getOptimizedCatalogImageSrc(product?.image || '/images/product-1.webp');
 
     // Fallback if accessed directly without selection
     if (!product) {
@@ -50,15 +52,22 @@ export const ProductView = ({ handleNav, product }: any) => {
                     {/* Main Image Feature */}
                     <div className="w-full aspect-square md:aspect-[4/3] rounded-[2rem] md:rounded-[3rem] relative overflow-hidden bg-[#1C1C19]/5 group">
                         <Image
-                            src={product.image}
+                            src={productImage}
                             alt={product.type}
                             fill
                             priority
-                            quality={100}
+                            quality={90}
                             sizes="(max-width: 1024px) 100vw, 50vw"
                             className={`w-full h-full object-contain object-center p-6 md:p-10 lg:p-14 ${prefersReducedMotion ? '' : 'transition-transform duration-700 group-hover:scale-[1.03]'}`}
                             style={{ imageRendering: 'auto' }}
                             draggable={false}
+                            onError={(e) => {
+                                const el = e.currentTarget as HTMLImageElement;
+                                if (el.dataset.fallback !== '1' && product?.image) {
+                                    el.dataset.fallback = '1';
+                                    el.src = product.image;
+                                }
+                            }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C19]/20 to-transparent pointer-events-none" />
                         <div className="absolute top-6 left-6 font-mono text-[10px] tracking-[0.3em] font-bold text-white uppercase px-3 py-1 bg-[#1C1C19]/70 rounded-full">

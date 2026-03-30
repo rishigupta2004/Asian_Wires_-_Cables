@@ -7,6 +7,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { fullCatalog } from '../../../lib/catalogData';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
+import { getOptimizedCatalogImageSrc } from '@/lib/image-paths';
 
 export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -134,10 +135,10 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                                     <div className="w-full aspect-square bg-[#1C1C19]/[0.03] overflow-hidden relative">
                                         {item.image ? (
                                             <Image
-                                                src={item.image}
+                                                src={getOptimizedCatalogImageSrc(item.image)}
                                                 alt={item.type}
                                                 fill
-                                                quality={100}
+                                                quality={88}
                                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                                 priority={index < 2}
                                                 loading={index < 2 ? undefined : index < 4 ? 'eager' : 'lazy'}
@@ -146,20 +147,18 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                                                 style={{ imageRendering: 'auto' }}
                                                 draggable={false}
                                                 onError={(e) => {
-                                                    (e.currentTarget as HTMLImageElement).src = '/Assests/Brand_Logo/LOGO-2.svg';
-                                                    (e.currentTarget as HTMLImageElement).className = 'w-1/2 h-1/2 object-contain opacity-10 m-auto';
+                                                    const el = e.currentTarget as HTMLImageElement;
+                                                    if (el.dataset.fallback !== '1') {
+                                                        el.dataset.fallback = '1';
+                                                        el.src = item.image;
+                                                        return;
+                                                    }
+                                                    el.style.opacity = '0.16';
                                                 }}
                                             />
                                         ) : (
-                                            <div className="w-full h-full flex items-center justify-center">
-                                                <Image
-                                                    src="/Assests/Brand_Logo/LOGO-2.svg"
-                                                    alt=""
-                                                    width={180}
-                                                    height={54}
-                                                    loading="lazy"
-                                                    className="w-1/3 h-auto object-contain opacity-10"
-                                                />
+                                            <div className="w-full h-full flex items-center justify-center text-[#1C1C19]/25">
+                                                <span className="font-mono text-[10px] tracking-[0.2em] uppercase">No Preview</span>
                                             </div>
                                         )}
                                         
@@ -210,27 +209,27 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                                     <div className="w-16 h-16 md:w-24 md:h-24 rounded-xl overflow-hidden bg-[#1C1C19]/[0.03] shrink-0 z-10 flex items-center justify-center p-2">
                                         {item.image ? (
                                             <Image
-                                                src={item.image}
+                                                src={getOptimizedCatalogImageSrc(item.image)}
                                                 alt={item.type}
                                                 width={192}
                                                 height={192}
-                                                quality={100}
+                                                quality={86}
                                                 sizes="(max-width: 768px) 64px, 96px"
                                                 loading="lazy"
                                                 className="w-full h-full object-contain object-center"
                                                 style={{ imageRendering: 'auto' }}
                                                 draggable={false}
+                                                onError={(e) => {
+                                                    const el = e.currentTarget as HTMLImageElement;
+                                                    if (el.dataset.fallback !== '1') {
+                                                        el.dataset.fallback = '1';
+                                                        el.src = item.image;
+                                                    }
+                                                }}
                                             />
                                         ) : (
-                                            <div className="w-full h-full flex items-center justify-center opacity-20">
-                                                <Image
-                                                    src="/Assests/Brand_Logo/LOGO-2.svg"
-                                                    alt=""
-                                                    width={96}
-                                                    height={28}
-                                                    loading="lazy"
-                                                    className="w-1/2 h-auto object-contain"
-                                                />
+                                            <div className="w-full h-full flex items-center justify-center opacity-30">
+                                                <span className="font-mono text-[8px] tracking-[0.15em] uppercase">N/A</span>
                                             </div>
                                         )}
                                     </div>

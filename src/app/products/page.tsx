@@ -26,7 +26,7 @@ const products = [
       'Temperature Rating': '-20°C to +80°C',
       'Voltage Rating': '300V',
     },
-    image: '/images/product-1.png',
+    image: '/images/product-1.webp',
   },
   {
     id: 2,
@@ -42,7 +42,7 @@ const products = [
       'Temperature Rating': '-15°C to +70°C',
       'Voltage Rating': '300V',
     },
-    image: '/images/product-2.png',
+    image: '/images/product-2.webp',
   },
   {
     id: 3,
@@ -58,7 +58,7 @@ const products = [
       'Temperature Rating': '-10°C to +60°C',
       'Voltage Rating': '150V',
     },
-    image: '/images/product-3.png',
+    image: '/images/product-3.webp',
   },
   {
     id: 4,
@@ -74,7 +74,7 @@ const products = [
       'Length': '1-10 meters',
       'Impedance': '75 Ohm',
     },
-    image: '/images/product-4.png',
+    image: '/images/product-4.webp',
   },
   {
     id: 5,
@@ -90,7 +90,7 @@ const products = [
       'Length': '1-20 meters',
       'Pins': '3-pin XLR',
     },
-    image: '/images/product-5.png',
+    image: '/images/product-5.webp',
   },
   {
     id: 6,
@@ -106,7 +106,7 @@ const products = [
       'Length': '1-3 meters',
       'Type': 'TRS Stereo',
     },
-    image: '/images/product-6.png',
+    image: '/images/product-6.webp',
   },
   {
     id: 7,
@@ -122,7 +122,7 @@ const products = [
       'Impedance': '75 Ohm',
       'Bandwidth': '3 GHz',
     },
-    image: '/images/product-7.png',
+    image: '/images/product-7.webp',
   },
   {
     id: 8,
@@ -138,7 +138,7 @@ const products = [
       'Length': '100m rolls',
       'Color': 'Black',
     },
-    image: '/images/product-8.png',
+    image: '/images/product-8.webp',
   },
   {
     id: 9,
@@ -154,7 +154,7 @@ const products = [
       'Max Distance': '20km',
       'Connector': 'FC/SC/LC',
     },
-    image: '/images/product-9.png',
+    image: '/images/product-9.webp',
   },
   {
     id: 10,
@@ -170,7 +170,7 @@ const products = [
       'Voltage': '300/500V',
       'Jacket': 'PVC',
     },
-    image: '/images/product-10.png',
+    image: '/images/product-10.webp',
   },
   {
     id: 11,
@@ -186,7 +186,7 @@ const products = [
       'Voltage': '300V',
       'Jacket': 'PVC',
     },
-    image: '/images/product-11.png',
+    image: '/images/product-11.webp',
   },
   {
     id: 12,
@@ -202,7 +202,7 @@ const products = [
       'Voltage': '150V',
       'Jacket': 'PVC',
     },
-    image: '/images/product-12.png',
+    image: '/images/product-12.webp',
   },
   {
     id: 13,
@@ -218,7 +218,7 @@ const products = [
       'Voltage': '600V',
       'Application': 'Furnace/Heater',
     },
-    image: '/images/product-13.png',
+    image: '/images/product-13.webp',
   },
   {
     id: 14,
@@ -234,7 +234,7 @@ const products = [
       'Voltage': '600/1000V',
       'Application': 'Direct Burial',
     },
-    image: '/images/product-14.png',
+    image: '/images/product-14.webp',
   },
   {
     id: 15,
@@ -250,7 +250,7 @@ const products = [
       'Voltage': '300/500V',
       'Cycles': '10 million+',
     },
-    image: '/images/product-15.png',
+    image: '/images/product-15.webp',
   },
 ];
 
