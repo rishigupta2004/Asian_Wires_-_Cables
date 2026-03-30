@@ -49,7 +49,7 @@ export default function AboutPage() {
         
         {/* Hero */}
         <section className="st-content-auto border-b-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-8 lg:p-12">
-          <div className="max-w-4xl" data-st="fade-up">
+          <div className="max-w-4xl" data-st="fade-up" data-st-duration={820}>
             <h1 className="font-grotesk text-5xl lg:text-7xl font-black uppercase tracking-tighter mb-4">
               Company <span className="text-[#F23A18]">Profile</span>
             </h1>
@@ -66,7 +66,7 @@ export default function AboutPage() {
             {stats.map((stat, idx) => (
               <div
                 key={idx}
-                data-st="zoom-in"
+                data-st="soft-pop"
                 data-st-delay={idx * 80}
                 className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 text-center shadow-[8px_8px_0px_#0F0F0F]"
               >
@@ -86,7 +86,7 @@ export default function AboutPage() {
             {brandLogos.map((brand, idx) => (
               <div
                 key={idx}
-                data-st="tilt-up"
+                data-st="skew-up"
                 data-st-delay={idx * 100}
                 className="border-4 border-[#0F0F0F] bg-[#D7D6CD] p-6 shadow-[8px_8px_0px_#0F0F0F] hover:shadow-[4px_4px_0px_#0F0F0F] hover:translate-y-1 transition-all"
               >
@@ -124,7 +124,7 @@ export default function AboutPage() {
             
             <div className="space-y-8">
               {milestones.map((milestone, idx) => (
-                <div key={idx} data-st="fade-up" data-st-delay={idx * 60} className="flex items-center">
+                <div key={idx} data-st="clip-up" data-st-delay={idx * 60} className="flex items-center">
                   <div className="lg:w-1/2 lg:pr-12 text-right hidden lg:block">
                     {idx % 2 === 0 && (
                       <div>
@@ -165,7 +165,7 @@ export default function AboutPage() {
             {certifications.map((cert, idx) => (
               <div
                 key={idx}
-                data-st="zoom-in"
+                data-st="soft-pop"
                 data-st-delay={idx * 70}
                 className="border-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-4 text-center shadow-[6px_6px_0px_#F23A18]"
               >

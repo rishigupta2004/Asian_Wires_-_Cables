@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ArrowRight, Zap, Shield, Cpu } from 'lucide-react';
+import Image from 'next/image';
 import { BRANDS } from '../../../lib/constants';
 import { CableDrumSVG } from '../';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
@@ -48,14 +49,13 @@ export const ProductView = ({ handleNav, product }: any) => {
                 <div className="lg:w-1/2 flex flex-col gap-6 relative">
                     {/* Main Image Feature */}
                     <div className="w-full aspect-square md:aspect-[4/3] rounded-[2rem] md:rounded-[3rem] relative overflow-hidden bg-[#1C1C19]/5 group">
-                        <img 
-                            src={product.image} 
+                        <Image
+                            src={product.image}
                             alt={product.type}
-                            width={1600}
-                            height={1200}
-                            loading="eager"
-                            decoding="async"
-                            fetchPriority="high"
+                            fill
+                            priority
+                            quality={100}
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                             className={`w-full h-full object-contain object-center p-6 md:p-10 lg:p-14 ${prefersReducedMotion ? '' : 'transition-transform duration-700 group-hover:scale-[1.03]'}`}
                             style={{ imageRendering: 'auto' }}
                             draggable={false}

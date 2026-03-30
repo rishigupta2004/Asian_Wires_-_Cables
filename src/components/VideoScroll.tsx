@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import { useVideoScroll } from '@/hooks/useVideoScroll';
 import { AlertCircle, Loader2 } from 'lucide-react';
 
@@ -79,13 +80,13 @@ export const VideoScroll: React.FC<VideoScrollProps> = ({
       {/* Error/Fallback state */}
       {hasError ? (
         <div className="relative w-full h-full">
-          <img
+          <Image
             src={posterUrl}
             alt={`${tier} ${wireType} wire`}
-            width={1280}
-            height={720}
+            fill
+            quality={100}
+            sizes="(max-width: 1024px) 100vw, 50vw"
             loading="lazy"
-            decoding="async"
             className="w-full h-full object-contain opacity-70"
             style={{ imageRendering: 'auto' }}
           />

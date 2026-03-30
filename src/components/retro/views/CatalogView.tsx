@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useRef } from 'react';
 import { ArrowUpRight, Search, LayoutGrid, List } from 'lucide-react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { fullCatalog } from '../../../lib/catalogData';
@@ -132,25 +133,33 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                                     {/* Image */}
                                     <div className="w-full aspect-square bg-[#1C1C19]/[0.03] overflow-hidden relative">
                                         {item.image ? (
-                                            <img
+                                            <Image
                                                 src={item.image}
                                                 alt={item.type}
-                                                width={640}
-                                                height={640}
-                                                loading={index < 4 ? 'eager' : 'lazy'}
-                                                decoding="async"
+                                                fill
+                                                quality={100}
+                                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                                priority={index < 2}
+                                                loading={index < 2 ? undefined : index < 4 ? 'eager' : 'lazy'}
                                                 fetchPriority={index < 2 ? 'high' : 'auto'}
                                                 className="w-full h-full object-contain object-center p-5 md:p-6 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
                                                 style={{ imageRendering: 'auto' }}
                                                 draggable={false}
                                                 onError={(e) => {
-                                                    (e.target as HTMLImageElement).src = '/Assests/Brand_Logo/LOGO-2.svg';
-                                                    (e.target as HTMLImageElement).className = 'w-1/2 h-1/2 object-contain opacity-10 m-auto';
+                                                    (e.currentTarget as HTMLImageElement).src = '/Assests/Brand_Logo/LOGO-2.svg';
+                                                    (e.currentTarget as HTMLImageElement).className = 'w-1/2 h-1/2 object-contain opacity-10 m-auto';
                                                 }}
                                             />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center">
-                                                <img src="/Assests/Brand_Logo/LOGO-2.svg" alt="" decoding="async" loading="lazy" className="w-1/3 object-contain opacity-10" />
+                                                <Image
+                                                    src="/Assests/Brand_Logo/LOGO-2.svg"
+                                                    alt=""
+                                                    width={180}
+                                                    height={54}
+                                                    loading="lazy"
+                                                    className="w-1/3 h-auto object-contain opacity-10"
+                                                />
                                             </div>
                                         )}
                                         
@@ -200,20 +209,28 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                                     {/* Thumbnail */}
                                     <div className="w-16 h-16 md:w-24 md:h-24 rounded-xl overflow-hidden bg-[#1C1C19]/[0.03] shrink-0 z-10 flex items-center justify-center p-2">
                                         {item.image ? (
-                                            <img
+                                            <Image
                                                 src={item.image}
                                                 alt={item.type}
                                                 width={192}
                                                 height={192}
+                                                quality={100}
+                                                sizes="(max-width: 768px) 64px, 96px"
                                                 loading="lazy"
-                                                decoding="async"
                                                 className="w-full h-full object-contain object-center"
                                                 style={{ imageRendering: 'auto' }}
                                                 draggable={false}
                                             />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center opacity-20">
-                                                <img src="/Assests/Brand_Logo/LOGO-2.svg" alt="" decoding="async" loading="lazy" className="w-1/2 object-contain" />
+                                                <Image
+                                                    src="/Assests/Brand_Logo/LOGO-2.svg"
+                                                    alt=""
+                                                    width={96}
+                                                    height={28}
+                                                    loading="lazy"
+                                                    className="w-1/2 h-auto object-contain"
+                                                />
                                             </div>
                                         )}
                                     </div>

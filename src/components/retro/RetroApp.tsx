@@ -7,8 +7,6 @@ import { CustomCursor } from './CustomCursor';
 import { NoiseOverlay } from './BasicElements';
 import dynamic from 'next/dynamic';
 import { motion, AnimatePresence, useReducedMotion as useMotionReduced } from 'framer-motion';
-// @ts-ignore
-import Lenis from 'lenis';
 
 const LoadingPlaceholder = () => (
     <div className="min-h-screen bg-[#F4F0EB] flex items-center justify-center w-full">
@@ -42,33 +40,6 @@ export default function RetroApp() {
             mediaQuery.removeEventListener('change', updatePointerState);
         };
     }, []);
-
-    // Lenis smooth scrolling on capable desktop pointers only.
-    useEffect(() => {
-        if (prefersReducedMotion || !isDesktopPointer) {
-            return;
-        }
-
-        const lenis = new Lenis({
-            smoothWheel: true,
-            syncTouch: true,
-            touchMultiplier: 1,
-            duration: 1.2,
-            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        });
-
-        let rafId = 0;
-        function raf(time: number) {
-            lenis.raf(time);
-            rafId = requestAnimationFrame(raf);
-        }
-        rafId = requestAnimationFrame(raf);
-        
-        return () => {
-            cancelAnimationFrame(rafId);
-            lenis.destroy();
-        };
-    }, [prefersReducedMotion, isDesktopPointer]);
 
     const pageTransition = prefersReducedMotion
         ? {

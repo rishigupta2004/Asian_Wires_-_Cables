@@ -38,6 +38,16 @@ export function useStringTuneAnimations({
       if (Number.isFinite(delay) && delay >= 0) {
         el.style.setProperty('--st-delay', `${delay}ms`);
       }
+
+      const duration = Number(el.dataset.stDuration ?? '');
+      if (Number.isFinite(duration) && duration > 0) {
+        el.style.setProperty('--st-duration', `${duration}ms`);
+      }
+
+      const distance = Number(el.dataset.stDistance ?? '');
+      if (Number.isFinite(distance) && distance > 0) {
+        el.style.setProperty('--st-distance', `${distance}px`);
+      }
     });
 
     const observer = new IntersectionObserver(

@@ -347,7 +347,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Header */}
-        <div data-st="fade-up" className="st-content-auto border-b-4 border-[#0F0F0F] p-6 lg:p-10 bg-[#0F0F0F] text-[#E4E3DB]">
+        <div data-st="fade-up" data-st-duration={820} className="st-content-auto border-b-4 border-[#0F0F0F] p-6 lg:p-10 bg-[#0F0F0F] text-[#E4E3DB]">
           <div className="flex items-center gap-4 mb-4">
             <Link href="/" className="flex items-center gap-2 text-xs font-mono-custom hover:text-[#F23A18] transition-colors">
               <ArrowLeft className="w-4 h-4" /> RETURN_DIR
@@ -358,7 +358,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Filters */}
-        <div data-st="fade-up" data-st-delay={100} className="st-content-auto border-b-4 border-[#0F0F0F] p-4 lg:p-6 bg-[#D7D6CD] flex flex-wrap gap-3">
+        <div data-st="soft-pop" data-st-delay={100} className="st-content-auto border-b-4 border-[#0F0F0F] p-4 lg:p-6 bg-[#D7D6CD] flex flex-wrap gap-3">
           {categories.map(cat => (
             <button 
               key={cat}
@@ -375,7 +375,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Products Table */}
-        <div data-st="fade-up" data-st-delay={180} className="st-content-auto p-4 lg:p-6">
+        <div data-st="clip-up" data-st-delay={180} className="st-content-auto p-4 lg:p-6">
           <div className="w-full overflow-x-auto border-4 border-[#0F0F0F] bg-[#0000AA] shadow-[12px_12px_0px_#0F0F0F]">
             <table className="w-full text-left font-mono-custom text-sm min-w-[900px] border-collapse">
               <thead className="bg-[#E4E3DB] text-[#0F0F0F] text-xs tracking-widest border-4 border-[#0F0F0F]">

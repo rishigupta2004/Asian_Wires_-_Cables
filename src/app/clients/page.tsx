@@ -46,7 +46,7 @@ export default function ClientsPage() {
         
         {/* Hero */}
         <section className="st-content-auto border-b-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-8 lg:p-12">
-          <h1 data-st="fade-up" className="font-grotesk text-5xl lg:text-7xl font-black uppercase tracking-tighter mb-4">
+          <h1 data-st="fade-up" data-st-duration={820} className="font-grotesk text-5xl lg:text-7xl font-black uppercase tracking-tighter mb-4">
             Partners <span className="text-[#F23A18]">Net</span>
           </h1>
           <p data-st="fade-up" data-st-delay={100} className="font-mono-custom text-lg">
@@ -60,7 +60,7 @@ export default function ClientsPage() {
             {stats.map((stat, idx) => (
               <div
                 key={idx}
-                data-st="zoom-in"
+                data-st="soft-pop"
                 data-st-delay={idx * 80}
                 className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 text-center shadow-[8px_8px_0px_#0F0F0F]"
               >
@@ -80,7 +80,7 @@ export default function ClientsPage() {
             {brandLogos.map((brand, idx) => (
               <div
                 key={idx}
-                data-st="tilt-up"
+                data-st="skew-up"
                 data-st-delay={idx * 100}
                 className="border-4 border-[#0F0F0F] bg-[#D7D6CD] p-6 shadow-[8px_8px_0px_#0F0F0F] hover:shadow-[4px_4px_0px_#0F0F0F] hover:translate-y-1 transition-all"
               >
@@ -151,7 +151,7 @@ export default function ClientsPage() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                data-st="zoom-in"
+                data-st="soft-pop"
                 data-st-delay={idx * 70}
                 className="border-4 border-[#0F0F0F] bg-[#D7D6CD] p-6 shadow-[8px_8px_0px_#0F0F0F]"
               >
