@@ -1,409 +1,344 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { ArrowRight, Zap, Building2, Sun, Factory, Train, Flame, ArrowUpRight, Radio, Cpu, Music, Satellite } from 'lucide-react';
-import { TextReveal } from '../TextReveal';
+import React, { useRef, useEffect, useCallback } from 'react';
+import { ArrowDownRight, Factory, Radio, Cpu, Satellite, ArrowRight } from 'lucide-react';
 import dynamic from 'next/dynamic';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
-const WireCoilHero3D = dynamic(() => import('../WireCoilHero3D').then(mod => mod.default), { ssr: false, loading: () => <div className="w-full aspect-square bg-[#D7D6CD] animate-pulse" /> });
-import { GUIWindow } from '../GUIWindow';
-import { HalftoneGrid, BlueprintGrid } from '../BasicElements';
-import { DraggableSticker } from '../DraggableSticker';
-import { motion } from 'framer-motion';
-import { BRANDS } from '../../../lib/constants';
-import { animate, stagger } from 'animejs';
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
+
+const WireCoilHero3D = dynamic(() => import('../WireCoilHero3D').then(mod => mod.default), { 
+    ssr: false, 
+    loading: () => <div className="w-full h-full bg-[#1C1C19]/5 rounded-full animate-pulse" /> 
+});
 
 interface HomeViewProps {
     handleNav: (id: string) => void;
-    toggleGlitch: (v: boolean) => void;
-    mousePos: { x: number; y: number };
 }
 
-export const HomeView = ({ handleNav, toggleGlitch, mousePos }: HomeViewProps) => {
-    const [winDim, setWinDim] = useState({ w: 1000, h: 800 });
-
+// ─── Scramble Text Effect ───────────────────────────────────────────────
+const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+function useScrambleText(ref: React.RefObject<HTMLElement | null>, finalText: string, delay = 0) {
     useEffect(() => {
-        setWinDim({ w: window.innerWidth, h: window.innerHeight });
-        const handleResize = () => setWinDim({ w: window.innerWidth, h: window.innerHeight });
-        window.addEventListener('resize', handleResize);
+        if (!ref.current) return;
+        const el = ref.current;
+        let frame = 0;
+        const totalFrames = 20;
+        const timeout = setTimeout(() => {
+            const interval = setInterval(() => {
+                frame++;
+                const progress = frame / totalFrames;
+                const scrambled = finalText.split('').map((char, i) => {
+                    if (char === ' ') return ' ';
+                    if (i / finalText.length < progress) return char;
+                    return CHARS[Math.floor(Math.random() * CHARS.length)];
+                }).join('');
+                el.textContent = scrambled;
+                if (frame >= totalFrames) {
+                    clearInterval(interval);
+                    el.textContent = finalText;
+                }
+            }, 40);
+        }, delay);
+        return () => clearTimeout(timeout);
+    }, [ref, finalText, delay]);
+}
 
-        animate('.sector-card', {
-            translateY: [20, 0],
-            opacity: [0, 1],
-            delay: stagger(100, { start: 300 }),
-            easing: 'easeOutElastic(1, .8)'
-        });
+export const HomeView = ({ handleNav }: HomeViewProps) => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const magneticBtnRef = useRef<HTMLButtonElement>(null);
+    const scramble1 = useRef<HTMLDivElement>(null);
+    const scramble2 = useRef<HTMLDivElement>(null);
+    const scramble3 = useRef<HTMLDivElement>(null);
 
-        animate('.category-card', {
-            translateY: [30, 0],
-            opacity: [0, 1],
-            delay: stagger(150, { start: 600 }),
-            easing: 'easeOutExpo'
-        });
+    // Scramble text reveals
+    useScrambleText(scramble1, 'PRECISION.', 400);
+    useScrambleText(scramble2, 'POWER.', 600);
+    useScrambleText(scramble3, 'PURE.', 800);
 
-        return () => window.removeEventListener('resize', handleResize);
+    // Magnetic Button Physics
+    useEffect(() => {
+        const btn = magneticBtnRef.current;
+        if (!btn) return;
+
+        const xTo = gsap.quickTo(btn, "x", { duration: 1, ease: "elastic.out(1, 0.3)" });
+        const yTo = gsap.quickTo(btn, "y", { duration: 1, ease: "elastic.out(1, 0.3)" });
+
+        const onMove = (e: MouseEvent) => {
+            const { clientX, clientY } = e;
+            const { height, width, left, top } = btn.getBoundingClientRect();
+            xTo((clientX - (left + width / 2)) * 0.35);
+            yTo((clientY - (top + height / 2)) * 0.35);
+        };
+        const onLeave = () => { xTo(0); yTo(0); };
+
+        btn.addEventListener("mousemove", onMove);
+        btn.addEventListener("mouseleave", onLeave);
+        return () => {
+            btn.removeEventListener("mousemove", onMove);
+            btn.removeEventListener("mouseleave", onLeave);
+        };
     }, []);
 
-    return (
-        <div className="flex flex-col w-full h-full relative">
-            {/* NEW: LIVE MARKET TICKER */}
-            <div className="border-b-4 border-[#0F0F0F] bg-[#E4E3DB] px-8 py-2 overflow-hidden flex-shrink-0 w-full hidden md:block">
-                <div className="flex items-center gap-8 font-mono text-[10px] font-bold">
-                    <span className="text-[#0F0F0F]/40 shrink-0 border-r-4 border-[#0F0F0F] pr-4">LIVE_MARKET ▸</span>
-                    <div className="flex gap-10 animate-[marquee_40s_linear_infinite] min-w-max items-center">
-                        {[
-                            { label: 'LME COPPER CASH', value: '₹7,07,588/MT', change: '▲ +0.32%', up: true },
-                            { label: 'LME ALUMINIUM', value: '₹1,87,663/MT', change: '▼ -0.18%', up: false },
-                            { label: 'USD/INR', value: '83.42', change: '▲ +0.05%', up: true },
-                            { label: 'BRENT CRUDE', value: '₹6,867/BBL', change: '▲ +0.44%', up: true },
-                            { label: 'PVC RESIN INDEX', value: 'STABLE', change: '— 0.00%', up: null },
-                            { label: 'HDPE COMPOUND', value: '₹142.50/KG', change: '▼ -0.22%', up: false },
-                        ].map((item, i) => (
-                            <span key={i} className="flex items-center gap-2">
-                                <span className="text-[#0F0F0F]/50">{item.label}:</span>
-                                <span className="font-black">{item.value}</span>
-                                <span className={item.up === true ? 'text-[#10B981]' : item.up === false ? 'text-[#EF4444]' : 'text-[#0F0F0F]/40'}>
-                                    {item.change}
-                                </span>
-                            </span>
-                        ))}
-                    </div>
-                </div>
-            </div>
+    useGSAP(() => {
+        const mm = gsap.matchMedia();
 
-            {/* NEW: APPLICATION SECTORS GRID */}
-            <div className="w-full bg-[#E4E3DB] border-b-4 border-[#0F0F0F] p-4 md:p-8 flex-shrink-0 relative z-20 hidden md:block">
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                    {[
-                        {
-                            id: 'INS-01',
-                            sector: 'INDUSTRY',
-                            detail: 'Heavy Manufacturing & Process Plants',
-                            icon: Factory,
-                            usage: 'Power distribution, motor feeds, control panels',
-                        },
-                        {
-                            id: 'INS-02',
-                            sector: 'PUBLIC ADDRESS SYSTEM',
-                            detail: 'Broadcast & PA Infrastructure',
-                            icon: Radio,
-                            usage: 'Speaker wiring, amplifier feeds, low-impedance runs',
-                        },
-                        {
-                            id: 'INS-03',
-                            sector: 'TECH INDUSTRY',
-                            detail: 'Data Centres & Technology Facilities',
-                            icon: Cpu,
-                            usage: 'Server room power, UPS feeds, structured cabling',
-                        },
-                        {
-                            id: 'INS-04',
-                            sector: 'MUSIC INDUSTRY',
-                            detail: 'Studios, Venues & Live Production',
-                            icon: Music,
-                            usage: 'Stage power, rack feeds, shielded audio runs',
-                        },
-                        {
-                            id: 'INS-05',
-                            sector: 'SATELLITE COMMUNICATION',
-                            detail: 'Ground Station & Telecom Infrastructure',
-                            icon: Satellite,
-                            usage: 'Antenna feeds, transmission lines, RF-shielded runs',
+        mm.add("(min-width: 768px)", () => {
+            // ─── HERO ENTRANCE ─────────────────────────────────────
+            const tl = gsap.timeline();
+            tl.fromTo(".hero-line",
+                { yPercent: 130, rotateX: -40, opacity: 0 },
+                { yPercent: 0, rotateX: 0, opacity: 1, duration: 1.8, stagger: 0.12, ease: "expo.out", delay: 0.1 }
+            )
+            .fromTo(".hero-sub",
+                { opacity: 0, y: 80, filter: "blur(10px)" },
+                { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.4, ease: "power3.out" }, "-=1.4"
+            )
+            .fromTo(".hero-3d-wrap",
+                { opacity: 0, scale: 0.7 },
+                { opacity: 1, scale: 1, duration: 2.5, ease: "expo.out" }, "-=1.8"
+            )
+            .fromTo(".hero-cta",
+                { opacity: 0, y: 40 },
+                { opacity: 1, y: 0, duration: 1, ease: "power3.out" }, "-=1.5"
+            );
+
+            // ─── PARALLAX IMAGE SECTIONS ───────────────────────────
+            gsap.utils.toArray('.img-parallax-container').forEach((container: any) => {
+                const img = container.querySelector('.img-parallax');
+                if (!img) return;
+                gsap.fromTo(img,
+                    { yPercent: -15 },
+                    {
+                        yPercent: 15,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: container,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: 1.5,
                         }
-                    ].map((s) => {
-                        const Icon = s.icon;
-                        return (
-                            <div
-                                key={s.id}
-                                className="sector-card opacity-0 border-4 border-[#0F0F0F] p-6 bg-[#E4E3DB] shadow-[4px_4px_0px_#0F0F0F] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all group cursor-pointer relative"
-                            >
-                                {/* ID badge top-right */}
-                                <div className="absolute top-3 right-3 font-mono text-[8px] text-[#0F0F0F]/30">{s.id}</div>
-                                {/* Icon */}
-                                <Icon className="w-7 h-7 text-[#FF3300] mb-4 group-hover:scale-110 transition-transform" />
-                                {/* Sector name */}
-                                <div className="font-mono text-[10px] font-black tracking-widest text-[#0F0F0F] mb-2 uppercase leading-tight">
-                                    {s.sector}
-                                </div>
-                                {/* Detail */}
-                                <div className="font-mono text-[8px] text-[#0F0F0F]/50 mb-3">{s.detail}</div>
-                                {/* Red separator */}
-                                <div className="h-px w-6 bg-[#FF3300] mb-2" />
-                                {/* Usage note */}
-                                <div className="font-mono text-[8px] text-[#0F0F0F]/40 italic">{s.usage}</div>
-                            </div>
-                        );
-                    })}
+                    }
+                );
+            });
+
+            // ─── STATEMENT SECTION WIPE ────────────────────────────
+            gsap.utils.toArray('.text-wipe').forEach((el: any) => {
+                gsap.fromTo(el,
+                    { clipPath: 'inset(0 100% 0 0)' },
+                    {
+                        clipPath: 'inset(0 0% 0 0)',
+                        duration: 2,
+                        ease: "expo.inOut",
+                        scrollTrigger: { trigger: el, start: "top 80%" }
+                    }
+                );
+            });
+
+            // ─── SECTOR ROWS STAGGER ───────────────────────────────
+            gsap.utils.toArray('.sector-row').forEach((row: any) => {
+                gsap.fromTo(row,
+                    { opacity: 0, y: 60 },
+                    {
+                        opacity: 1, y: 0,
+                        duration: 1.2,
+                        ease: "power3.out",
+                        scrollTrigger: { trigger: row, start: "top 85%" }
+                    }
+                );
+            });
+
+            // ─── DARK INVERSION (StringTune signature) ─────────────
+            ScrollTrigger.create({
+                trigger: ".dark-invert-trigger",
+                start: "top 50%",
+                end: "bottom 40%",
+                onEnter: () => gsap.to(containerRef.current, { backgroundColor: "#1C1C19", color: "#F4F0EB", duration: 1.5, ease: "power3.inOut" }),
+                onLeaveBack: () => gsap.to(containerRef.current, { backgroundColor: "#F4F0EB", color: "#1C1C19", duration: 1.5, ease: "power3.inOut" }),
+            });
+
+            // ─── FOOTER CTA REVEAL ─────────────────────────────────
+            gsap.fromTo(".footer-cta",
+                { opacity: 0, y: 100, scale: 0.95 },
+                {
+                    opacity: 1, y: 0, scale: 1,
+                    duration: 1.5,
+                    ease: "expo.out",
+                    scrollTrigger: { trigger: ".footer-cta", start: "top 90%" }
+                }
+            );
+        });
+
+        return () => mm.revert();
+    }, { scope: containerRef });
+
+    return (
+        <div ref={containerRef} className="w-full flex flex-col relative bg-[#F4F0EB] text-[#1C1C19]" style={{ perspective: '1200px' }}>
+
+            {/* ═══════════════════════════════════════════════════════════
+                HERO — Center-Weighted Monumental Typography
+                The 3D element floats BEHIND the text in a separate z-plane.
+               ═══════════════════════════════════════════════════════════ */}
+            <section className="relative w-full min-h-[100vh] flex flex-col items-center justify-center overflow-hidden">
+                
+                {/* 3D Element — positioned absolutely BEHIND text, extremely subtle */}
+                <div className="hero-3d-wrap absolute bottom-0 right-0 w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] z-0 opacity-15 pointer-events-none translate-x-[10%] translate-y-[10%]">
+                    <div className="absolute inset-0 bg-[#FF4A1C] rounded-full blur-[180px] opacity-20" />
+                    <WireCoilHero3D onAnatomyClick={() => {}} />
                 </div>
-            </div>
 
-            {/* Hero Section */}
-            <div className="min-h-[85vh] bg-[#E4E3DB] border-b-4 border-[#0F0F0F] relative overflow-hidden flex flex-col md:flex-row w-full">
-                <BlueprintGrid />
-                <HalftoneGrid />
-
-                <div className="absolute top-10 right-10 z-30 hidden lg:block">
-                    <DraggableSticker />
-                </div>
-
-                {/* Left column (60%) */}
-                <div className="md:w-[60%] border-r-0 md:border-r-4 border-[#0F0F0F] p-8 lg:p-24 flex flex-col justify-center relative z-20 w-full min-h-[50vh] overflow-visible">
-                    {/* Status badge */}
-                    <div className="inline-flex items-center border-4 border-[#0F0F0F] px-4 py-2 font-mono text-[10px] mb-8 md:mb-12 w-fit bg-[#E4E3DB] text-[#0F0F0F] uppercase tracking-widest shadow-[4px_4px_0px_#0F0F0F]">
-                        <div className="w-2 h-2 bg-[#FF3300] animate-pulse mr-3 border border-[#0F0F0F]" />
-                        SYSTEM_ONLINE // HEAVY DUTY
+                {/* Content — sits on top with massive z-index */}
+                <div className="relative z-10 flex flex-col items-center text-center px-4 w-full">
+                    
+                    {/* Subtitle chip */}
+                    <div className="hero-sub inline-flex items-center gap-3 font-mono text-[10px] md:text-xs uppercase tracking-[0.5em] font-bold mb-12 text-[#1C1C19]/50">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF4A1C] opacity-75" />
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF4A1C]" />
+                        </span>
+                        Since 1953 — Industrial Grade
                     </div>
 
-                    {/* Main typographic display */}
-                    <div className="flex flex-col mb-12 relative w-fit">
-                        <TextReveal delay={100}>
-                            <motion.span
-                                className="font-serif italic font-normal lowercase tracking-wide block relative z-20 left-4"
-                                style={{ fontSize: 'clamp(50px, 12vw, 160px)', color: '#0F0F0F', lineHeight: '0.8' }}
-                                whileHover={{ skewX: -10, scale: 1.05, filter: 'blur(2px)' }}
-                                transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-                            >
-                                absolute
-                            </motion.span>
-                        </TextReveal>
+                    {/* Massive Typography Block */}
+                    <h1 className="font-grotesk font-black leading-[0.82] tracking-[-0.06em] uppercase" style={{ fontSize: 'clamp(3rem, 16vw, 14rem)' }}>
+                        <div className="overflow-hidden"><div ref={scramble1} className="hero-line origin-bottom-left pb-2">&nbsp;</div></div>
+                        <div className="overflow-hidden"><div ref={scramble2} className="hero-line origin-bottom-left pb-2">&nbsp;</div></div>
+                        <div className="overflow-hidden"><div ref={scramble3} className="hero-line origin-bottom-left text-[#FF4A1C] pb-2">&nbsp;</div></div>
+                    </h1>
 
-                        <div style={{ marginLeft: '-0.02em' }}>
-                            <TextReveal delay={200}>
-                                <motion.span
-                                    className="font-grotesk font-black uppercase block relative z-10 mt-2 md:mt-4 cursor-none"
-                                    style={{
-                                        fontSize: 'clamp(44px, 9.5vw, 118px)',
-                                        color: '#E4E3DB',
-                                        WebkitTextStroke: '4px #0F0F0F',
-                                        textShadow: '8px 8px 0px #FF3300',
-                                        letterSpacing: '-0.04em',
-                                        lineHeight: '0.9',
-                                        whiteSpace: 'nowrap'
-                                    }}
-                                    whileHover={{ x: 20, textShadow: '20px 20px 0px #FF3300' }}
-                                    transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                                >
-                                    CONDUCTIVITY.
-                                </motion.span>
-                            </TextReveal>
-                        </div>
+                    {/* Description */}
+                    <p className="hero-sub font-inter text-base md:text-xl lg:text-2xl font-light leading-[1.6] tracking-tight text-[#1C1C19]/50 max-w-2xl mt-16 mb-16">
+                        Forging advanced architectural cables for defense, telecom, and massive-scale data centers with absolute zero defect tolerance.
+                    </p>
 
-                        {/* Chaotic Brutalist Stamp */}
-                        <motion.div
-                            className="absolute -right-[10%] -top-[10%] z-30 pointer-events-none mix-blend-difference hidden md:flex items-center justify-center w-32 h-32 md:w-48 md:h-48"
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                        >
-                            <svg viewBox="0 0 100 100" className="w-full h-full text-[#E4E3DB] opacity-80">
-                                <path id="curve" d="M 50 10 A 40 40 0 1 1 49.9 10" fill="transparent" />
-                                <text width="500" className="font-mono text-[8px] font-bold uppercase tracking-[0.2em] saturate-200">
-                                    <textPath href="#curve" startOffset="0%">
-                                        ISO 9001:2015 /// HEAVY DUTY /// ZERO HALOGEN ///
-                                    </textPath>
-                                </text>
-                                <circle cx="50" cy="50" r="15" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="4 2" />
-                            </svg>
-                        </motion.div>
-                    </div>
-
-                    {/* Body text box */}
-                    <TextReveal delay={400}>
-                        <div className="border-4 border-[#0F0F0F] p-5 bg-[#0F0F0F] max-w-xl shadow-[8px_8px_0px_#0F0F0F] mb-10 md:mb-14 relative overflow-hidden mt-4 md:mt-8">
-                            <div className="absolute top-0 right-0 w-8 h-8 bg-[#FF3300] border-l-4 border-b-4 border-[#0F0F0F]" />
-                            <p className="font-mono text-xs md:text-sm leading-relaxed text-[#E4E3DB] font-bold">
-                                Engineering the nervous system of modern infrastructure.
-                                From deeply buried high-tension grids to critical photovoltaic
-                                installations. We output pure power.
-                            </p>
-                        </div>
-                    </TextReveal>
-
-                    {/* CTA button */}
-                    <TextReveal delay={600}>
+                    {/* CTA — Magnetic */}
+                    <div className="hero-cta">
                         <button
+                            ref={magneticBtnRef}
                             onClick={() => handleNav('CATALOG')}
-                            className="relative flex items-center justify-between w-fit gap-4 px-6 md:px-10 py-4 border-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] font-mono text-[10px] md:text-xs font-black tracking-widest shadow-[8px_8px_0px_#FF3300] active:shadow-none active:translate-x-2 active:translate-y-2 transition-all group hover:bg-[#2A2A2A] cursor-none"
+                            className="group relative flex items-center gap-6 bg-[#1C1C19] text-[#F4F0EB] px-10 py-5 md:px-14 md:py-6 rounded-full hover:bg-[#FF4A1C] transition-colors duration-700 will-change-transform cursor-none"
                         >
-                            ACCESS_MATRIX.EXE
-                            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:rotate-45 transition-transform" />
-                            <div className="absolute right-0 top-0 h-full w-2 bg-[#FF3300] border-l-4 border-[#0F0F0F]" />
+                            <span className="font-grotesk font-black text-sm md:text-base uppercase tracking-[0.15em]">Explore Catalog</span>
+                            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:rotate-45 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
+                                <ArrowDownRight className="w-5 h-5" />
+                            </div>
                         </button>
-                    </TextReveal>
-                </div>
-
-                {/* Right column (40%) */}
-                <div className="md:w-[40%] bg-[#D7D6CD] p-4 lg:p-8 flex flex-col items-center justify-center relative overflow-hidden w-full min-h-[50vh] border-t-4 md:border-t-0 border-[#0F0F0F] z-10">
-                    <HalftoneGrid />
-                    <GUIWindow title="KINETIC_COIL.EXE" className="w-[90%] max-w-[500px] relative z-10" defaultMinimized={false}>
-                        <div className="bg-[#E4E3DB] p-2 md:p-4 border-x-4 border-b-4 border-[#0F0F0F] w-full h-full shadow-[inset_4px_4px_0px_rgba(0,0,0,0.05)]">
-                            <div className="w-full aspect-square">
-                                <WireCoilHero3D onAnatomyClick={() => {}} />
-                            </div>
-                        </div>
-                    </GUIWindow>
-                </div>
-            </div>
-
-            {/* NEW: PRODUCT CATEGORY QUICK-ACCESS CARDS */}
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-b-4 border-[#0F0F0F] relative z-20">
-                {[
-                    { title: 'LT CABLES', sub1: 'Upto 1.1kV', sub2: '120+ variants', num: '01' },
-                    { title: 'HT CABLES', sub1: '11kV – 33kV', sub2: '45+ variants', num: '02' },
-                    { title: 'SOLAR PV', sub1: 'DC 1500V', sub2: '18+ variants', num: '03' },
-                    { title: 'SPECIALTY', sub1: 'FRLS / Fire', sub2: '35+ variants', num: '04' },
-                ].map((cat, i) => (
-                    <div key={i} className={`group ${i % 2 === 0 ? 'bg-[#E4E3DB]' : 'bg-[#D7D6CD]'} border-r-0 lg:border-r-4 border-b-4 lg:border-b-0 border-[#0F0F0F] last:border-r-0 px-8 py-10 hover:bg-[#0F0F0F] hover:text-[#E4E3DB] transition-colors relative cursor-none flex flex-col justify-between h-48`}>
-                        <div className="absolute top-4 right-4 font-grotesk font-black text-6xl opacity-[0.04] group-hover:opacity-10 transition-opacity pointer-events-none">
-                            {cat.num}
-                        </div>
-                        <div>
-                            <div className="font-mono text-xl font-black tracking-widest mb-1">{cat.title}</div>
-                            <div className="font-mono text-[10px] opacity-60 mb-1">{cat.sub1}</div>
-                        </div>
-                        <div className="flex justify-between items-end">
-                            <div className="font-grotesk font-black text-3xl">{cat.sub2.split(' ')[0]}</div>
-                            <div className="font-mono text-[8px] opacity-60 mb-1 leading-tight uppercase max-w-[50px]">{cat.sub2.split(' ')[1]}</div>
-                            <ArrowUpRight className="w-6 h-6 text-[#FF3300] opacity-0 group-hover:opacity-100 transition-opacity" />
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            {/* NEW: MANUFACTURING PROCESS TICKER STRIP */}
-            <div className="border-b-4 border-[#0F0F0F] bg-[#0F0F0F] py-5 overflow-hidden flex flex-col gap-2 relative z-20 w-full">
-                {/* Strip 1 */}
-                <div className="font-mono text-[10px] text-[#E4E3DB] tracking-widest flex w-[200%] -ml-[10%]">
-                    <div className="animate-[marquee_30s_linear_infinite] flex min-w-max gap-4 items-center whitespace-nowrap">
-                        <span className="text-[#FF3300]">—</span>
-                        <span>01 ROD DRAWING</span> <span className="text-[#FF3300]">—</span>
-                        <span>02 WIRE BUNCHING</span> <span className="text-[#FF3300]">—</span>
-                        <span>03 STRANDING</span> <span className="text-[#FF3300]">—</span>
-                        <span>04 INSULATION EXTRUSION</span> <span className="text-[#FF3300]">—</span>
-                        <span>05 CABLING</span> <span className="text-[#FF3300]">—</span>
-                        <span>06 ARMORING</span> <span className="text-[#FF3300]">—</span>
-                        <span>07 SHEATHING</span> <span className="text-[#FF3300]">—</span>
-                        <span>08 SPARK TESTING</span> <span className="text-[#FF3300]">—</span>
-                        <span>09 QC INSPECTION</span> <span className="text-[#FF3300]">—</span>
-                        <span>10 DRUM DISPATCH</span> <span className="text-[#FF3300]">—</span>
-                        <span>01 ROD DRAWING</span> <span className="text-[#FF3300]">—</span>
-                        <span>02 WIRE BUNCHING</span>
                     </div>
                 </div>
 
-                {/* Strip 2 */}
-                <div className="font-mono text-[9px] text-[#E4E3DB]/40 tracking-widest flex w-[200%] -ml-[10%]">
-                    <div className="animate-[marquee_40s_linear_infinite_reverse] flex min-w-max gap-8 items-center whitespace-nowrap" style={{ animationDirection: 'reverse' }}>
-                        <span>IS:694</span> <span>—</span>
-                        <span>IS:1554</span> <span>—</span>
-                        <span>IS:7098</span> <span>—</span>
-                        <span>IS:8130</span> <span>—</span>
-                        <span>IEC 60502</span> <span>—</span>
-                        <span>IEC 60227</span> <span>—</span>
-                        <span>BS:5467</span> <span>—</span>
-                        <span>ISO 9001:2015</span> <span>—</span>
-                        <span>BIS CERTIFIED</span> <span>—</span>
-                        <span>CPRI TESTED</span> <span>—</span>
-                        <span>RoHS</span> <span>—</span>
-                        <span>REACH</span> <span>—</span>
-                        <span>IS:694</span> <span>—</span>
-                        <span>IS:1554</span>
-                    </div>
+                {/* Scroll indicator */}
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10">
+                    <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-[#1C1C19]/30 to-[#1C1C19]/10 animate-pulse" />
+                    <span className="font-mono text-[9px] tracking-[0.4em] uppercase text-[#1C1C19]/30 font-bold">Scroll</span>
                 </div>
-            </div>
+            </section>
 
-            {/* BRAND QUALITY COMPARISON SECTION */}
-            <div className="w-full bg-[#0F0F0F] border-b-4 border-[#0F0F0F] px-8 lg:px-20 py-16">
-                <div className="mb-12">
-                    <h2 className="font-grotesk font-black text-[7vw] leading-none text-[#E4E3DB] tracking-tighter">
-                        THREE TIERS.
+            {/* ═══════════════════════════════════════════════════════════
+                MONUMENTAL STATEMENT + PARALLAX IMAGE
+               ═══════════════════════════════════════════════════════════ */}
+            <section className="relative w-full py-48 md:py-64 px-6 md:px-16 lg:px-32">
+                <div className="max-w-[1600px] mx-auto mb-24 md:mb-40">
+                    <h2 className="text-wipe font-grotesk font-black leading-[0.85] tracking-[-0.05em] uppercase" style={{ fontSize: 'clamp(2.5rem, 10vw, 10rem)', color: 'inherit' }}>
+                        BEYOND <br /><span className="opacity-15">COMMODITY.</span>
                     </h2>
-                    <h2 className="font-grotesk font-black text-[7vw] leading-none text-[#E4E3DB] tracking-tighter opacity-50">
-                        ONE STANDARD.
-                    </h2>
-                    <div className="font-mono text-[9px] tracking-[0.4em] text-[#E4E3DB]/40 mt-6">
-                        OUR BRAND ARCHITECTURE
-                    </div>
                 </div>
 
-                <div className="flex flex-col">
-                    {(Object.values(BRANDS) as any[]).map((brand, i) => (
-                        <div
-                            key={brand.id}
-                            className="border-b-4 border-[#E4E3DB]/10 last:border-b-0 flex flex-col lg:flex-row items-start lg:items-center py-10 gap-8 group hover:bg-[#E4E3DB]/5 transition-colors px-4 -mx-4"
-                        >
-                            {/* Tier number */}
-                            <div className="font-grotesk font-black text-[80px] leading-none text-[#E4E3DB]/10 w-24 shrink-0 select-none">
-                                {String(brand.tier).padStart(2, '0')}
-                            </div>
+                {/* Full-bleed Parallax Image */}
+                <div className="img-parallax-container w-full h-[50vh] md:h-[85vh] overflow-hidden rounded-[2rem] md:rounded-[3rem] relative">
+                    <img
+                        src="https://images.unsplash.com/photo-1542361345-89e58247f2d5?q=80&w=2670&auto=format&fit=crop"
+                        alt="Industrial Infrastructure"
+                        className="img-parallax w-full h-[130%] object-cover absolute top-0 left-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C19] via-[#1C1C19]/20 to-transparent" />
+                    <div className="absolute bottom-8 left-8 md:bottom-16 md:left-16 z-10">
+                        <p className="text-[#F4F0EB]/80 font-mono text-[10px] md:text-xs tracking-[0.3em] font-bold uppercase">Architectural Grade / Since 1953</p>
+                    </div>
+                    <div className="absolute bottom-8 right-8 md:bottom-16 md:right-16 z-10">
+                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-[#F4F0EB]/30 flex items-center justify-center group hover:bg-[#F4F0EB] hover:border-[#F4F0EB] transition-all duration-500 cursor-none">
+                            <ArrowRight className="w-5 h-5 md:w-6 md:h-6 text-[#F4F0EB] group-hover:text-[#1C1C19] transition-colors" />
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                            {/* Brand logo zone */}
-                            <div className="w-48 shrink-0 border-4 border-[#E4E3DB]/15 p-4 flex items-center justify-center h-20 bg-[#E4E3DB]/5 group-hover:border-[#FF3300]/30 transition-colors">
-                                <span className="font-grotesk font-black text-2xl text-[#E4E3DB]">{brand.id.replace('_', ' ')}</span>
-                            </div>
+            {/* ═══════════════════════════════════════════════════════════
+                SECTORS — Dark Inversion Zone
+               ═══════════════════════════════════════════════════════════ */}
+            <section className="dark-invert-trigger relative w-full py-40 md:py-64 px-6 md:px-16 lg:px-32 z-10">
+                <div className="max-w-[1600px] mx-auto">
+                    <div className="mb-32 md:mb-48">
+                        <div className="font-mono text-xs uppercase tracking-[0.5em] font-bold mb-8 opacity-40">Industrial Sectors</div>
+                        <h2 className="text-wipe font-grotesk font-black tracking-[-0.05em] leading-[0.85] uppercase" style={{ fontSize: 'clamp(2.5rem, 10vw, 10rem)' }}>
+                            WE POWER<br />THE UNSEEN.
+                        </h2>
+                    </div>
 
-                            {/* Brand info */}
-                            <div className="flex-1">
-                                <div className="font-mono text-[10px] tracking-widest text-[#FF3300] mb-1">{brand.tagline}</div>
-                                <p className="font-mono text-xs text-[#E4E3DB]/60 leading-relaxed max-w-xl">{brand.description}</p>
-                            </div>
+                    <div className="flex flex-col">
+                        {[
+                            { title: 'Data Centers', icon: Cpu, stat: '85K MT', desc: 'High-density power distribution cabling' },
+                            { title: 'Heavy Plant', icon: Factory, stat: '1000V+', desc: 'Industrial-grade armoured power cables' },
+                            { title: 'Telecom Towers', icon: Radio, stat: '0.01Db', desc: 'Ultra-low-loss signal transmission' },
+                            { title: 'Aerospace', icon: Satellite, stat: 'Mil-Spec', desc: 'Defence-certified wiring harnesses' },
+                        ].map((s, i) => {
+                            const Icon = s.icon;
+                            return (
+                                <div key={i} className="sector-row group flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-16 border-b border-current/10 cursor-none overflow-hidden relative">
+                                    {/* Hover fill — scales from bottom */}
+                                    <div className="absolute inset-0 bg-[#FF4A1C] origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] z-0 rounded-2xl" />
 
-                            {/* Shielding visual */}
-                            <div className="shrink-0 w-48 hidden lg:block">
-                                <div className="font-mono text-[8px] tracking-widest text-[#E4E3DB]/40 mb-2 uppercase">SHIELDING LEVEL</div>
-                                <div className="flex items-end gap-1 h-10 mb-2">
-                                    {[1, 2, 3].map((bar) => (
-                                        <div
-                                            key={bar}
-                                            className="flex-1 transition-all duration-300"
-                                            style={{
-                                                height: `${bar * 33}%`,
-                                                background: bar <= (4 - brand.tier) ? '#FF3300' : '#E4E3DB15',
-                                                border: '2px solid',
-                                                borderColor: bar <= (4 - brand.tier) ? '#FF3300' : '#E4E3DB20',
-                                            }}
-                                        />
-                                    ))}
+                                    <div className="flex items-center gap-6 md:gap-16 z-10 w-full md:w-auto group-hover:text-white transition-colors duration-500">
+                                        <span className="font-mono text-lg md:text-2xl opacity-20 group-hover:opacity-100 font-bold tabular-nums transition-opacity duration-500">{(i + 1).toString().padStart(2, '0')}</span>
+                                        <div>
+                                            <h3 className="font-grotesk font-black text-3xl md:text-6xl lg:text-7xl uppercase tracking-tighter transition-transform duration-700 group-hover:translate-x-4">
+                                                {s.title}
+                                            </h3>
+                                            <p className="font-inter text-xs md:text-sm opacity-0 group-hover:opacity-60 transition-opacity duration-500 mt-1 tracking-tight">{s.desc}</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-center gap-6 md:gap-10 z-10 mt-4 md:mt-0 group-hover:text-white transition-colors duration-500">
+                                        <div className="font-mono text-xs md:text-sm tracking-[0.2em] font-bold uppercase py-2 px-6 rounded-full border border-current/20 group-hover:border-white/40 transition-colors duration-500">
+                                            {s.stat}
+                                        </div>
+                                        <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-current/10 flex items-center justify-center group-hover:bg-white group-hover:text-[#FF4A1C] group-hover:-rotate-45 group-hover:border-white transition-all duration-700">
+                                            <Icon className="w-5 h-5 md:w-6 md:h-6" />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="font-mono text-[9px] text-[#E4E3DB]/50">{brand.shieldingLevel}</div>
-                            </div>
-
-                            {/* Typical use */}
-                            <div className="shrink-0 w-56 hidden xl:block">
-                                <div className="font-mono text-[8px] tracking-widest text-[#E4E3DB]/40 mb-2 uppercase">TYPICAL APPLICATIONS</div>
-                                <div className="font-mono text-[9px] text-[#E4E3DB]/50 leading-relaxed">{brand.typicalUse}</div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* Marquee Strips with cursor-reactive skew */}
-            <div
-                className="flex flex-col w-full origin-left transition-transform duration-300 ease-out relative z-40"
-                style={{ transform: `skewX(${(mousePos.x - winDim.w / 2) * -0.005}deg)` }}
-            >
-                {/* Bar 1 — red, large grotesque */}
-                <div className="border-b-4 border-t-4 border-[#0F0F0F] bg-[#FF3300] text-[#0F0F0F] py-2 overflow-hidden font-grotesk font-black text-2xl md:text-3xl lg:text-4xl uppercase whitespace-nowrap flex w-[120%] -ml-[10%] shadow-[0_8px_0_0_#0F0F0F]">
-                    <div className="animate-[marquee_20s_linear_infinite] flex gap-8 md:gap-12 min-w-max">
-                        <span>/// ARCHITECTURAL GRADE CABLES</span>
-                        <span>/// ISO 9001:2015 CERTIFIED</span>
-                        <span>/// 100% PURE EC GRADE COPPER</span>
-                        <span>/// ZERO HALOGEN TECHNOLOGY</span>
-                        <span>/// ARCHITECTURAL GRADE CABLES</span>
-                        <span>/// ISO 9001:2015 CERTIFIED</span>
+                            );
+                        })}
                     </div>
                 </div>
+            </section>
 
-                {/* Bar 2 — black, small mono, reverse */}
-                <div className="bg-[#0F0F0F] text-[#E4E3DB] py-2 overflow-hidden font-mono font-bold text-[10px] md:text-xs uppercase whitespace-nowrap flex border-b-4 border-[#0F0F0F] w-[120%] -ml-[10%]">
-                    <div className="animate-pulse flex gap-8 md:gap-12 min-w-max w-full overflow-hidden truncate">
-                        {/* Note: Standard CSS animations aren't easily reversed in Tailwind out-of-the-box without custom config, using simple slide for now or custom keyframe in globals */}
-                        <div className="animate-[marquee_25s_linear_infinite_reverse] flex gap-12 min-w-max w-full" style={{ animationDirection: 'reverse' }}>
-                            <span>*** MANUFACTURED IN INDIA *** OVER 120K MT ANNUAL CAPACITY *** DESTRUCTIVE TESTING PASSED *** ZERO DEFECT POLICY *** MULTIPLE QUALITY CHECKS *** CONTINUOUS EXTRUSION *** MANUFACTURED IN INDIA *** OVER 120K MT ANNUAL CAPACITY *** DESTRUCTIVE TESTING PASSED ***</span>
+            {/* ═══════════════════════════════════════════════════════════
+                FOOTER CTA — Massive closing statement
+               ═══════════════════════════════════════════════════════════ */}
+            <section className="relative w-full py-40 md:py-64 px-6 md:px-16 lg:px-32 z-10">
+                <div className="footer-cta max-w-[1600px] mx-auto flex flex-col items-center text-center">
+                    <h2 className="font-grotesk font-black tracking-[-0.05em] leading-[0.85] uppercase mb-16" style={{ fontSize: 'clamp(2rem, 8vw, 8rem)' }}>
+                        READY TO<br /><span className="text-[#FF4A1C]">INTEGRATE?</span>
+                    </h2>
+                    <button
+                        onClick={() => handleNav('CATALOG')}
+                        className="group flex items-center gap-6 bg-[#FF4A1C] text-white px-12 py-6 md:px-16 md:py-7 rounded-full hover:bg-[#1C1C19] transition-colors duration-700 cursor-none"
+                    >
+                        <span className="font-grotesk font-black text-sm md:text-lg uppercase tracking-[0.15em]">View Full Catalog</span>
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/15 flex items-center justify-center group-hover:rotate-45 transition-transform duration-700">
+                            <ArrowRight className="w-5 h-5" />
                         </div>
-                    </div>
+                    </button>
+                    <p className="font-mono text-[10px] md:text-xs tracking-[0.3em] uppercase text-current/30 mt-12 font-bold">
+                        Asian Computeronics & Electronics — Est. 1953 — Delhi, India
+                    </p>
                 </div>
-            </div>
+            </section>
+
         </div>
     );
 };

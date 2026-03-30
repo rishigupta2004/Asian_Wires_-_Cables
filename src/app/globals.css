@@ -1,32 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;700;900&family=Playfair+Display:ital@1&display=swap');
 
 @import "tailwindcss";
 
 
 :root {
-  --background: #E4E3DB;
-  /* aged newsprint / cream */
-  --foreground: #0F0F0F;
-  /* near-black ink */
-  --accent: #FF3300;
-  /* bold Risograph red-orange */
-  --accent-yellow: #F5C518;
-  /* warning yellow */
-  --accent-blue: #0000AA;
-  /* classic DOS blue screen */
-  --muted: #D7D6CD;
-  /* concrete gray panel */
-  --muted-dark: #2A2A2A;
-  /* dark section bg */
-  --grid-line: rgba(100, 120, 140, 0.15);
-  /* blueprint line tint */
+  --background: #FCFCFC;     /* Clean, bright white background */
+  --foreground: #11141A;     /* Premium dark slate for text */
+  --accent: #FF4A1C;         /* Vibrant Asian Wires orange/red */
+  --accent-yellow: #FFB800;  /* Premium Gold/Yellow */
+  --accent-blue: #0A2463;    /* Deep Tech Blue */
+  --muted: #F0F2F5;          /* Light soft grey for panels */
+  --muted-dark: #1E232E;     /* Dark slate for sections */
+  --grid-line: rgba(10, 36, 99, 0.05); /* Subtle grid line */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-grotesk: 'Space Grotesk', sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  --font-mono: 'Inter', sans-serif; /* Update font-mono to inter for a cleaner look while keeping class names */
   --font-serif: 'Playfair Display', serif;
 }
 
@@ -37,56 +29,55 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  cursor: none !important;
-}
-
-* {
-  cursor: none !important;
+  /* Removed cursor: none */
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 20px;
-  background: #D7D6CD;
-  border-left: 4px solid #0F0F0F;
+  width: 12px;
+  background: #F0F2F5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FF3300;
-  border: 4px solid #0F0F0F;
+  background: var(--accent);
+  border-radius: 6px;
+  border: 3px solid #F0F2F5;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0F0F0F;
+  background: #E03E15;
 }
 
 /* Selection */
 ::selection {
-  background: #FF3300;
-  color: #E4E3DB;
+  background: var(--accent);
+  color: #FFFFFF;
 }
 
-/* Screen-tear glitch for view transitions */
-.screen-tear {
-  animation: tear 0.3s steps(2, end) infinite;
-  filter: contrast(1.5) saturate(2) grayscale(1);
+/* Smooth Scrolling */
+html.lenis {
+  height: auto;
 }
 
-@keyframes tear {
-  0% {
-    clip-path: inset(10% 0 80% 0);
-    transform: translateX(-10px)
-  }
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
 
-  50% {
-    clip-path: inset(50% 0 30% 0);
-    transform: translateX(10px)
-  }
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
 
-  100% {
-    clip-path: inset(80% 0 5% 0);
-    transform: translateX(-5px)
-  }
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Soft transition utilities */
+.smooth-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes fadeIn {
@@ -170,11 +161,11 @@ body {
 
   0%,
   100% {
-    color: #E4E3DB
+    color: var(--foreground)
   }
 
   50% {
-    color: #FF3300
+    color: var(--accent)
   }
 }
 

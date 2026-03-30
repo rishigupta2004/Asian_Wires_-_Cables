@@ -1,15 +1,17 @@
-export { NoiseOverlay, HalftoneGrid, RegistrationMarks } from './BasicElements';
-export { Barcode } from './Barcode';
-export { SystemLoadGraph } from './SystemLoadGraph';
-export { CustomCursor } from './CustomCursor';
-export { DraggableSticker } from './DraggableSticker';
-export { TextReveal } from './TextReveal';
-export { GUIWindow } from './GUIWindow';
-export { BlueprintGrid } from './BasicElements';
-export { Sidebar } from './Sidebar';
+export { Navbar } from './Navbar';
 export { BootScreen } from './BootScreen';
+export { ContactModal } from './ContactModal';
+export * from './BasicElements';
+export * from './Barcode';
+export * from './SystemLoadGraph';
+export * from './InteractiveCard';
+export { default as RetroApp } from './RetroApp';
+export { default as WireCoilHero3D } from './WireCoilHero3D';
 export { default as CableAnatomySVG } from './CableAnatomySVG';
 export { default as CableDrumSVG } from './CableDrumSVG';
-export { default as ProcessFlowSVG } from './ProcessFlowSVG';
-export { default as WireCoilHero3D } from './WireCoilHero3D';
-export { default as ConductorStrandSVG } from './ConductorStrandSVG';
+
+// Restoring previously missing exports
+export { TextReveal } from './TextReveal';
+export { GUIWindow } from './GUIWindow';
+export { CustomCursor } from './CustomCursor';
+
