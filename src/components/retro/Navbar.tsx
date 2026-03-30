@@ -29,20 +29,16 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                     
                     {/* Brand */}
                     <div className="flex items-center gap-4 md:cursor-none" onClick={() => handleNav('HOME')}>
-                        <div className="relative h-12 w-14 md:h-14 md:w-16 shrink-0">
+                        <div className="relative h-14 w-[124px] md:h-16 md:w-[150px] shrink-0">
                             <Image
                                 src="/images/brands/ASIAN.png"
                                 alt="Asian Wires & Cables"
                                 fill
                                 priority
                                 quality={100}
-                                sizes="(max-width: 768px) 56px, 64px"
-                                className="object-contain"
+                                sizes="(max-width: 768px) 124px, 150px"
+                                className="object-contain object-left"
                             />
-                        </div>
-                        <div className="hidden sm:flex flex-col">
-                            <span className="font-grotesk font-black text-lg tracking-tighter text-[#1C1C19] leading-none uppercase">Asian</span>
-                            <span className="font-mono text-[7px] tracking-[0.15em] font-bold text-[#1C1C19]/40 uppercase">Computeronics & Electronics</span>
                         </div>
                     </div>
 

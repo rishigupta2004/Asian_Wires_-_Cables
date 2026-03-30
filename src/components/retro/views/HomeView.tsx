@@ -8,6 +8,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
+import { BRANDS } from '../../../lib/constants';
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -21,6 +22,36 @@ const WireCoilHero3D = dynamic(() => import('../WireCoilHero3D').then(mod => mod
 interface HomeViewProps {
     handleNav: (id: string) => void;
 }
+
+const BRAND_QUALITY_ROWS = [
+    {
+        id: 'ASIAN',
+        display: 'ASIAN',
+        logo: '/images/brands/ASIAN.png',
+        qualityBand: 'Tier 01 / Premium',
+        conductor: BRANDS.ASIAN.conductorGrade,
+        coating: 'Heavy-duty multi-layer shielding with thicker insulation cover',
+        use: BRANDS.ASIAN.typicalUse,
+    },
+    {
+        id: 'MASTER',
+        display: 'MASTER',
+        logo: '/images/brands/True_MAster.png',
+        qualityBand: 'Tier 02 / Essential',
+        conductor: BRANDS.TRUE_MASTER.conductorGrade,
+        coating: 'Standard single-layer shielding with balanced PVC jacket cover',
+        use: BRANDS.TRUE_MASTER.typicalUse,
+    },
+    {
+        id: 'M1',
+        display: 'M1',
+        logo: '/images/brands/M1_VOICE.svg',
+        qualityBand: 'Tier 03 / Performance',
+        conductor: BRANDS.M1.conductorGrade,
+        coating: 'Single-layer shielding tuned for commercial runs and tighter tolerances',
+        use: BRANDS.M1.typicalUse,
+    },
+];
 
 // ─── Scramble Text Effect ───────────────────────────────────────────────
 const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -201,6 +232,21 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
                 );
             });
 
+            gsap.utils.toArray('.brand-row').forEach((row: any) => {
+                gsap.fromTo(
+                    row,
+                    { opacity: 0, y: 42, filter: 'blur(6px)' },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        filter: 'blur(0px)',
+                        duration: 0.9,
+                        ease: 'power3.out',
+                        scrollTrigger: { trigger: row, start: 'top 88%' },
+                    }
+                );
+            });
+
             // ─── DARK INVERSION (StringTune signature) ─────────────
             ScrollTrigger.create({
                 trigger: ".dark-invert-trigger",
@@ -325,6 +371,66 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
                         <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-[#F4F0EB]/30 flex items-center justify-center group hover:bg-[#F4F0EB] hover:border-[#F4F0EB] transition-all duration-500 md:cursor-none">
                             <ArrowRight className="w-5 h-5 md:w-6 md:h-6 text-[#F4F0EB] group-hover:text-[#1C1C19] transition-colors" />
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════════════════════════════════════════════════════════
+                BRAND TIERS — Sub-brand quality matrix
+               ═══════════════════════════════════════════════════════════ */}
+            <section className="relative w-full py-28 md:py-40 px-6 md:px-16 lg:px-32">
+                <div className="max-w-[1600px] mx-auto">
+                    <div className="mb-14 md:mb-20 max-w-4xl">
+                        <div className="font-mono text-[10px] md:text-xs uppercase tracking-[0.45em] font-bold text-[#FF4A1C] mb-6">
+                            Sub-Brand Matrix
+                        </div>
+                        <h2 className="text-wipe font-grotesk font-black tracking-[-0.05em] leading-[0.88] uppercase text-[#1C1C19]" style={{ fontSize: 'clamp(2rem, 6vw, 5.2rem)' }}>
+                            ONE COPPER STANDARD.<br />
+                            <span className="opacity-25">THREE PROTECTION TIERS.</span>
+                        </h2>
+                        <p className="font-inter text-sm md:text-lg mt-6 text-[#1C1C19]/60 leading-relaxed max-w-3xl">
+                            All three lines use EC-grade copper cores. The key difference is shielding depth, insulation cover thickness, and installation stress tolerance.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+                        {BRAND_QUALITY_ROWS.map((brand) => (
+                            <article
+                                key={brand.id}
+                                className="brand-row rounded-[1.6rem] md:rounded-[2rem] bg-white/80 border border-[#1C1C19]/[0.06] p-6 md:p-8 shadow-[0_18px_45px_rgba(18,22,30,0.05)]"
+                            >
+                                <div className="flex items-center justify-between gap-4 mb-8">
+                                    <div className="relative h-14 w-[140px] md:h-16 md:w-[170px]">
+                                        <Image
+                                            src={brand.logo}
+                                            alt={`${brand.display} brand mark`}
+                                            fill
+                                            quality={100}
+                                            sizes="(max-width: 768px) 140px, 170px"
+                                            className="object-contain object-left"
+                                        />
+                                    </div>
+                                    <span className="font-mono text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-bold text-[#1C1C19]/45 whitespace-nowrap">
+                                        {brand.qualityBand}
+                                    </span>
+                                </div>
+
+                                <div className="space-y-4">
+                                    <div className="rounded-xl border border-[#1C1C19]/10 bg-[#F4F0EB] px-4 py-3">
+                                        <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#1C1C19]/45 font-bold mb-1">Conductor</div>
+                                        <div className="font-grotesk font-black text-sm md:text-base uppercase tracking-tight text-[#1C1C19]">{brand.conductor}</div>
+                                    </div>
+                                    <div className="rounded-xl border border-[#1C1C19]/10 bg-[#F4F0EB] px-4 py-3">
+                                        <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#1C1C19]/45 font-bold mb-1">Coating / Cover</div>
+                                        <div className="font-inter text-xs md:text-sm text-[#1C1C19]/70 leading-relaxed">{brand.coating}</div>
+                                    </div>
+                                    <div className="rounded-xl border border-[#1C1C19]/10 bg-[#F4F0EB] px-4 py-3">
+                                        <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#1C1C19]/45 font-bold mb-1">Best Fit</div>
+                                        <div className="font-inter text-xs md:text-sm text-[#1C1C19]/70 leading-relaxed">{brand.use}</div>
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
                     </div>
                 </div>
             </section>

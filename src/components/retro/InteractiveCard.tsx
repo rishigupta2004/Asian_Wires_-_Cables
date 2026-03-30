@@ -489,7 +489,7 @@ export default function AsianCard() {
             .deep-shadow { filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.15)) drop-shadow(0px 5px 10px rgba(0,0,0,0.05)); }
             .deep-shadow-vibrant { filter: drop-shadow(0px 15px 30px rgba(153,27,27,0.6)) drop-shadow(0px 10px 15px rgba(127,29,29,0.5)); }
           }
-          .blend-logo { mix-blend-mode: multiply; }
+          .blend-logo { mix-blend-mode: normal; }
         `
       }} />
 
@@ -562,7 +562,7 @@ export default function AsianCard() {
                         fetchPriority="high"
                         className="w-full h-full object-contain pointer-events-none drop-shadow-[0_4px_8px_rgba(0,0,0,0.08)] z-10" 
                         style={{ transform: 'translateZ(10px)' }}
-                        onError={(e: any) => { e.target.onerror = null; e.target.src = '/Assests/Brand_Logo/ASIAN.png'; }}
+                        onError={(e: any) => { e.target.onerror = null; e.target.src = '/images/brands/ASIAN.png'; }}
                       />
                     </div>
                   </div>
@@ -576,13 +576,13 @@ export default function AsianCard() {
                     
                     <div className="grid grid-cols-3 gap-4 w-full max-w-[360px] px-2 preserve-3d">
                       <div className="bg-white/60 backdrop-blur-md rounded-xl p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/Assests/Brand_Logo/ASIAN.png" alt="Wires" width={120} height={64} className="h-14 sm:h-16 max-w-full object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => e.target.src='/Assests/Brand_Logo/LOGO-2.svg'} />
+                         <img src="/images/brands/ASIAN.png" alt="Wires" width={120} height={64} className="h-14 sm:h-16 max-w-full object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
                       </div>
                       <div className="bg-white/60 backdrop-blur-md rounded-xl p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/Assests/Brand_Logo/True_MAster.png" alt="Master" width={120} height={64} className="h-14 sm:h-16 max-w-full object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => e.target.src='/Assests/Brand_Logo/LOGO-2.svg'} />
+                         <img src="/images/brands/True_MAster.png" alt="Master" width={120} height={64} className="h-14 sm:h-16 max-w-full object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
                       </div>
                       <div className="bg-white/60 backdrop-blur-md rounded-xl p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/Assests/Brand_Logo/M1_VOICE.png" alt="Voice" width={120} height={64} className="h-14 sm:h-16 max-w-full object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => e.target.src='/Assests/Brand_Logo/LOGO-2.svg'} />
+                         <img src="/images/brands/M1_VOICE.svg" alt="Voice" width={120} height={64} className="h-14 sm:h-16 max-w-full object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/images/brands/M1_VOICE.png'; }} />
                       </div>
                     </div>
                   </div>
@@ -643,7 +643,7 @@ export default function AsianCard() {
                     <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-amber-300 to-amber-600 rounded-l-3xl opacity-90 shadow-[2px_0_15px_rgba(251,191,36,0.3)]" />
                     <div className="flex flex-col pl-5 preserve-3d" style={{ transform: 'translateZ(15px)' }}>
                       <h3 className="font-grotesk font-black text-2xl sm:text-3xl tracking-tight uppercase text-white drop-shadow-md">Brij Kumar Gupta</h3>
-                      <p className="font-mono text-[11px] sm:text-[12px] tracking-[0.3em] font-bold text-amber-300 mt-2 uppercase">Owner & Founder</p>
+                      <p className="font-mono text-[11px] sm:text-[12px] tracking-[0.3em] font-bold text-amber-300 mt-2 uppercase">Managing Director</p>
                     </div>
                     
                     <div className="mt-8 flex flex-col gap-4 text-[13px] sm:text-[14px] text-red-100 relative z-10 preserve-3d pl-5" style={{ transform: 'translateZ(10px)' }}>
