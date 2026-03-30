@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import { ContactModal } from './ContactModal';
 
 interface NavbarProps {
@@ -28,9 +29,16 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                     
                     {/* Brand */}
                     <div className="flex items-center gap-4 md:cursor-none" onClick={() => handleNav('HOME')}>
-                        <div className="relative h-9 w-9 md:h-10 md:w-10 rounded-full border border-[#1C1C19]/20 flex items-center justify-center bg-transparent">
-                            <span className="font-grotesk font-black text-[#FF4A1C] text-lg leading-none">A</span>
-                            <span className="absolute inset-1 rounded-full border border-[#FF4A1C]/45" />
+                        <div className="relative h-12 w-14 md:h-14 md:w-16 shrink-0">
+                            <Image
+                                src="/images/brands/ASIAN.png"
+                                alt="Asian Wires & Cables"
+                                fill
+                                priority
+                                quality={100}
+                                sizes="(max-width: 768px) 56px, 64px"
+                                className="object-contain"
+                            />
                         </div>
                         <div className="hidden sm:flex flex-col">
                             <span className="font-grotesk font-black text-lg tracking-tighter text-[#1C1C19] leading-none uppercase">Asian</span>
