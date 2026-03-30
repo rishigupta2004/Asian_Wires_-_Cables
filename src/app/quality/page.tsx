@@ -3,6 +3,7 @@
 import { Check, X, Award, Shield, Zap } from 'lucide-react';
 import { Barcode, GUIWindow } from '@/components/retro';
 import RetroNavigation from '@/components/RetroNavigation';
+import { useStringTuneAnimations } from '@/hooks/useStringTuneAnimations';
 
 const tiers = [
   {
@@ -58,29 +59,36 @@ const tests = [
 ];
 
 export default function QualityPage() {
+  useStringTuneAnimations();
+
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-[#E4E3DB] text-[#0F0F0F] font-sans overflow-x-hidden selection:bg-[#F23A18] selection:text-[#0F0F0F] cursor-none relative">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-[#E4E3DB] text-[#0F0F0F] font-sans overflow-x-hidden selection:bg-[#F23A18] selection:text-[#0F0F0F] lg:cursor-none relative">
       <RetroNavigation />
       
       <main className="w-full lg:w-[calc(100%-320px)] mt-[72px] lg:mt-0 relative z-10 bg-[#E4E3DB]">
         
         {/* Hero */}
-        <section className="border-b-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-8 lg:p-12">
-          <h1 className="font-grotesk text-5xl lg:text-7xl font-black uppercase tracking-tighter mb-4">
+        <section className="st-content-auto border-b-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-8 lg:p-12">
+          <h1 data-st="fade-up" className="font-grotesk text-5xl lg:text-7xl font-black uppercase tracking-tighter mb-4">
             Quality <span className="text-[#F23A18]">Spec Sheets</span>
           </h1>
-          <p className="font-mono-custom text-lg">
+          <p data-st="fade-up" data-st-delay={90} className="font-mono-custom text-lg">
             Every cable undergoes rigorous testing to ensure maximum performance and safety.
           </p>
         </section>
 
         {/* Tier Comparison */}
-        <section className="border-b-4 border-[#0F0F0F] p-8 lg:p-12 bg-[#D7D6CD]">
+        <section className="st-content-auto border-b-4 border-[#0F0F0F] p-8 lg:p-12 bg-[#D7D6CD]">
           <h2 className="font-grotesk text-4xl font-black uppercase tracking-tighter mb-8">Tier Comparison</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {tiers.map((tier, idx) => (
-              <div key={idx} className="border-4 border-[#0F0F0F] bg-[#E4E3DB] shadow-[8px_8px_0px_#0F0F0F]">
+              <div
+                key={idx}
+                data-st="tilt-up"
+                data-st-delay={idx * 100}
+                className="border-4 border-[#0F0F0F] bg-[#E4E3DB] shadow-[8px_8px_0px_#0F0F0F]"
+              >
                 <div className="p-6 border-b-4 border-[#0F0F0F]" style={{ backgroundColor: tier.color }}>
                   <h3 className="font-grotesk font-black text-2xl uppercase text-center text-[#0F0F0F]">{tier.label}</h3>
                 </div>
@@ -104,7 +112,7 @@ export default function QualityPage() {
         </section>
 
         {/* Test Results */}
-        <section className="border-b-4 border-[#0F0F0F] p-8 lg:p-12 bg-[#E4E3DB]">
+        <section className="st-content-auto border-b-4 border-[#0F0F0F] p-8 lg:p-12 bg-[#E4E3DB]">
           <h2 className="font-grotesk text-4xl font-black uppercase tracking-tighter mb-8">Test Results</h2>
           
           <div className="overflow-x-auto">
@@ -134,7 +142,7 @@ export default function QualityPage() {
         </section>
 
         {/* Quality Features */}
-        <section className="border-b-4 border-[#0F0F0F] p-8 lg:p-12 bg-[#D7D6CD]">
+        <section className="st-content-auto border-b-4 border-[#0F0F0F] p-8 lg:p-12 bg-[#D7D6CD]">
           <h2 className="font-grotesk text-4xl font-black uppercase tracking-tighter mb-8">Quality Features</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -144,7 +152,12 @@ export default function QualityPage() {
               { icon: Award, title: 'ISO Certified', desc: 'ISO 9001:2015 quality management' },
               { icon: Check, title: 'Tested Every Meter', desc: '100% spark testing on production line' },
             ].map((item, idx) => (
-              <div key={idx} className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 shadow-[8px_8px_0px_#0F0F0F]">
+              <div
+                key={idx}
+                data-st="zoom-in"
+                data-st-delay={idx * 90}
+                className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 shadow-[8px_8px_0px_#0F0F0F]"
+              >
                 <item.icon className="w-12 h-12 text-[#F23A18] mb-4" strokeWidth={1.5} />
                 <h3 className="font-grotesk font-black text-lg uppercase mb-2">{item.title}</h3>
                 <p className="font-mono-custom text-xs">{item.desc}</p>
@@ -154,7 +167,7 @@ export default function QualityPage() {
         </section>
 
         {/* Standards */}
-        <section className="border-b-4 border-[#0F0F0F] p-8 lg:p-12 bg-[#E4E3DB]">
+        <section className="st-content-auto border-b-4 border-[#0F0F0F] p-8 lg:p-12 bg-[#E4E3DB]">
           <h2 className="font-grotesk text-4xl font-black uppercase tracking-tighter mb-8">Compliance Standards</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

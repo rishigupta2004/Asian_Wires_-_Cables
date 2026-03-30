@@ -185,7 +185,7 @@ export const MobileVideoFallback: React.FC<MobileVideoFallbackProps> = ({
         loop
         playsInline
         onLoadedData={handleLoadedData}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-contain"
         style={{ 
           opacity: isLoaded ? 1 : 0,
           transition: 'opacity 0.5s ease',

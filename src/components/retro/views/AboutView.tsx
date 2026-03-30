@@ -1,16 +1,32 @@
 import React, { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
 import { BlueprintGrid, HalftoneGrid } from '../';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { useStringTuneAnimations } from '@/hooks/useStringTuneAnimations';
 
 interface AboutViewProps {
     handleNav: (id: string) => void;
 }
 
-const AnimatedNumber = ({ end, duration = 2000 }: { end: number, duration?: number }) => {
+const AnimatedNumber = ({
+    end,
+    duration = 2000,
+    disabled = false,
+}: {
+    end: number;
+    duration?: number;
+    disabled?: boolean;
+}) => {
     const [count, setCount] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        if (disabled) {
+            setCount(end);
+            return;
+        }
+
         const observer = new IntersectionObserver(([entry]) => {
             if (entry.isIntersecting) {
                 setIsVisible(true);
@@ -19,7 +35,7 @@ const AnimatedNumber = ({ end, duration = 2000 }: { end: number, duration?: numb
         });
         if (ref.current) observer.observe(ref.current);
         return () => observer.disconnect();
-    }, []);
+    }, [disabled, end]);
 
     useEffect(() => {
         if (!isVisible) return;
@@ -37,6 +53,22 @@ const AnimatedNumber = ({ end, duration = 2000 }: { end: number, duration?: numb
 };
 
 export const AboutView: React.FC<AboutViewProps> = ({ handleNav }) => {
+    const prefersReducedMotion = useReducedMotion();
+    useStringTuneAnimations();
+
+    const facilityImages = [
+        '/images/product-18.png',
+        '/images/product-17.png',
+        '/images/product-16.png',
+    ];
+
+    const leadershipProfiles = [
+        { name: "Rajesh K. Agarwal", role: "Managing Director", desc: "35 years in cable manufacturing", bg: '/images/product-13.png' },
+        { name: "Priya Sharma", role: "Head of Technology", desc: "XLPE & specialty cable R&D", bg: '/images/product-12.png' },
+        { name: "Amit Patel", role: "VP Operations", desc: "Plant operations & quality systems", bg: '/images/product-11.png' },
+        { name: "Sunita Verma", role: "Export Director", desc: "International sales & logistics", bg: '/images/product-10.png' },
+    ];
+
     return (
         <div className="min-h-screen bg-[#E4E3DB] relative text-[#0F0F0F] overflow-x-hidden selection:bg-[#FF3300] selection:text-[#E4E3DB]">
             <BlueprintGrid />
@@ -45,7 +77,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ handleNav }) => {
             <div className="relative z-10 max-w-7xl mx-auto border-x-4 border-[#0F0F0F] bg-[#E4E3DB] min-h-screen">
 
                 {/* SECTION 1: Header + Hero Stats */}
-                <div className="pt-20 px-6 lg:px-10 pb-10">
+                <div className="st-content-auto pt-20 px-6 lg:px-10 pb-10" data-st="fade-up">
                     <h1 className="font-grotesk font-black text-[12vw] md:text-[8vw] lg:text-[10vw] tracking-tighter uppercase leading-[0.85] mb-2">
                         ASIAN WIRES<br />
                         <span className="text-transparent" style={{ WebkitTextStroke: '3px #0F0F0F' }}>& CABLES.</span>
@@ -60,9 +92,14 @@ export const AboutView: React.FC<AboutViewProps> = ({ handleNav }) => {
                             { label: 'SKU CATALOG', value: 400, suffix: '+' },
                             { label: 'COUNTRIES', value: 18, suffix: '' }
                         ].map((stat, i) => (
-                            <div key={i} className={`p-8 border-b-4 lg:border-b-0 border-[#0F0F0F] ${i % 2 === 0 ? 'bg-[#E4E3DB]' : 'bg-[#D7D6CD]'} ${i < 3 ? 'border-r-4' : ''}`}>
+                            <div
+                                key={i}
+                                data-st="zoom-in"
+                                data-st-delay={i * 90}
+                                className={`p-8 border-b-4 lg:border-b-0 border-[#0F0F0F] ${i % 2 === 0 ? 'bg-[#E4E3DB]' : 'bg-[#D7D6CD]'} ${i < 3 ? 'border-r-4' : ''}`}
+                            >
                                 <div className="font-grotesk font-black text-5xl lg:text-7xl flex items-baseline">
-                                    <AnimatedNumber end={stat.value} duration={2000} />
+                                    <AnimatedNumber end={stat.value} duration={2000} disabled={prefersReducedMotion} />
                                     {stat.suffix && <span className="text-2xl lg:text-4xl ml-1">{stat.suffix}</span>}
                                 </div>
                                 <div className="font-mono text-[10px] tracking-widest opacity-50 mt-2 uppercase">{stat.label}</div>
@@ -108,17 +145,21 @@ export const AboutView: React.FC<AboutViewProps> = ({ handleNav }) => {
                     {/* RIGHT COLUMN */}
                     <div className="w-full lg:w-[55%] p-8 lg:p-10 bg-[#E4E3DB] flex flex-col justify-between">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                            {[
-                                "https://images.unsplash.com/photo-1581092160607-ee67df832b66?w=400&h=300&fit=crop&q=80",
-                                "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&q=80",
-                                "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=300&fit=crop&q=80"
-                            ].map((img, i) => (
-                                <div key={i} className="border-4 border-[#0F0F0F] shadow-[8px_8px_0px_#0F0F0F] relative group overflow-hidden aspect-video">
+                            {facilityImages.map((img, i) => (
+                                <div
+                                    key={i}
+                                    data-st="tilt-up"
+                                    data-st-delay={i * 110}
+                                    className="border-4 border-[#0F0F0F] shadow-[8px_8px_0px_#0F0F0F] relative group overflow-hidden aspect-video bg-[#f4f0eb]"
+                                >
                                     <div className="absolute inset-0 bg-[#FF3300]/10 mix-blend-color-burn z-10 pointer-events-none" />
-                                    <img
+                                    <Image
                                         src={img}
                                         alt={`Facility ${i + 1}`}
-                                        className="w-full h-full object-cover grayscale contrast-125 mix-blend-luminosity group-hover:grayscale-0 group-hover:mix-blend-normal transition-all duration-500"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        quality={95}
+                                        className="w-full h-full object-contain p-2 grayscale contrast-125 mix-blend-luminosity group-hover:grayscale-0 group-hover:mix-blend-normal transition-all duration-500"
                                     />
                                 </div>
                             ))}
@@ -153,7 +194,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ handleNav }) => {
                             { year: 2021, text: "CPRI approved testing laboratory inaugurated" },
                             { year: 2024, text: "120,000 MT/yr annual capacity milestone" }
                         ].map((item, i) => (
-                            <TimelineItem key={i} item={item} index={i} />
+                            <TimelineItem key={i} item={item} index={i} disabled={prefersReducedMotion} />
                         ))}
                     </div>
                 </div>
@@ -165,16 +206,23 @@ export const AboutView: React.FC<AboutViewProps> = ({ handleNav }) => {
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {[
-                            { name: "Rajesh K. Agarwal", role: "Managing Director", desc: "35 years in cable manufacturing", bg: "https://ui-avatars.com/api/?name=Rajesh+Agarwal&background=0F0F0F&color=E4E3DB&size=400&font-size=0.33&length=2&bold=true" },
-                            { name: "Priya Sharma", role: "Head of Technology", desc: "XLPE & specialty cable R&D", bg: "https://ui-avatars.com/api/?name=Priya+Sharma&background=0F0F0F&color=E4E3DB&size=400&font-size=0.33&length=2&bold=true" },
-                            { name: "Amit Patel", role: "VP Operations", desc: "Plant operations & quality systems", bg: "https://ui-avatars.com/api/?name=Amit+Patel&background=0F0F0F&color=E4E3DB&size=400&font-size=0.33&length=2&bold=true" },
-                            { name: "Sunita Verma", role: "Export Director", desc: "International sales & logistics", bg: "https://ui-avatars.com/api/?name=Sunita+Verma&background=0F0F0F&color=E4E3DB&size=400&font-size=0.33&length=2&bold=true" }
-                        ].map((person, i) => (
-                            <div key={i} className="border-4 border-[#0F0F0F] bg-[#E4E3DB] shadow-[8px_8px_0px_#0F0F0F] flex flex-col group hover:-translate-y-2 hover:shadow-[12px_12px_0px_#FF3300] transition-all duration-300">
+                        {leadershipProfiles.map((person, i) => (
+                            <div
+                                key={i}
+                                data-st="fade-up"
+                                data-st-delay={i * 100}
+                                className="border-4 border-[#0F0F0F] bg-[#E4E3DB] shadow-[8px_8px_0px_#0F0F0F] flex flex-col group hover:-translate-y-2 hover:shadow-[12px_12px_0px_#FF3300] transition-all duration-300"
+                            >
                                 <div className="aspect-square bg-[#D7D6CD] overflow-hidden border-b-4 border-[#0F0F0F] relative">
                                     <div className="absolute inset-0 bg-halftone opacity-20" />
-                                    <img src={person.bg} alt={person.name} className="w-full h-full object-cover grayscale mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" />
+                                    <Image
+                                        src={person.bg}
+                                        alt={person.name}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 25vw"
+                                        quality={95}
+                                        className="w-full h-full object-contain p-5 grayscale mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity"
+                                    />
                                 </div>
                                 <div className="p-5 flex-1 flex flex-col">
                                     <h3 className="font-grotesk font-black text-xl mb-1">{person.name}</h3>
@@ -233,11 +281,16 @@ export const AboutView: React.FC<AboutViewProps> = ({ handleNav }) => {
     );
 };
 
-const TimelineItem = ({ item, index }: { item: any, index: number }) => {
+const TimelineItem = ({ item, index, disabled = false }: { item: any, index: number, disabled?: boolean }) => {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        if (disabled) {
+            setIsVisible(true);
+            return;
+        }
+
         const observer = new IntersectionObserver(([entry]) => {
             if (entry.isIntersecting) {
                 setTimeout(() => setIsVisible(true), index * 100);
@@ -247,7 +300,7 @@ const TimelineItem = ({ item, index }: { item: any, index: number }) => {
 
         if (ref.current) observer.observe(ref.current);
         return () => observer.disconnect();
-    }, [index]);
+    }, [disabled, index]);
 
     return (
         <div

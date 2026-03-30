@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef, useCallback, type MouseEvent } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Barcode, GUIWindow, HalftoneGrid, RegistrationMarks, TextReveal } from '@/components/retro';
+import { Barcode, GUIWindow, RegistrationMarks } from '@/components/retro';
 import RetroNavigation from '@/components/RetroNavigation';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { useStringTuneAnimations } from '@/hooks/useStringTuneAnimations';
 
 const categories = ['All', 'Speaker', 'Audio', 'CCTV', 'Multi-Core', 'Digital', 'Industrial'];
 
@@ -263,11 +265,46 @@ export default function ProductsPage() {
   const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
   const [hoveredRow, setHoveredRow] = useState<typeof products[0] | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isDesktopPointer, setIsDesktopPointer] = useState(false);
+  const mouseRafRef = useRef<number | null>(null);
+  const mousePendingRef = useRef({ x: 0, y: 0 });
+  const prefersReducedMotion = useReducedMotion();
+
+  useStringTuneAnimations();
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1024px) and (pointer: fine) and (hover: hover)');
+    const updatePointer = () => {
+      setIsDesktopPointer(mediaQuery.matches);
+    };
+
+    updatePointer();
+    mediaQuery.addEventListener('change', updatePointer);
+
+    return () => {
+      mediaQuery.removeEventListener('change', updatePointer);
+      if (mouseRafRef.current !== null) {
+        cancelAnimationFrame(mouseRafRef.current);
+      }
+    };
+  }, []);
+
+  const handleMouseMove = useCallback((event: MouseEvent<HTMLTableSectionElement>) => {
+    if (!isDesktopPointer || prefersReducedMotion || !hoveredRow) return;
+
+    mousePendingRef.current = { x: event.clientX, y: event.clientY };
+    if (mouseRafRef.current !== null) return;
+
+    mouseRafRef.current = requestAnimationFrame(() => {
+      setMousePos(mousePendingRef.current);
+      mouseRafRef.current = null;
+    });
+  }, [hoveredRow, isDesktopPointer, prefersReducedMotion]);
 
   const filteredProducts = filter === 'All' ? products : products.filter(p => p.category === filter);
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-[#E4E3DB] text-[#0F0F0F] font-sans overflow-x-hidden selection:bg-[#F23A18] selection:text-[#0F0F0F] cursor-none relative">
+    <div className={`flex flex-col lg:flex-row min-h-screen bg-[#E4E3DB] text-[#0F0F0F] font-sans overflow-x-hidden selection:bg-[#F23A18] selection:text-[#0F0F0F] relative ${isDesktopPointer ? 'cursor-none' : 'cursor-auto'}`}>
       <RetroNavigation />
       
       <main className="w-full lg:w-[calc(100%-320px)] mt-[72px] lg:mt-0 relative z-10 bg-[#E4E3DB]">
@@ -275,7 +312,11 @@ export default function ProductsPage() {
         {/* Dynamic Preview Window */}
         <div 
           className="pointer-events-none fixed z-50 w-72 transition-opacity duration-150 hidden lg:block"
-          style={{ left: mousePos.x + 20, top: mousePos.y + 20, opacity: hoveredRow ? 1 : 0 }}
+          style={{
+            left: mousePos.x + 20,
+            top: mousePos.y + 20,
+            opacity: hoveredRow && isDesktopPointer && !prefersReducedMotion ? 1 : 0,
+          }}
         >
           <GUIWindow title="PREVIEW_RENDER.EXE">
             <div className="bg-[#E4E3DB] border-t-4 border-[#0F0F0F] p-4 shadow-[inset_4px_4px_0px_rgba(0,0,0,0.1)]">
@@ -306,7 +347,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Header */}
-        <div className="border-b-4 border-[#0F0F0F] p-6 lg:p-10 bg-[#0F0F0F] text-[#E4E3DB]">
+        <div data-st="fade-up" className="st-content-auto border-b-4 border-[#0F0F0F] p-6 lg:p-10 bg-[#0F0F0F] text-[#E4E3DB]">
           <div className="flex items-center gap-4 mb-4">
             <Link href="/" className="flex items-center gap-2 text-xs font-mono-custom hover:text-[#F23A18] transition-colors">
               <ArrowLeft className="w-4 h-4" /> RETURN_DIR
@@ -317,7 +358,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Filters */}
-        <div className="border-b-4 border-[#0F0F0F] p-4 lg:p-6 bg-[#D7D6CD] flex flex-wrap gap-3">
+        <div data-st="fade-up" data-st-delay={100} className="st-content-auto border-b-4 border-[#0F0F0F] p-4 lg:p-6 bg-[#D7D6CD] flex flex-wrap gap-3">
           {categories.map(cat => (
             <button 
               key={cat}
@@ -334,7 +375,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Products Table */}
-        <div className="p-4 lg:p-6">
+        <div data-st="fade-up" data-st-delay={180} className="st-content-auto p-4 lg:p-6">
           <div className="w-full overflow-x-auto border-4 border-[#0F0F0F] bg-[#0000AA] shadow-[12px_12px_0px_#0F0F0F]">
             <table className="w-full text-left font-mono-custom text-sm min-w-[900px] border-collapse">
               <thead className="bg-[#E4E3DB] text-[#0F0F0F] text-xs tracking-widest border-4 border-[#0F0F0F]">
@@ -346,14 +387,14 @@ export default function ProductsPage() {
                   <th className="p-4 font-black">ACTION</th>
                 </tr>
               </thead>
-              <tbody className="text-[#E4E3DB]" onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}>
+              <tbody className="text-[#E4E3DB]" onMouseMove={handleMouseMove}>
                 {filteredProducts.map((product, i) => (
                   <tr 
                     key={product.id}
                     onMouseEnter={() => setHoveredRow(product)}
                     onMouseLeave={() => setHoveredRow(null)}
                     onClick={() => setSelectedProduct(product)}
-                    className="hover:bg-[#E4E3DB] hover:text-[#0F0F0F] transition-colors cursor-crosshair group border-b-2 border-[#E4E3DB]/20"
+                    className={`hover:bg-[#E4E3DB] hover:text-[#0F0F0F] transition-colors group border-b-2 border-[#E4E3DB]/20 ${isDesktopPointer ? 'cursor-crosshair' : 'cursor-pointer'}`}
                   >
                     <td className="p-4 font-black group-hover:text-[#F23A18] border-r-2 border-[#E4E3DB]/20">{product.partNumber}</td>
                     <td className="p-4 font-grotesk font-black text-xl tracking-tight uppercase border-r-2 border-[#E4E3DB]/20">{product.name}</td>
@@ -388,6 +429,17 @@ export default function ProductsPage() {
               <div className="p-6">
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="md:w-1/2">
+                    <div className="border-4 border-[#0F0F0F] mb-4 bg-[#0F0F0F]/5 h-52 relative overflow-hidden">
+                      <Image
+                        src={selectedProduct.image}
+                        alt={selectedProduct.name}
+                        fill
+                        className="object-contain p-4"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        quality={100}
+                        priority
+                      />
+                    </div>
                     <GUIWindow title="SCHEMATIC.EXE" className="w-full">
                       <div className="bg-[#E4E3DB] p-4 border-t-4 border-[#0F0F0F]">
                         <RegistrationMarks />

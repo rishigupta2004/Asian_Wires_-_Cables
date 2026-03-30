@@ -102,7 +102,7 @@ export function ImageScan({
   if (prefersReducedMotion) {
     return (
       <div className={`relative overflow-hidden ${className}`}>
-        <img src={src} alt={alt} className="w-full h-full object-cover" />
+        <img src={src} alt={alt} decoding="async" loading="lazy" className="w-full h-full object-contain" />
       </div>
     );
   }
@@ -114,7 +114,7 @@ export function ImageScan({
       whileHover={scanOnHover ? { scale: 1.02 } : {}}
       transition={{ duration: 0.3 }}
     >
-      <img src={src} alt={alt} className="w-full h-full object-cover" />
+      <img src={src} alt={alt} decoding="async" loading="lazy" className="w-full h-full object-contain" />
       
       {/* Scan line overlay */}
       <motion.div

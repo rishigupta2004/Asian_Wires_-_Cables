@@ -81,7 +81,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             src={image}
             alt={name}
             fill
-            className="object-cover"
+            className="object-contain p-3"
+            sizes="(max-width: 768px) 100vw, 33vw"
+            quality={95}
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { MapPin, Phone, Mail, Send, CheckCircle } from 'lucide-react';
 import { Barcode, GUIWindow } from '@/components/retro';
 import RetroNavigation from '@/components/RetroNavigation';
+import { useStringTuneAnimations } from '@/hooks/useStringTuneAnimations';
 
 const CONTACT_INFO = {
   address: {
@@ -21,6 +22,8 @@ const CONTACT_INFO = {
 };
 
 export default function ContactPage() {
+  useStringTuneAnimations();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -41,24 +44,24 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-[#E4E3DB] text-[#0F0F0F] font-sans overflow-x-hidden selection:bg-[#F23A18] selection:text-[#0F0F0F] cursor-none relative">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-[#E4E3DB] text-[#0F0F0F] font-sans overflow-x-hidden selection:bg-[#F23A18] selection:text-[#0F0F0F] lg:cursor-none relative">
       <RetroNavigation />
       
       <main className="w-full lg:w-[calc(100%-320px)] mt-[72px] lg:mt-0 relative z-10 bg-[#E4E3DB]">
         
         {/* Hero */}
-        <section className="border-b-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-8 lg:p-12">
-          <h1 className="font-grotesk text-5xl lg:text-7xl font-black uppercase tracking-tighter mb-4">
+        <section className="st-content-auto border-b-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-8 lg:p-12">
+          <h1 data-st="fade-up" className="font-grotesk text-5xl lg:text-7xl font-black uppercase tracking-tighter mb-4">
             Comm <span className="text-[#F23A18]">Link</span>
           </h1>
-          <p className="font-mono-custom text-lg">
+          <p data-st="fade-up" data-st-delay={100} className="font-mono-custom text-lg">
             Get in touch with our team for product inquiries, quotes, and technical support.
           </p>
         </section>
 
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Contact Form */}
-          <section className="p-8 lg:p-12 border-b-4 lg:border-b-0 lg:border-r-4 border-[#0F0F0F] bg-[#E4E3DB]">
+          <section className="st-content-auto p-8 lg:p-12 border-b-4 lg:border-b-0 lg:border-r-4 border-[#0F0F0F] bg-[#E4E3DB]">
             <h2 className="font-grotesk text-3xl font-black uppercase tracking-tighter mb-8">Send Message</h2>
             
             {isSubmitted ? (
@@ -172,11 +175,11 @@ export default function ContactPage() {
           </section>
 
           {/* Contact Info */}
-          <section className="p-8 lg:p-12 bg-[#D7D6CD]">
+          <section className="st-content-auto p-8 lg:p-12 bg-[#D7D6CD]">
             <h2 className="font-grotesk text-3xl font-black uppercase tracking-tighter mb-8">Contact Info</h2>
             
             <div className="space-y-6">
-              <div className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 shadow-[8px_8px_0px_#0F0F0F]">
+              <div data-st="fade-left" className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 shadow-[8px_8px_0px_#0F0F0F]">
                 <div className="flex items-start gap-4">
                   <MapPin className="w-8 h-8 text-[#F23A18] flex-shrink-0" strokeWidth={1.5} />
                   <div>
@@ -186,7 +189,7 @@ export default function ContactPage() {
                 </div>
               </div>
               
-              <div className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 shadow-[8px_8px_0px_#0F0F0F]">
+              <div data-st="fade-left" data-st-delay={80} className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 shadow-[8px_8px_0px_#0F0F0F]">
                 <div className="flex items-start gap-4">
                   <Phone className="w-8 h-8 text-[#F23A18] flex-shrink-0" strokeWidth={1.5} />
                   <div>
@@ -197,7 +200,7 @@ export default function ContactPage() {
                 </div>
               </div>
               
-              <div className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 shadow-[8px_8px_0px_#0F0F0F]">
+              <div data-st="fade-left" data-st-delay={160} className="border-4 border-[#0F0F0F] bg-[#E4E3DB] p-6 shadow-[8px_8px_0px_#0F0F0F]">
                 <div className="flex items-start gap-4">
                   <Mail className="w-8 h-8 text-[#F23A18] flex-shrink-0" strokeWidth={1.5} />
                   <div>
@@ -208,7 +211,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="border-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-6 shadow-[8px_8px_0px_#F23A18]">
+              <div data-st="fade-left" data-st-delay={240} className="border-4 border-[#0F0F0F] bg-[#0F0F0F] text-[#E4E3DB] p-6 shadow-[8px_8px_0px_#F23A18]">
                 <h3 className="font-mono-custom text-xs font-bold uppercase tracking-widest mb-2">Business Hours</h3>
                 <p className="font-mono-custom text-sm">{CONTACT_INFO.hours}</p>
               </div>

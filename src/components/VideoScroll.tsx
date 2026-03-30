@@ -82,7 +82,12 @@ export const VideoScroll: React.FC<VideoScrollProps> = ({
           <img
             src={posterUrl}
             alt={`${tier} ${wireType} wire`}
-            className="w-full h-full object-cover opacity-50"
+            width={1280}
+            height={720}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-contain opacity-70"
+            style={{ imageRendering: 'auto' }}
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/20 p-4 text-center">
             <AlertCircle className="w-8 h-8 text-[var(--foreground-tertiary)] mb-2" />
@@ -100,7 +105,7 @@ export const VideoScroll: React.FC<VideoScrollProps> = ({
           muted
           playsInline
           loop={false}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
           onLoadedMetadata={handleLoadedMetadata}
           onError={handleError}
           style={{

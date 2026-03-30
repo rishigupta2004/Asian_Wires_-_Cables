@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Mail, Phone, Globe, MapPin, QrCode, ShieldCheck, Award, ArrowRight, Cpu, Zap, ChevronsRight } from "lucide-react";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 // --- Dynamic Glass Reflection Physics ---
 const GlassReflection = React.memo(({ dark = false }: { dark?: boolean }) => (
@@ -249,17 +250,43 @@ export default function AsianCard() {
   const [hasGyro, setHasGyro] = useState(false);
   const [flipCount, setFlipCount] = useState(0);
   const [animeLoaded, setAnimeLoaded] = useState(false);
+  const [isDesktopPointer, setIsDesktopPointer] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(pointer: fine) and (hover: hover)');
+    const updatePointerMode = () => {
+      setIsDesktopPointer(mediaQuery.matches);
+    };
+
+    updatePointerMode();
+    mediaQuery.addEventListener('change', updatePointerMode);
+
+    return () => {
+      mediaQuery.removeEventListener('change', updatePointerMode);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isDesktopPointer || prefersReducedMotion) {
+      setAnimeLoaded(false);
+      return;
+    }
+
     if ((window as any).anime) {
       setAnimeLoaded(true);
       return;
     }
+
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js';
     script.onload = () => setAnimeLoaded(true);
     document.body.appendChild(script);
-  }, []);
+
+    return () => {
+      script.remove();
+    };
+  }, [isDesktopPointer, prefersReducedMotion]);
 
   const isFlippedRef = useRef(isFlipped);
   useEffect(() => { isFlippedRef.current = isFlipped; }, [isFlipped]);
@@ -275,6 +302,16 @@ export default function AsianCard() {
   }, []);
 
   useEffect(() => {
+    if (prefersReducedMotion) {
+      const card = cardRef.current;
+      if (card) {
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+        card.style.setProperty('--go', '0');
+      }
+      return;
+    }
+
     const wrapper = wrapperRef.current;
     const card = cardRef.current;
     if (!wrapper || !card) return;
@@ -362,7 +399,7 @@ export default function AsianCard() {
       wrapper.removeEventListener('mouseleave', onMouseLeave);
       cancelAnimationFrame(rafId);
     };
-  }, [hasGyro]);
+  }, [hasGyro, prefersReducedMotion]);
 
   return (
     <div className="w-full flex flex-col items-center justify-center relative perspective-[5000px] z-10 w-full font-mono">
@@ -444,8 +481,14 @@ export default function AsianCard() {
             filter: drop-shadow(0px 1px 1px rgba(255,255,255,0.8));
           }
 
-          .deep-shadow { filter: drop-shadow(calc(var(--ry) * -0.6px) calc(var(--rx) * 0.6px) 20px rgba(0,0,0,0.1)) drop-shadow(0px 5px 10px rgba(0,0,0,0.05)); }
-          .deep-shadow-vibrant { filter: drop-shadow(calc(var(--ry) * -1px) calc(var(--rx) * 1px) 30px rgba(153,27,27,0.5)) drop-shadow(0px 10px 15px rgba(127,29,29,0.4)); }
+          @media (hover: hover) and (pointer: fine) {
+            .deep-shadow { filter: drop-shadow(calc(var(--ry) * -0.6px) calc(var(--rx) * 0.6px) 20px rgba(0,0,0,0.1)) drop-shadow(0px 5px 10px rgba(0,0,0,0.05)); }
+            .deep-shadow-vibrant { filter: drop-shadow(calc(var(--ry) * -1px) calc(var(--rx) * 1px) 30px rgba(153,27,27,0.5)) drop-shadow(0px 10px 15px rgba(127,29,29,0.4)); }
+          }
+          @media (max-width: 768px), (hover: none) and (pointer: coarse) {
+            .deep-shadow { filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.15)) drop-shadow(0px 5px 10px rgba(0,0,0,0.05)); }
+            .deep-shadow-vibrant { filter: drop-shadow(0px 15px 30px rgba(153,27,27,0.6)) drop-shadow(0px 10px 15px rgba(127,29,29,0.5)); }
+          }
           .blend-logo { mix-blend-mode: multiply; }
         `
       }} />
@@ -460,7 +503,7 @@ export default function AsianCard() {
       >
         <div 
           ref={cardRef}
-          className={`w-full h-full preserve-3d hw-accel ${!isHovered && !isFlipped && !hasGyro ? 'animate-float-card' : ''}`}
+          className={`w-full h-full preserve-3d hw-accel ${!prefersReducedMotion && isDesktopPointer && !isHovered && !isFlipped && !hasGyro ? 'animate-float-card' : ''}`}
           style={{ transform: 'rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))' }}
         >
           <div 
@@ -512,9 +555,14 @@ export default function AsianCard() {
                       <img 
                         src="/Assests/Brand_Logo/LOGO-2.svg" 
                         alt="Asian Computeronics Logo" 
+                        width={240}
+                        height={240}
+                        decoding="async"
+                        loading="eager"
+                        fetchPriority="high"
                         className="w-full h-full object-contain pointer-events-none drop-shadow-[0_4px_8px_rgba(0,0,0,0.08)] z-10" 
                         style={{ transform: 'translateZ(10px)' }}
-                        onError={(e: any) => { e.target.onerror = null; e.target.src = 'https://placehold.co/200x200/ffffff/dc2626?text=ASIAN'; }}
+                        onError={(e: any) => { e.target.onerror = null; e.target.src = '/Assests/Brand_Logo/ASIAN.png'; }}
                       />
                     </div>
                   </div>
@@ -528,13 +576,13 @@ export default function AsianCard() {
                     
                     <div className="grid grid-cols-3 gap-4 w-full max-w-[360px] px-2 preserve-3d">
                       <div className="bg-white/60 backdrop-blur-md rounded-xl p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/Assests/Brand_Logo/ASIAN.png" alt="Wires" className="h-14 sm:h-16 w-auto object-contain blend-logo opacity-90" onError={(e: any) => e.target.src='https://placehold.co/100x40/ffffff/000000?text=ASIAN'} />
+                         <img src="/Assests/Brand_Logo/ASIAN.png" alt="Wires" width={120} height={64} className="h-14 sm:h-16 max-w-full object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => e.target.src='/Assests/Brand_Logo/LOGO-2.svg'} />
                       </div>
                       <div className="bg-white/60 backdrop-blur-md rounded-xl p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/Assests/Brand_Logo/True_MAster.png" alt="Master" className="h-14 sm:h-16 w-auto object-contain blend-logo opacity-90" onError={(e: any) => e.target.src='https://placehold.co/100x40/ffffff/000000?text=MASTER'} />
+                         <img src="/Assests/Brand_Logo/True_MAster.png" alt="Master" width={120} height={64} className="h-14 sm:h-16 max-w-full object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => e.target.src='/Assests/Brand_Logo/LOGO-2.svg'} />
                       </div>
                       <div className="bg-white/60 backdrop-blur-md rounded-xl p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/Assests/Brand_Logo/M1_VOICE.png" alt="Voice" className="h-14 sm:h-16 w-auto object-contain blend-logo opacity-90" onError={(e: any) => e.target.src='https://placehold.co/100x40/ffffff/000000?text=VOICE'} />
+                         <img src="/Assests/Brand_Logo/M1_VOICE.png" alt="Voice" width={120} height={64} className="h-14 sm:h-16 max-w-full object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => e.target.src='/Assests/Brand_Logo/LOGO-2.svg'} />
                       </div>
                     </div>
                   </div>
@@ -573,7 +621,7 @@ export default function AsianCard() {
                 <div className="absolute inset-0 magnetic-sheen-vibrant z-20 transition-opacity duration-300" />
                 
                 <div className="absolute -bottom-16 -left-16 opacity-[0.04] transform rotate-12">
-                  <img src="/Assests/Brand_Logo/LOGO-2.svg" alt="" className="w-96 h-96 invert" onError={(e: any) => e.target.style.display='none'}/>
+                  <img src="/Assests/Brand_Logo/LOGO-2.svg" alt="" width={384} height={384} decoding="async" loading="lazy" className="w-96 h-96 max-w-none invert object-contain" onError={(e: any) => e.target.style.display='none'}/>
                 </div>
               </div>
 
