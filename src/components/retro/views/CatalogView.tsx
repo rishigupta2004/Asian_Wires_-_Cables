@@ -5,12 +5,14 @@ import { ArrowUpRight, Search, LayoutGrid, List } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { fullCatalog } from '../../../lib/catalogData';
+import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [filter, setFilter] = useState('ALL CATEGORIES');
     const [searchQuery, setSearchQuery] = useState('');
     const [viewMode, setViewMode] = useState<'gallery' | 'list'>('gallery');
+    const prefersReducedMotion = useReducedMotion();
 
     const filteredCatalog = useMemo(() => {
         return fullCatalog.filter(c => {
@@ -28,15 +30,17 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
     }, []);
 
     useGSAP(() => {
+        if (prefersReducedMotion) return;
+
         gsap.from(".product-item", {
-            y: 40,
+            y: 28,
             opacity: 0,
-            duration: 0.7,
-            stagger: 0.04,
+            duration: 0.45,
+            stagger: 0.025,
             ease: "power3.out",
             clearProps: "all"
         });
-    }, { scope: containerRef, dependencies: [filter, viewMode] });
+    }, { scope: containerRef, dependencies: [filter, viewMode, prefersReducedMotion] });
 
     const handleProductClick = (item: any) => {
         if (item.variants && item.variants.length > 0) {
@@ -66,13 +70,13 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                             <div className="flex items-center bg-[#1C1C19]/[0.04] rounded-full p-1 gap-1">
                                 <button
                                     onClick={() => setViewMode('gallery')}
-                                    className={`p-2.5 rounded-full transition-all duration-300 cursor-none ${viewMode === 'gallery' ? 'bg-[#1C1C19] text-[#F4F0EB]' : 'text-[#1C1C19]/40 hover:text-[#1C1C19]/70'}`}
+                                    className={`p-2.5 rounded-full transition-all duration-300 md:cursor-none ${viewMode === 'gallery' ? 'bg-[#1C1C19] text-[#F4F0EB]' : 'text-[#1C1C19]/40 hover:text-[#1C1C19]/70'}`}
                                 >
                                     <LayoutGrid className="w-4 h-4" />
                                 </button>
                                 <button
                                     onClick={() => setViewMode('list')}
-                                    className={`p-2.5 rounded-full transition-all duration-300 cursor-none ${viewMode === 'list' ? 'bg-[#1C1C19] text-[#F4F0EB]' : 'text-[#1C1C19]/40 hover:text-[#1C1C19]/70'}`}
+                                    className={`p-2.5 rounded-full transition-all duration-300 md:cursor-none ${viewMode === 'list' ? 'bg-[#1C1C19] text-[#F4F0EB]' : 'text-[#1C1C19]/40 hover:text-[#1C1C19]/70'}`}
                                 >
                                     <List className="w-4 h-4" />
                                 </button>
@@ -88,7 +92,7 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                                     placeholder="Search..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="w-full bg-[#1C1C19]/[0.04] border border-[#1C1C19]/5 rounded-full py-3 pl-12 pr-6 font-mono text-sm text-[#1C1C19] placeholder-[#1C1C19]/30 focus:ring-1 focus:ring-[#FF4A1C]/30 outline-none cursor-none"
+                                    className="w-full bg-[#1C1C19]/[0.04] border border-[#1C1C19]/5 rounded-full py-3 pl-12 pr-6 font-mono text-sm text-[#1C1C19] placeholder-[#1C1C19]/30 focus:ring-1 focus:ring-[#FF4A1C]/30 outline-none md:cursor-none"
                                 />
                             </div>
                         </div>
@@ -100,7 +104,7 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                             <button
                                 key={f}
                                 onClick={() => setFilter(f)}
-                                className={`px-5 py-2.5 rounded-full font-mono text-[10px] font-bold tracking-[0.15em] uppercase whitespace-nowrap transition-all duration-500 cursor-none ${filter === f
+                                className={`px-5 py-2.5 rounded-full font-mono text-[10px] font-bold tracking-[0.15em] uppercase whitespace-nowrap transition-all duration-500 md:cursor-none ${filter === f
                                     ? 'bg-[#1C1C19] text-[#F4F0EB]'
                                     : 'bg-[#1C1C19]/[0.04] text-[#1C1C19]/50 hover:bg-[#1C1C19]/[0.08]'
                                 }`}
@@ -117,12 +121,12 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                 
                 {/* ═══ GALLERY VIEW ═══ */}
                 {viewMode === 'gallery' && (
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
                         {filteredCatalog.length > 0 ? (
-                            filteredCatalog.map((item) => (
+                            filteredCatalog.map((item, index) => (
                                 <div
                                     key={item.id}
-                                    className="product-item group relative bg-white rounded-2xl md:rounded-3xl overflow-hidden cursor-none border border-[#1C1C19]/[0.04] hover:border-[#FF4A1C]/20 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(17,20,26,0.08)]"
+                                    className="product-item group relative bg-white rounded-2xl md:rounded-3xl overflow-hidden md:cursor-none border border-[#1C1C19]/[0.04] hover:border-[#FF4A1C]/20 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(17,20,26,0.08)]"
                                     onClick={() => handleProductClick(item)}
                                 >
                                     {/* Image */}
@@ -131,8 +135,14 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                                             <img
                                                 src={item.image}
                                                 alt={item.type}
-                                                loading="lazy"
-                                                className="w-full h-full object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                                                width={640}
+                                                height={640}
+                                                loading={index < 4 ? 'eager' : 'lazy'}
+                                                decoding="async"
+                                                fetchPriority={index < 2 ? 'high' : 'auto'}
+                                                className="w-full h-full object-contain object-center p-5 md:p-6 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                                                style={{ imageRendering: 'auto' }}
+                                                draggable={false}
                                                 onError={(e) => {
                                                     (e.target as HTMLImageElement).src = '/Assests/Brand_Logo/LOGO-2.svg';
                                                     (e.target as HTMLImageElement).className = 'w-1/2 h-1/2 object-contain opacity-10 m-auto';
@@ -140,7 +150,7 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                                             />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center">
-                                                <img src="/Assests/Brand_Logo/LOGO-2.svg" alt="" className="w-1/3 opacity-10" />
+                                                <img src="/Assests/Brand_Logo/LOGO-2.svg" alt="" decoding="async" loading="lazy" className="w-1/3 object-contain opacity-10" />
                                             </div>
                                         )}
                                         
@@ -181,19 +191,29 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                             filteredCatalog.map((item, i) => (
                                 <div
                                     key={item.id}
-                                    className="product-item group relative flex items-center gap-6 py-6 md:py-8 border-b border-[#1C1C19]/[0.06] cursor-none overflow-hidden"
+                                    className="product-item group relative flex items-center gap-4 md:gap-6 py-6 md:py-8 border-b border-[#1C1C19]/[0.06] md:cursor-none overflow-hidden"
                                     onClick={() => handleProductClick(item)}
                                 >
                                     {/* Hover fill */}
                                     <div className="absolute inset-0 bg-[#FF4A1C] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] z-0 rounded-xl" />
 
                                     {/* Thumbnail */}
-                                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden bg-[#1C1C19]/[0.03] shrink-0 z-10">
+                                    <div className="w-16 h-16 md:w-24 md:h-24 rounded-xl overflow-hidden bg-[#1C1C19]/[0.03] shrink-0 z-10 flex items-center justify-center p-2">
                                         {item.image ? (
-                                            <img src={item.image} alt={item.type} loading="lazy" className="w-full h-full object-cover" />
+                                            <img
+                                                src={item.image}
+                                                alt={item.type}
+                                                width={192}
+                                                height={192}
+                                                loading="lazy"
+                                                decoding="async"
+                                                className="w-full h-full object-contain object-center"
+                                                style={{ imageRendering: 'auto' }}
+                                                draggable={false}
+                                            />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center opacity-20">
-                                                <img src="/Assests/Brand_Logo/LOGO-2.svg" alt="" className="w-1/2" />
+                                                <img src="/Assests/Brand_Logo/LOGO-2.svg" alt="" decoding="async" loading="lazy" className="w-1/2 object-contain" />
                                             </div>
                                         )}
                                     </div>

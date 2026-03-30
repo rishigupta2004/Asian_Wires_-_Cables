@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 
 export const CustomCursor = () => {
   const ringRef = useRef<HTMLDivElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
+  const [enabled, setEnabled] = useState(false);
   const posRef = useRef({ x: -100, y: -100 });
   const ringPosRef = useRef({ x: -100, y: -100 });
   const isHoveringRef = useRef(false);
@@ -32,6 +33,29 @@ export const CustomCursor = () => {
   }, []);
 
   useEffect(() => {
+    const pointerQuery = window.matchMedia('(pointer: fine)');
+    const hoverQuery = window.matchMedia('(hover: hover)');
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const updateEnabled = () => {
+      setEnabled(pointerQuery.matches && hoverQuery.matches && !reducedMotionQuery.matches);
+    };
+
+    updateEnabled();
+    pointerQuery.addEventListener('change', updateEnabled);
+    hoverQuery.addEventListener('change', updateEnabled);
+    reducedMotionQuery.addEventListener('change', updateEnabled);
+
+    return () => {
+      pointerQuery.removeEventListener('change', updateEnabled);
+      hoverQuery.removeEventListener('change', updateEnabled);
+      reducedMotionQuery.removeEventListener('change', updateEnabled);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
+
     const onMove = (e: MouseEvent) => {
       posRef.current.x = e.clientX;
       posRef.current.y = e.clientY;
@@ -55,10 +79,14 @@ export const CustomCursor = () => {
       window.removeEventListener('mouseover', onOver);
       cancelAnimationFrame(rafRef.current);
     };
-  }, [animate]);
+  }, [animate, enabled]);
+
+  if (!enabled) {
+    return null;
+  }
 
   return (
-    <div className="hidden md:block pointer-events-none fixed inset-0 z-[9999]">
+    <div className="pointer-events-none fixed inset-0 z-[9999]">
       <div
         ref={ringRef}
         className="absolute top-0 left-0 w-8 h-8 rounded-full border border-white mix-blend-difference will-change-transform"

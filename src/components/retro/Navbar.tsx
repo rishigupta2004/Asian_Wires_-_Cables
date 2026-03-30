@@ -27,11 +27,18 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                 <div className="relative w-full h-full max-w-[1920px] mx-auto px-6 md:px-16 lg:px-32 flex items-center justify-between">
                     
                     {/* Brand */}
-                    <div className="flex items-center gap-4 cursor-none" onClick={() => handleNav('HOME')}>
+                    <div className="flex items-center gap-4 md:cursor-none" onClick={() => handleNav('HOME')}>
                         <img 
                             src="/Assests/Brand_Logo/LOGO-2.svg" 
                             alt="Asian Computeronics & Electronics" 
+                            width={180}
+                            height={54}
+                            loading="eager"
+                            decoding="async"
+                            fetchPriority="high"
                             className="h-9 md:h-10 w-auto object-contain" 
+                            style={{ imageRendering: 'auto' }}
+                            draggable={false}
                             onError={(e: any) => e.target.style.display='none'} 
                         />
                         <div className="hidden sm:flex flex-col">
@@ -46,7 +53,7 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                             <button
                                 key={item.id}
                                 onClick={() => handleNav(item.id)}
-                                className={`relative font-mono text-[10px] tracking-[0.25em] font-bold uppercase py-2 cursor-none transition-all duration-500 ${
+                                className={`relative font-mono text-[10px] tracking-[0.25em] font-bold uppercase py-2 md:cursor-none transition-all duration-500 ${
                                     activeView === item.id
                                         ? 'text-[#1C1C19]'
                                         : 'text-[#1C1C19]/30 hover:text-[#1C1C19]/60'
@@ -64,7 +71,7 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                     <div className="flex items-center gap-3">
                         <button 
                             onClick={() => setContactOpen(true)}
-                            className="hidden md:flex items-center gap-3 px-6 py-2.5 rounded-full bg-[#1C1C19] text-[#F4F0EB] hover:bg-[#FF4A1C] transition-colors duration-500 font-mono text-[10px] uppercase font-bold tracking-[0.2em] cursor-none"
+                            className="hidden md:flex items-center gap-3 px-6 py-2.5 rounded-full bg-[#1C1C19] text-[#F4F0EB] hover:bg-[#FF4A1C] transition-colors duration-500 font-mono text-[10px] uppercase font-bold tracking-[0.2em] md:cursor-none"
                         >
                             <span className="relative flex h-1.5 w-1.5">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F4F0EB] opacity-75" />
@@ -74,7 +81,7 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                         </button>
 
                         <button 
-                            className="lg:hidden p-3 rounded-full bg-[#1C1C19]/[0.04] cursor-none"
+                            className="lg:hidden p-3 rounded-full bg-[#1C1C19]/[0.04] md:cursor-none"
                             onClick={() => setMobileMenu(true)}
                         >
                             <Menu className="w-5 h-5 text-[#1C1C19]" />
@@ -90,7 +97,7 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                     <div className="p-8 flex flex-col h-full">
                         <div className="flex justify-between items-center mb-20">
                             <span className="font-mono text-[10px] tracking-[0.4em] font-bold text-[#1C1C19]/30 uppercase">Menu</span>
-                            <button onClick={() => setMobileMenu(false)} className="p-3 rounded-full bg-[#1C1C19]/[0.04] cursor-none">
+                            <button onClick={() => setMobileMenu(false)} className="p-3 rounded-full bg-[#1C1C19]/[0.04] md:cursor-none">
                                 <X className="w-5 h-5 text-[#1C1C19]" />
                             </button>
                         </div>
@@ -103,7 +110,7 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                                         handleNav(item.id);
                                         setMobileMenu(false);
                                     }}
-                                    className={`text-left font-grotesk font-black text-5xl uppercase tracking-tighter cursor-none hover:text-[#FF4A1C] transition-colors duration-300 ${
+                                    className={`text-left font-grotesk font-black text-5xl uppercase tracking-tighter md:cursor-none hover:text-[#FF4A1C] transition-colors duration-300 ${
                                         activeView === item.id ? 'text-[#1C1C19]' : 'text-[#1C1C19]/15'
                                     }`}
                                 >
@@ -115,7 +122,7 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                         <div className="mt-auto">
                             <button
                                 onClick={() => { setMobileMenu(false); setContactOpen(true); }}
-                                className="w-full py-5 rounded-full bg-[#FF4A1C] text-white font-mono uppercase text-[10px] font-bold tracking-[0.2em] cursor-none"
+                                className="w-full py-5 rounded-full bg-[#FF4A1C] text-white font-mono uppercase text-[10px] font-bold tracking-[0.2em] md:cursor-none"
                             >
                                 Contact Directory
                             </button>

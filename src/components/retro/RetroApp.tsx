@@ -6,7 +6,7 @@ import { Navbar } from './Navbar';
 import { CustomCursor } from './CustomCursor';
 import { NoiseOverlay } from './BasicElements';
 import dynamic from 'next/dynamic';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion as useMotionReduced } from 'framer-motion';
 // @ts-ignore
 import Lenis from 'lenis';
 
@@ -22,35 +22,65 @@ const ProductView = dynamic(() => import('./views/ProductView').then(mod => mod.
 const ProcurementView = dynamic(() => import('./views/ProcurementView').then(mod => mod.ProcurementView), { loading: LoadingPlaceholder });
 const TechSpecsView = dynamic(() => import('./views/TechSpecsView').then(mod => mod.TechSpecsView), { loading: LoadingPlaceholder });
 
-const pageTransition = {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
-    exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } }
-};
-
 export default function RetroApp() {
     const [booting, setBooting] = useState(true);
     const [activeView, setActiveView] = useState('HOME');
     const [selectedProduct, setSelectedProduct] = useState<any>(null);
+    const [isDesktopPointer, setIsDesktopPointer] = useState(false);
+    const prefersReducedMotion = useMotionReduced();
 
-    // Lenis Smooth Scroll — physically weighted, cinematic scrolling
     useEffect(() => {
+        const mediaQuery = window.matchMedia('(min-width: 1024px) and (pointer: fine) and (hover: hover)');
+        const updatePointerState = () => {
+            setIsDesktopPointer(mediaQuery.matches);
+        };
+
+        updatePointerState();
+        mediaQuery.addEventListener('change', updatePointerState);
+
+        return () => {
+            mediaQuery.removeEventListener('change', updatePointerState);
+        };
+    }, []);
+
+    // Lenis smooth scrolling on capable desktop pointers only.
+    useEffect(() => {
+        if (prefersReducedMotion || !isDesktopPointer) {
+            return;
+        }
+
         const lenis = new Lenis({
             smoothWheel: true,
             syncTouch: true,
-            touchMultiplier: 2,
-            duration: 1.8,
+            touchMultiplier: 1,
+            duration: 1.2,
             easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
 
+        let rafId = 0;
         function raf(time: number) {
             lenis.raf(time);
-            requestAnimationFrame(raf);
+            rafId = requestAnimationFrame(raf);
         }
-        requestAnimationFrame(raf);
+        rafId = requestAnimationFrame(raf);
         
-        return () => { lenis.destroy(); }
-    }, []);
+        return () => {
+            cancelAnimationFrame(rafId);
+            lenis.destroy();
+        };
+    }, [prefersReducedMotion, isDesktopPointer]);
+
+    const pageTransition = prefersReducedMotion
+        ? {
+            initial: { opacity: 0 },
+            animate: { opacity: 1, transition: { duration: 0.15 } },
+            exit: { opacity: 0, transition: { duration: 0.1 } },
+        }
+        : {
+            initial: { opacity: 0, y: 30 },
+            animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+            exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } }
+        };
 
     const handleNav = (id: string) => {
         if (id === activeView) return;
@@ -63,13 +93,13 @@ export default function RetroApp() {
     }
 
     return (
-        <div className="w-full min-h-screen bg-[#F4F0EB] text-[#1C1C19] selection:bg-[#FF4A1C] selection:text-white antialiased cursor-none">
+        <div className={`w-full min-h-screen bg-[#F4F0EB] text-[#1C1C19] selection:bg-[#FF4A1C] selection:text-white antialiased ${isDesktopPointer ? 'cursor-none' : 'cursor-auto'}`}>
             
             {/* Global Custom Physics Cursor */}
-            <CustomCursor />
+            {isDesktopPointer && <CustomCursor />}
             
             {/* Cinematic Film Grain Overlay */}
-            <NoiseOverlay />
+            {!prefersReducedMotion && isDesktopPointer && <NoiseOverlay />}
 
             <Navbar activeView={activeView} handleNav={handleNav} />
 

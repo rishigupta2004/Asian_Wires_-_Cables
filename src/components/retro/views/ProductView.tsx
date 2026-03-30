@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { ArrowLeft, ArrowRight, Download, Zap, Shield, Cpu } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Zap, Shield, Cpu } from 'lucide-react';
 import { BRANDS } from '../../../lib/constants';
 import { CableDrumSVG } from '../';
+import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 export const ProductView = ({ handleNav, product }: any) => {
     const [activeTab, setActiveTab] = useState('SPECS');
+    const prefersReducedMotion = useReducedMotion();
 
     // Fallback if accessed directly without selection
     if (!product) {
@@ -12,7 +14,7 @@ export const ProductView = ({ handleNav, product }: any) => {
             <div className="flex items-center justify-center min-h-screen text-[#1C1C19] font-mono p-8 bg-[#F4F0EB]">
                 <div className="border border-[#1C1C19]/10 p-12 text-center rounded-[2rem]">
                     <h2 className="text-2xl font-black mb-4 font-grotesk tracking-tighter uppercase">ERR_NO_DATA</h2>
-                    <button onClick={() => handleNav('CATALOG')} className="bg-[#FF4A1C] text-white px-8 py-3 rounded-full hover:bg-[#1C1C19] transition-colors uppercase tracking-[0.2em] text-xs font-bold cursor-none">
+                    <button onClick={() => handleNav('CATALOG')} className="bg-[#FF4A1C] text-white px-8 py-3 rounded-full hover:bg-[#1C1C19] transition-colors uppercase tracking-[0.2em] text-xs font-bold md:cursor-none">
                         RETURN
                     </button>
                 </div>
@@ -49,8 +51,14 @@ export const ProductView = ({ handleNav, product }: any) => {
                         <img 
                             src={product.image} 
                             alt={product.type}
-                            loading="lazy"
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                            width={1600}
+                            height={1200}
+                            loading="eager"
+                            decoding="async"
+                            fetchPriority="high"
+                            className={`w-full h-full object-contain object-center p-6 md:p-10 lg:p-14 ${prefersReducedMotion ? '' : 'transition-transform duration-700 group-hover:scale-[1.03]'}`}
+                            style={{ imageRendering: 'auto' }}
+                            draggable={false}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C19]/20 to-transparent pointer-events-none" />
                         <div className="absolute top-6 left-6 font-mono text-[10px] tracking-[0.3em] font-bold text-white uppercase px-3 py-1 bg-[#1C1C19]/70 rounded-full">
@@ -182,7 +190,7 @@ export const ProductView = ({ handleNav, product }: any) => {
                     <div className="mt-auto flex flex-col sm:flex-row gap-4 pt-12 border-t border-[#1C1C19]/10 dark:border-white/10">
                         <button
                             onClick={() => handleNav('PROCUREMENT')}
-                            className="flex-1 bg-[#1C1C19] text-[#EFECE6] dark:bg-[#EFECE6] dark:text-[#1C1C19] hover:bg-[#FF4A1C] dark:hover:bg-[#FF4A1C] hover:text-white font-mono font-bold text-[10px] md:text-xs tracking-[0.2em] uppercase p-5 md:p-6 rounded-full flex items-center justify-center gap-4 transition-all duration-500 will-change-transform hover:scale-[1.02]"
+                            className={`flex-1 bg-[#1C1C19] text-[#EFECE6] dark:bg-[#EFECE6] dark:text-[#1C1C19] hover:bg-[#FF4A1C] dark:hover:bg-[#FF4A1C] hover:text-white font-mono font-bold text-[10px] md:text-xs tracking-[0.2em] uppercase p-5 md:p-6 rounded-full flex items-center justify-center gap-4 transition-all duration-500 will-change-transform ${prefersReducedMotion ? '' : 'hover:scale-[1.02]'}`}
                         >
                             Request Integration <ArrowRight className="w-4 h-4" />
                         </button>

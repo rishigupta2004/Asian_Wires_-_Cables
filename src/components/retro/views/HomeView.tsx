@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { ArrowDownRight, Factory, Radio, Cpu, Satellite, ArrowRight } from 'lucide-react';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { useReducedMotion } from '../../../hooks/useReducedMotion';
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -22,14 +24,26 @@ interface HomeViewProps {
 
 // ─── Scramble Text Effect ───────────────────────────────────────────────
 const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-function useScrambleText(ref: React.RefObject<HTMLElement | null>, finalText: string, delay = 0) {
+function useScrambleText(
+    ref: React.RefObject<HTMLElement | null>,
+    finalText: string,
+    delay = 0,
+    disabled = false
+) {
     useEffect(() => {
         if (!ref.current) return;
         const el = ref.current;
+        if (disabled) {
+            el.textContent = finalText;
+            return;
+        }
+
         let frame = 0;
         const totalFrames = 20;
+        let intervalId: ReturnType<typeof setInterval> | null = null;
+
         const timeout = setTimeout(() => {
-            const interval = setInterval(() => {
+            intervalId = setInterval(() => {
                 frame++;
                 const progress = frame / totalFrames;
                 const scrambled = finalText.split('').map((char, i) => {
@@ -39,13 +53,20 @@ function useScrambleText(ref: React.RefObject<HTMLElement | null>, finalText: st
                 }).join('');
                 el.textContent = scrambled;
                 if (frame >= totalFrames) {
-                    clearInterval(interval);
+                    if (intervalId) {
+                        clearInterval(intervalId);
+                    }
                     el.textContent = finalText;
                 }
             }, 40);
         }, delay);
-        return () => clearTimeout(timeout);
-    }, [ref, finalText, delay]);
+        return () => {
+            clearTimeout(timeout);
+            if (intervalId) {
+                clearInterval(intervalId);
+            }
+        };
+    }, [ref, finalText, delay, disabled]);
 }
 
 export const HomeView = ({ handleNav }: HomeViewProps) => {
@@ -54,14 +75,38 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
     const scramble1 = useRef<HTMLDivElement>(null);
     const scramble2 = useRef<HTMLDivElement>(null);
     const scramble3 = useRef<HTMLDivElement>(null);
+    const [isMobile, setIsMobile] = useState(false);
+    const [hasFinePointer, setHasFinePointer] = useState(false);
+    const prefersReducedMotion = useReducedMotion();
+    const enableHeavyVisuals = !prefersReducedMotion && !isMobile;
 
     // Scramble text reveals
-    useScrambleText(scramble1, 'PRECISION.', 400);
-    useScrambleText(scramble2, 'POWER.', 600);
-    useScrambleText(scramble3, 'PURE.', 800);
+    useScrambleText(scramble1, 'PRECISION.', 400, prefersReducedMotion);
+    useScrambleText(scramble2, 'POWER.', 600, prefersReducedMotion);
+    useScrambleText(scramble3, 'PURE.', 800, prefersReducedMotion);
+
+    useEffect(() => {
+        const mobileQuery = window.matchMedia('(max-width: 767px)');
+        const pointerQuery = window.matchMedia('(pointer: fine) and (hover: hover)');
+        const updateState = () => {
+            setIsMobile(mobileQuery.matches);
+            setHasFinePointer(pointerQuery.matches);
+        };
+
+        updateState();
+        mobileQuery.addEventListener('change', updateState);
+        pointerQuery.addEventListener('change', updateState);
+
+        return () => {
+            mobileQuery.removeEventListener('change', updateState);
+            pointerQuery.removeEventListener('change', updateState);
+        };
+    }, []);
 
     // Magnetic Button Physics
     useEffect(() => {
+        if (prefersReducedMotion || !hasFinePointer || isMobile) return;
+
         const btn = magneticBtnRef.current;
         if (!btn) return;
 
@@ -82,9 +127,13 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
             btn.removeEventListener("mousemove", onMove);
             btn.removeEventListener("mouseleave", onLeave);
         };
-    }, []);
+    }, [prefersReducedMotion, hasFinePointer, isMobile]);
 
     useGSAP(() => {
+        if (!enableHeavyVisuals) {
+            return;
+        }
+
         const mm = gsap.matchMedia();
 
         mm.add("(min-width: 768px)", () => {
@@ -174,7 +223,7 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
         });
 
         return () => mm.revert();
-    }, { scope: containerRef });
+    }, { scope: containerRef, dependencies: [enableHeavyVisuals] });
 
     return (
         <div ref={containerRef} className="w-full flex flex-col relative bg-[#F4F0EB] text-[#1C1C19]" style={{ perspective: '1200px' }}>
@@ -186,10 +235,12 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
             <section className="relative w-full min-h-[100vh] flex flex-col items-center justify-center overflow-hidden">
                 
                 {/* 3D Element — positioned absolutely BEHIND text, extremely subtle */}
-                <div className="hero-3d-wrap absolute bottom-0 right-0 w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] z-0 opacity-15 pointer-events-none translate-x-[10%] translate-y-[10%]">
-                    <div className="absolute inset-0 bg-[#FF4A1C] rounded-full blur-[180px] opacity-20" />
-                    <WireCoilHero3D onAnatomyClick={() => {}} />
-                </div>
+                {enableHeavyVisuals && (
+                    <div className="hero-3d-wrap absolute bottom-0 right-0 w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] z-0 opacity-15 pointer-events-none translate-x-[10%] translate-y-[10%]">
+                        <div className="absolute inset-0 bg-[#FF4A1C] rounded-full blur-[180px] opacity-20" />
+                        <WireCoilHero3D onAnatomyClick={() => {}} />
+                    </div>
+                )}
 
                 {/* Content — sits on top with massive z-index */}
                 <div className="relative z-10 flex flex-col items-center text-center px-4 w-full">
@@ -220,7 +271,7 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
                         <button
                             ref={magneticBtnRef}
                             onClick={() => handleNav('CATALOG')}
-                            className="group relative flex items-center gap-6 bg-[#1C1C19] text-[#F4F0EB] px-10 py-5 md:px-14 md:py-6 rounded-full hover:bg-[#FF4A1C] transition-colors duration-700 will-change-transform cursor-none"
+                            className="group relative flex items-center gap-6 bg-[#1C1C19] text-[#F4F0EB] px-8 py-4 md:px-14 md:py-6 rounded-full hover:bg-[#FF4A1C] transition-colors duration-700 will-change-transform md:cursor-none"
                         >
                             <span className="font-grotesk font-black text-sm md:text-base uppercase tracking-[0.15em]">Explore Catalog</span>
                             <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:rotate-45 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
@@ -249,17 +300,20 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
 
                 {/* Full-bleed Parallax Image */}
                 <div className="img-parallax-container w-full h-[50vh] md:h-[85vh] overflow-hidden rounded-[2rem] md:rounded-[3rem] relative">
-                    <img
-                        src="https://images.unsplash.com/photo-1542361345-89e58247f2d5?q=80&w=2670&auto=format&fit=crop"
-                        alt="Industrial Infrastructure"
-                        className="img-parallax w-full h-[130%] object-cover absolute top-0 left-0"
+                    <Image
+                        src="/images/hero.webp"
+                        alt="Industrial infrastructure wiring"
+                        fill
+                        sizes="100vw"
+                        quality={100}
+                        className="img-parallax w-full h-full object-contain absolute top-0 left-0"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C19] via-[#1C1C19]/20 to-transparent" />
                     <div className="absolute bottom-8 left-8 md:bottom-16 md:left-16 z-10">
                         <p className="text-[#F4F0EB]/80 font-mono text-[10px] md:text-xs tracking-[0.3em] font-bold uppercase">Architectural Grade / Since 1953</p>
                     </div>
                     <div className="absolute bottom-8 right-8 md:bottom-16 md:right-16 z-10">
-                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-[#F4F0EB]/30 flex items-center justify-center group hover:bg-[#F4F0EB] hover:border-[#F4F0EB] transition-all duration-500 cursor-none">
+                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-[#F4F0EB]/30 flex items-center justify-center group hover:bg-[#F4F0EB] hover:border-[#F4F0EB] transition-all duration-500 md:cursor-none">
                             <ArrowRight className="w-5 h-5 md:w-6 md:h-6 text-[#F4F0EB] group-hover:text-[#1C1C19] transition-colors" />
                         </div>
                     </div>
@@ -287,7 +341,7 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
                         ].map((s, i) => {
                             const Icon = s.icon;
                             return (
-                                <div key={i} className="sector-row group flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-16 border-b border-current/10 cursor-none overflow-hidden relative">
+                                <div key={i} className="sector-row group flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-16 border-b border-current/10 md:cursor-none overflow-hidden relative">
                                     {/* Hover fill — scales from bottom */}
                                     <div className="absolute inset-0 bg-[#FF4A1C] origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] z-0 rounded-2xl" />
 
@@ -326,7 +380,7 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
                     </h2>
                     <button
                         onClick={() => handleNav('CATALOG')}
-                        className="group flex items-center gap-6 bg-[#FF4A1C] text-white px-12 py-6 md:px-16 md:py-7 rounded-full hover:bg-[#1C1C19] transition-colors duration-700 cursor-none"
+                        className="group flex items-center gap-6 bg-[#FF4A1C] text-white px-8 py-5 md:px-16 md:py-7 rounded-full hover:bg-[#1C1C19] transition-colors duration-700 md:cursor-none"
                     >
                         <span className="font-grotesk font-black text-sm md:text-lg uppercase tracking-[0.15em]">View Full Catalog</span>
                         <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/15 flex items-center justify-center group-hover:rotate-45 transition-transform duration-700">

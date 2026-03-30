@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion as useMotionPrefersReduced } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import OptimizedImage from './OptimizedImage';
 
@@ -23,7 +23,7 @@ export default function ImageGallery({
   className = '',
 }: ImageGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const prefersReducedMotion = useMotionPrefersReduced();
 
   const aspectClasses = {
     square: 'aspect-square',
@@ -94,13 +94,16 @@ export default function ImageGallery({
   return (
     <>
       {/* Gallery Grid */}
-      <div className={`grid ${gridCols[columns]} gap-${gap} ${className}`}>
+      <div
+        className={`grid ${gridCols[columns]} ${className}`}
+        style={{ gap: `${gap * 0.25}rem` }}
+      >
         {images.map((image, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
+            animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+            transition={prefersReducedMotion ? { duration: 0 } : { delay: index * 0.03, duration: 0.35 }}
             className={`relative group cursor-pointer overflow-hidden bg-[#171717] border border-[#262626] hover:border-[#E85D04] transition-all duration-300 ${aspectClasses[aspectRatio]}`}
             onClick={() => openLightbox(index)}
           >
@@ -108,12 +111,16 @@ export default function ImageGallery({
               src={image}
               alt={`Product image ${index + 1}`}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              fit="contain"
+              className="bg-[#101010]"
+              imageClassName={prefersReducedMotion ? 'p-3' : 'p-3 transition-transform duration-500 group-hover:scale-[1.03]'}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              priority={index === 0}
+              fetchPriority={index === 0 ? 'high' : 'auto'}
             />
             
             {/* Hover overlay */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300 flex items-center justify-center">
               <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
 
@@ -173,10 +180,10 @@ export default function ImageGallery({
             {/* Main image */}
             <motion.div
               key={selectedIndex}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.2 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.96 }}
+              animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+              exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
+              transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.2 }}
               className="relative w-full h-full max-w-6xl max-h-[85vh] mx-4 flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
@@ -186,9 +193,12 @@ export default function ImageGallery({
                   alt={`Product image ${selectedIndex + 1}`}
                   fill
                   priority
-                  className="object-contain"
+                  fit="contain"
+                  className="bg-black/20"
+                  imageClassName="p-2 md:p-4"
                   sizes="100vw"
-                  quality={95}
+                  quality={100}
+                  fetchPriority="high"
                 />
               </div>
             </motion.div>
@@ -214,7 +224,9 @@ export default function ImageGallery({
                         src={image}
                         alt={`Thumbnail ${index + 1}`}
                         fill
-                        className="object-cover"
+                        fit="contain"
+                        className="bg-[#151515]"
+                        imageClassName="p-1"
                         sizes="48px"
                       />
                     </div>
