@@ -18,7 +18,7 @@ export function useStringTuneAnimations({
   selector = '[data-st]',
   threshold = 0.16,
   rootMargin = '0px 0px -10% 0px',
-  once = true,
+  once = false,
 }: UseStringTuneAnimationsOptions = {}) {
   const prefersReducedMotion = useReducedMotion();
 

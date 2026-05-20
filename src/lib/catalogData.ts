@@ -1,10 +1,10 @@
 export const fullCatalog = [
   {
-    "id": "MIC-001",
-    "type": "XLRM TO XLRF",
+    "id": "PROD-001",
+    "type": "XLRM TO XLRF — Balanced Mic Cable",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -12,80 +12,112 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade xlrm to xlrf for reliable audio transmission.",
+    "desc": "High quality XLRM TO XLRF — Balanced Mic Cable for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/XLRM TO XLRF.png",
+    "image": "/catalog_images/products/PROD-001/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-001/img_0.webp",
+      "/catalog_images/products/PROD-001/img_1.webp",
+      "/catalog_images/products/PROD-001/img_2.webp",
+      "/catalog_images/products/PROD-001/img_3.webp",
+      "/catalog_images/products/PROD-001/img_4.webp",
+      "/catalog_images/products/PROD-001/img_5.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-001-AS",
-        "type": "XLRM TO XLRF",
+        "id": "PROD-001-AS",
+        "type": "XLRM TO XLRF — Balanced Mic Cable",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrm to xlrf for reliable audio transmission.",
+        "desc": "High quality XLRM TO XLRF — Balanced Mic Cable for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRM TO XLRF.png",
+        "image": "/catalog_images/products/PROD-001/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-001/img_0.webp",
+          "/catalog_images/products/PROD-001/img_1.webp",
+          "/catalog_images/products/PROD-001/img_2.webp",
+          "/catalog_images/products/PROD-001/img_3.webp",
+          "/catalog_images/products/PROD-001/img_4.webp",
+          "/catalog_images/products/PROD-001/img_5.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-001-TR",
-        "type": "XLRM TO XLRF",
+        "id": "PROD-001-TR",
+        "type": "XLRM TO XLRF — Balanced Mic Cable",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrm to xlrf for reliable audio transmission.",
+        "desc": "High quality XLRM TO XLRF — Balanced Mic Cable for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRM TO XLRF.png",
+        "image": "/catalog_images/products/PROD-001/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-001/img_0.webp",
+          "/catalog_images/products/PROD-001/img_1.webp",
+          "/catalog_images/products/PROD-001/img_2.webp",
+          "/catalog_images/products/PROD-001/img_3.webp",
+          "/catalog_images/products/PROD-001/img_4.webp",
+          "/catalog_images/products/PROD-001/img_5.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-001-M1",
-        "type": "XLRM TO XLRF",
+        "id": "PROD-001-M1",
+        "type": "XLRM TO XLRF — Balanced Mic Cable",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrm to xlrf for reliable audio transmission.",
+        "desc": "High quality XLRM TO XLRF — Balanced Mic Cable for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRM TO XLRF.png",
+        "image": "/catalog_images/products/PROD-001/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-001/img_0.webp",
+          "/catalog_images/products/PROD-001/img_1.webp",
+          "/catalog_images/products/PROD-001/img_2.webp",
+          "/catalog_images/products/PROD-001/img_3.webp",
+          "/catalog_images/products/PROD-001/img_4.webp",
+          "/catalog_images/products/PROD-001/img_5.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-002",
-    "type": "XLRF TO P38",
+    "id": "PROD-002",
+    "type": "EPIN TO 2P38 — 3.5mm to Dual TRS Y-Split",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -93,80 +125,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade xlrf to p38 for reliable audio transmission.",
+    "desc": "High quality EPIN TO 2P38 — 3.5mm to Dual TRS Y-Split for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/XLRF TO P38.png",
+    "image": "/catalog_images/products/PROD-002/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-002/img_0.webp",
+      "/catalog_images/products/PROD-002/img_1.webp",
+      "/catalog_images/products/PROD-002/img_2.webp",
+      "/catalog_images/products/PROD-002/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-002-AS",
-        "type": "XLRF TO P38",
+        "id": "PROD-002-AS",
+        "type": "EPIN TO 2P38 — 3.5mm to Dual TRS Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrf to p38 for reliable audio transmission.",
+        "desc": "High quality EPIN TO 2P38 — 3.5mm to Dual TRS Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRF TO P38.png",
+        "image": "/catalog_images/products/PROD-002/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-002/img_0.webp",
+          "/catalog_images/products/PROD-002/img_1.webp",
+          "/catalog_images/products/PROD-002/img_2.webp",
+          "/catalog_images/products/PROD-002/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-002-TR",
-        "type": "XLRF TO P38",
+        "id": "PROD-002-TR",
+        "type": "EPIN TO 2P38 — 3.5mm to Dual TRS Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrf to p38 for reliable audio transmission.",
+        "desc": "High quality EPIN TO 2P38 — 3.5mm to Dual TRS Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRF TO P38.png",
+        "image": "/catalog_images/products/PROD-002/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-002/img_0.webp",
+          "/catalog_images/products/PROD-002/img_1.webp",
+          "/catalog_images/products/PROD-002/img_2.webp",
+          "/catalog_images/products/PROD-002/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-002-M1",
-        "type": "XLRF TO P38",
+        "id": "PROD-002-M1",
+        "type": "EPIN TO 2P38 — 3.5mm to Dual TRS Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrf to p38 for reliable audio transmission.",
+        "desc": "High quality EPIN TO 2P38 — 3.5mm to Dual TRS Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRF TO P38.png",
+        "image": "/catalog_images/products/PROD-002/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-002/img_0.webp",
+          "/catalog_images/products/PROD-002/img_1.webp",
+          "/catalog_images/products/PROD-002/img_2.webp",
+          "/catalog_images/products/PROD-002/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-003",
-    "type": "P38 TO RC",
+    "id": "PROD-003",
+    "type": "XLRF TO 2XLRM — XLR Female to Dual XLR Male Y-Split",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -174,80 +230,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade p38 to rc for reliable audio transmission.",
+    "desc": "High quality XLRF TO 2XLRM — XLR Female to Dual XLR Male Y-Split for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/P38 TO RC.png",
+    "image": "/catalog_images/products/PROD-003/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-003/img_0.webp",
+      "/catalog_images/products/PROD-003/img_1.webp",
+      "/catalog_images/products/PROD-003/img_2.webp",
+      "/catalog_images/products/PROD-003/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-003-AS",
-        "type": "P38 TO RC",
+        "id": "PROD-003-AS",
+        "type": "XLRF TO 2XLRM — XLR Female to Dual XLR Male Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade p38 to rc for reliable audio transmission.",
+        "desc": "High quality XLRF TO 2XLRM — XLR Female to Dual XLR Male Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/P38 TO RC.png",
+        "image": "/catalog_images/products/PROD-003/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-003/img_0.webp",
+          "/catalog_images/products/PROD-003/img_1.webp",
+          "/catalog_images/products/PROD-003/img_2.webp",
+          "/catalog_images/products/PROD-003/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-003-TR",
-        "type": "P38 TO RC",
+        "id": "PROD-003-TR",
+        "type": "XLRF TO 2XLRM — XLR Female to Dual XLR Male Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade p38 to rc for reliable audio transmission.",
+        "desc": "High quality XLRF TO 2XLRM — XLR Female to Dual XLR Male Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/P38 TO RC.png",
+        "image": "/catalog_images/products/PROD-003/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-003/img_0.webp",
+          "/catalog_images/products/PROD-003/img_1.webp",
+          "/catalog_images/products/PROD-003/img_2.webp",
+          "/catalog_images/products/PROD-003/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-003-M1",
-        "type": "P38 TO RC",
+        "id": "PROD-003-M1",
+        "type": "XLRF TO 2XLRM — XLR Female to Dual XLR Male Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade p38 to rc for reliable audio transmission.",
+        "desc": "High quality XLRF TO 2XLRM — XLR Female to Dual XLR Male Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/P38 TO RC.png",
+        "image": "/catalog_images/products/PROD-003/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-003/img_0.webp",
+          "/catalog_images/products/PROD-003/img_1.webp",
+          "/catalog_images/products/PROD-003/img_2.webp",
+          "/catalog_images/products/PROD-003/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-004",
-    "type": "P38 TO 2RC",
+    "id": "PROD-004",
+    "type": "CTIP TO 2RC — TS Mono to Dual RCA Y-Split",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -255,80 +335,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade p38 to 2rc for reliable audio transmission.",
+    "desc": "High quality CTIP TO 2RC — TS Mono to Dual RCA Y-Split for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/P38 TO 2RC.png",
+    "image": "/catalog_images/products/PROD-004/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-004/img_0.webp",
+      "/catalog_images/products/PROD-004/img_1.webp",
+      "/catalog_images/products/PROD-004/img_2.webp",
+      "/catalog_images/products/PROD-004/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-004-AS",
-        "type": "P38 TO 2RC",
+        "id": "PROD-004-AS",
+        "type": "CTIP TO 2RC — TS Mono to Dual RCA Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade p38 to 2rc for reliable audio transmission.",
+        "desc": "High quality CTIP TO 2RC — TS Mono to Dual RCA Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/P38 TO 2RC.png",
+        "image": "/catalog_images/products/PROD-004/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-004/img_0.webp",
+          "/catalog_images/products/PROD-004/img_1.webp",
+          "/catalog_images/products/PROD-004/img_2.webp",
+          "/catalog_images/products/PROD-004/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-004-TR",
-        "type": "P38 TO 2RC",
+        "id": "PROD-004-TR",
+        "type": "CTIP TO 2RC — TS Mono to Dual RCA Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade p38 to 2rc for reliable audio transmission.",
+        "desc": "High quality CTIP TO 2RC — TS Mono to Dual RCA Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/P38 TO 2RC.png",
+        "image": "/catalog_images/products/PROD-004/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-004/img_0.webp",
+          "/catalog_images/products/PROD-004/img_1.webp",
+          "/catalog_images/products/PROD-004/img_2.webp",
+          "/catalog_images/products/PROD-004/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-004-M1",
-        "type": "P38 TO 2RC",
+        "id": "PROD-004-M1",
+        "type": "CTIP TO 2RC — TS Mono to Dual RCA Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade p38 to 2rc for reliable audio transmission.",
+        "desc": "High quality CTIP TO 2RC — TS Mono to Dual RCA Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/P38 TO 2RC.png",
+        "image": "/catalog_images/products/PROD-004/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-004/img_0.webp",
+          "/catalog_images/products/PROD-004/img_1.webp",
+          "/catalog_images/products/PROD-004/img_2.webp",
+          "/catalog_images/products/PROD-004/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-005",
-    "type": "P38 TO P38",
+    "id": "PROD-005",
+    "type": "P38TO 1RCA — TS Mono to RCA",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -336,80 +440,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade p38 to p38 for reliable audio transmission.",
+    "desc": "High quality P38TO 1RCA — TS Mono to RCA for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/P38 TO P38.png",
+    "image": "/catalog_images/products/PROD-005/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-005/img_0.webp",
+      "/catalog_images/products/PROD-005/img_1.webp",
+      "/catalog_images/products/PROD-005/img_2.webp",
+      "/catalog_images/products/PROD-005/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-005-AS",
-        "type": "P38 TO P38",
+        "id": "PROD-005-AS",
+        "type": "P38TO 1RCA — TS Mono to RCA",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade p38 to p38 for reliable audio transmission.",
+        "desc": "High quality P38TO 1RCA — TS Mono to RCA for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/P38 TO P38.png",
+        "image": "/catalog_images/products/PROD-005/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-005/img_0.webp",
+          "/catalog_images/products/PROD-005/img_1.webp",
+          "/catalog_images/products/PROD-005/img_2.webp",
+          "/catalog_images/products/PROD-005/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-005-TR",
-        "type": "P38 TO P38",
+        "id": "PROD-005-TR",
+        "type": "P38TO 1RCA — TS Mono to RCA",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade p38 to p38 for reliable audio transmission.",
+        "desc": "High quality P38TO 1RCA — TS Mono to RCA for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/P38 TO P38.png",
+        "image": "/catalog_images/products/PROD-005/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-005/img_0.webp",
+          "/catalog_images/products/PROD-005/img_1.webp",
+          "/catalog_images/products/PROD-005/img_2.webp",
+          "/catalog_images/products/PROD-005/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-005-M1",
-        "type": "P38 TO P38",
+        "id": "PROD-005-M1",
+        "type": "P38TO 1RCA — TS Mono to RCA",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade p38 to p38 for reliable audio transmission.",
+        "desc": "High quality P38TO 1RCA — TS Mono to RCA for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/P38 TO P38.png",
+        "image": "/catalog_images/products/PROD-005/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-005/img_0.webp",
+          "/catalog_images/products/PROD-005/img_1.webp",
+          "/catalog_images/products/PROD-005/img_2.webp",
+          "/catalog_images/products/PROD-005/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-006",
-    "type": "XLRM TO RC",
+    "id": "PROD-006",
+    "type": "P38 TO P38 — TS Mono to TRS",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -417,80 +545,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade xlrm to rc for reliable audio transmission.",
+    "desc": "High quality P38 TO P38 — TS Mono to TRS for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/XLRM TO RC.png",
+    "image": "/catalog_images/products/PROD-006/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-006/img_0.webp",
+      "/catalog_images/products/PROD-006/img_1.webp",
+      "/catalog_images/products/PROD-006/img_2.webp",
+      "/catalog_images/products/PROD-006/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-006-AS",
-        "type": "XLRM TO RC",
+        "id": "PROD-006-AS",
+        "type": "P38 TO P38 — TS Mono to TRS",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrm to rc for reliable audio transmission.",
+        "desc": "High quality P38 TO P38 — TS Mono to TRS for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRM TO RC.png",
+        "image": "/catalog_images/products/PROD-006/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-006/img_0.webp",
+          "/catalog_images/products/PROD-006/img_1.webp",
+          "/catalog_images/products/PROD-006/img_2.webp",
+          "/catalog_images/products/PROD-006/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-006-TR",
-        "type": "XLRM TO RC",
+        "id": "PROD-006-TR",
+        "type": "P38 TO P38 — TS Mono to TRS",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrm to rc for reliable audio transmission.",
+        "desc": "High quality P38 TO P38 — TS Mono to TRS for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRM TO RC.png",
+        "image": "/catalog_images/products/PROD-006/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-006/img_0.webp",
+          "/catalog_images/products/PROD-006/img_1.webp",
+          "/catalog_images/products/PROD-006/img_2.webp",
+          "/catalog_images/products/PROD-006/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-006-M1",
-        "type": "XLRM TO RC",
+        "id": "PROD-006-M1",
+        "type": "P38 TO P38 — TS Mono to TRS",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrm to rc for reliable audio transmission.",
+        "desc": "High quality P38 TO P38 — TS Mono to TRS for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRM TO RC.png",
+        "image": "/catalog_images/products/PROD-006/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-006/img_0.webp",
+          "/catalog_images/products/PROD-006/img_1.webp",
+          "/catalog_images/products/PROD-006/img_2.webp",
+          "/catalog_images/products/PROD-006/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-007",
-    "type": "EPIN TO RC",
+    "id": "PROD-007",
+    "type": "CTIP TO 2P38 — TS Mono to Dual TRS Y-Split",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -498,80 +650,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade epin to rc for reliable audio transmission.",
+    "desc": "High quality CTIP TO 2P38 — TS Mono to Dual TRS Y-Split for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/EPIN TO RC.png",
+    "image": "/catalog_images/products/PROD-007/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-007/img_0.webp",
+      "/catalog_images/products/PROD-007/img_1.webp",
+      "/catalog_images/products/PROD-007/img_2.webp",
+      "/catalog_images/products/PROD-007/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-007-AS",
-        "type": "EPIN TO RC",
+        "id": "PROD-007-AS",
+        "type": "CTIP TO 2P38 — TS Mono to Dual TRS Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade epin to rc for reliable audio transmission.",
+        "desc": "High quality CTIP TO 2P38 — TS Mono to Dual TRS Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/EPIN TO RC.png",
+        "image": "/catalog_images/products/PROD-007/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-007/img_0.webp",
+          "/catalog_images/products/PROD-007/img_1.webp",
+          "/catalog_images/products/PROD-007/img_2.webp",
+          "/catalog_images/products/PROD-007/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-007-TR",
-        "type": "EPIN TO RC",
+        "id": "PROD-007-TR",
+        "type": "CTIP TO 2P38 — TS Mono to Dual TRS Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade epin to rc for reliable audio transmission.",
+        "desc": "High quality CTIP TO 2P38 — TS Mono to Dual TRS Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/EPIN TO RC.png",
+        "image": "/catalog_images/products/PROD-007/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-007/img_0.webp",
+          "/catalog_images/products/PROD-007/img_1.webp",
+          "/catalog_images/products/PROD-007/img_2.webp",
+          "/catalog_images/products/PROD-007/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-007-M1",
-        "type": "EPIN TO RC",
+        "id": "PROD-007-M1",
+        "type": "CTIP TO 2P38 — TS Mono to Dual TRS Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade epin to rc for reliable audio transmission.",
+        "desc": "High quality CTIP TO 2P38 — TS Mono to Dual TRS Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/EPIN TO RC.png",
+        "image": "/catalog_images/products/PROD-007/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-007/img_0.webp",
+          "/catalog_images/products/PROD-007/img_1.webp",
+          "/catalog_images/products/PROD-007/img_2.webp",
+          "/catalog_images/products/PROD-007/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-008",
-    "type": "EPIN TO 2RC",
+    "id": "PROD-008",
+    "type": "CTIP TO EPIN — TS to 3.5mm Mini Jack",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -579,80 +755,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade epin to 2rc for reliable audio transmission.",
+    "desc": "High quality CTIP TO EPIN — TS to 3.5mm Mini Jack for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/EPIN TO 2RC.png",
+    "image": "/catalog_images/products/PROD-008/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-008/img_0.webp",
+      "/catalog_images/products/PROD-008/img_1.webp",
+      "/catalog_images/products/PROD-008/img_2.webp",
+      "/catalog_images/products/PROD-008/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-008-AS",
-        "type": "EPIN TO 2RC",
+        "id": "PROD-008-AS",
+        "type": "CTIP TO EPIN — TS to 3.5mm Mini Jack",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade epin to 2rc for reliable audio transmission.",
+        "desc": "High quality CTIP TO EPIN — TS to 3.5mm Mini Jack for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/EPIN TO 2RC.png",
+        "image": "/catalog_images/products/PROD-008/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-008/img_0.webp",
+          "/catalog_images/products/PROD-008/img_1.webp",
+          "/catalog_images/products/PROD-008/img_2.webp",
+          "/catalog_images/products/PROD-008/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-008-TR",
-        "type": "EPIN TO 2RC",
+        "id": "PROD-008-TR",
+        "type": "CTIP TO EPIN — TS to 3.5mm Mini Jack",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade epin to 2rc for reliable audio transmission.",
+        "desc": "High quality CTIP TO EPIN — TS to 3.5mm Mini Jack for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/EPIN TO 2RC.png",
+        "image": "/catalog_images/products/PROD-008/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-008/img_0.webp",
+          "/catalog_images/products/PROD-008/img_1.webp",
+          "/catalog_images/products/PROD-008/img_2.webp",
+          "/catalog_images/products/PROD-008/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-008-M1",
-        "type": "EPIN TO 2RC",
+        "id": "PROD-008-M1",
+        "type": "CTIP TO EPIN — TS to 3.5mm Mini Jack",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade epin to 2rc for reliable audio transmission.",
+        "desc": "High quality CTIP TO EPIN — TS to 3.5mm Mini Jack for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/EPIN TO 2RC.png",
+        "image": "/catalog_images/products/PROD-008/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-008/img_0.webp",
+          "/catalog_images/products/PROD-008/img_1.webp",
+          "/catalog_images/products/PROD-008/img_2.webp",
+          "/catalog_images/products/PROD-008/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-009",
-    "type": "P38 TO 2P38",
+    "id": "PROD-009",
+    "type": "XLRM TO 2XLRF — XLR Male to Dual XLR Female Y-Split",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -660,80 +860,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade p38 to 2p38 for reliable audio transmission.",
+    "desc": "High quality XLRM TO 2XLRF — XLR Male to Dual XLR Female Y-Split for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/P38 TO 2P38.png",
+    "image": "/catalog_images/products/PROD-009/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-009/img_0.webp",
+      "/catalog_images/products/PROD-009/img_1.webp",
+      "/catalog_images/products/PROD-009/img_2.webp",
+      "/catalog_images/products/PROD-009/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-009-AS",
-        "type": "P38 TO 2P38",
+        "id": "PROD-009-AS",
+        "type": "XLRM TO 2XLRF — XLR Male to Dual XLR Female Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade p38 to 2p38 for reliable audio transmission.",
+        "desc": "High quality XLRM TO 2XLRF — XLR Male to Dual XLR Female Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/P38 TO 2P38.png",
+        "image": "/catalog_images/products/PROD-009/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-009/img_0.webp",
+          "/catalog_images/products/PROD-009/img_1.webp",
+          "/catalog_images/products/PROD-009/img_2.webp",
+          "/catalog_images/products/PROD-009/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-009-TR",
-        "type": "P38 TO 2P38",
+        "id": "PROD-009-TR",
+        "type": "XLRM TO 2XLRF — XLR Male to Dual XLR Female Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade p38 to 2p38 for reliable audio transmission.",
+        "desc": "High quality XLRM TO 2XLRF — XLR Male to Dual XLR Female Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/P38 TO 2P38.png",
+        "image": "/catalog_images/products/PROD-009/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-009/img_0.webp",
+          "/catalog_images/products/PROD-009/img_1.webp",
+          "/catalog_images/products/PROD-009/img_2.webp",
+          "/catalog_images/products/PROD-009/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-009-M1",
-        "type": "P38 TO 2P38",
+        "id": "PROD-009-M1",
+        "type": "XLRM TO 2XLRF — XLR Male to Dual XLR Female Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade p38 to 2p38 for reliable audio transmission.",
+        "desc": "High quality XLRM TO 2XLRF — XLR Male to Dual XLR Female Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/P38 TO 2P38.png",
+        "image": "/catalog_images/products/PROD-009/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-009/img_0.webp",
+          "/catalog_images/products/PROD-009/img_1.webp",
+          "/catalog_images/products/PROD-009/img_2.webp",
+          "/catalog_images/products/PROD-009/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-010",
-    "type": "EPIN TO 2P38",
+    "id": "PROD-010",
+    "type": "LMT 2 CORE MIC — Bulk Reel",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -741,80 +965,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade epin to 2p38 for reliable audio transmission.",
+    "desc": "High quality LMT 2 CORE MIC — Bulk Reel for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/EPIN TO 2P38.png",
+    "image": "/catalog_images/products/PROD-010/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-010/img_0.webp",
+      "/catalog_images/products/PROD-010/img_1.webp",
+      "/catalog_images/products/PROD-010/img_2.webp",
+      "/catalog_images/products/PROD-010/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-010-AS",
-        "type": "EPIN TO 2P38",
+        "id": "PROD-010-AS",
+        "type": "LMT 2 CORE MIC — Bulk Reel",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade epin to 2p38 for reliable audio transmission.",
+        "desc": "High quality LMT 2 CORE MIC — Bulk Reel for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/EPIN TO 2P38.png",
+        "image": "/catalog_images/products/PROD-010/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-010/img_0.webp",
+          "/catalog_images/products/PROD-010/img_1.webp",
+          "/catalog_images/products/PROD-010/img_2.webp",
+          "/catalog_images/products/PROD-010/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-010-TR",
-        "type": "EPIN TO 2P38",
+        "id": "PROD-010-TR",
+        "type": "LMT 2 CORE MIC — Bulk Reel",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade epin to 2p38 for reliable audio transmission.",
+        "desc": "High quality LMT 2 CORE MIC — Bulk Reel for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/EPIN TO 2P38.png",
+        "image": "/catalog_images/products/PROD-010/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-010/img_0.webp",
+          "/catalog_images/products/PROD-010/img_1.webp",
+          "/catalog_images/products/PROD-010/img_2.webp",
+          "/catalog_images/products/PROD-010/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-010-M1",
-        "type": "EPIN TO 2P38",
+        "id": "PROD-010-M1",
+        "type": "LMT 2 CORE MIC — Bulk Reel",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade epin to 2p38 for reliable audio transmission.",
+        "desc": "High quality LMT 2 CORE MIC — Bulk Reel for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/EPIN TO 2P38.png",
+        "image": "/catalog_images/products/PROD-010/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-010/img_0.webp",
+          "/catalog_images/products/PROD-010/img_1.webp",
+          "/catalog_images/products/PROD-010/img_2.webp",
+          "/catalog_images/products/PROD-010/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-011",
-    "type": "XLRF TO 2XLRM",
+    "id": "PROD-011",
+    "type": "T.C. TO B.C. — TS Tip to Bare Copper",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -822,80 +1070,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade xlrf to 2xlrm for reliable audio transmission.",
+    "desc": "High quality T.C. TO B.C. — TS Tip to Bare Copper for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/XLRF TO 2XLRM.png",
+    "image": "/catalog_images/products/PROD-011/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-011/img_0.webp",
+      "/catalog_images/products/PROD-011/img_1.webp",
+      "/catalog_images/products/PROD-011/img_2.webp",
+      "/catalog_images/products/PROD-011/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-011-AS",
-        "type": "XLRF TO 2XLRM",
+        "id": "PROD-011-AS",
+        "type": "T.C. TO B.C. — TS Tip to Bare Copper",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrf to 2xlrm for reliable audio transmission.",
+        "desc": "High quality T.C. TO B.C. — TS Tip to Bare Copper for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRF TO 2XLRM.png",
+        "image": "/catalog_images/products/PROD-011/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-011/img_0.webp",
+          "/catalog_images/products/PROD-011/img_1.webp",
+          "/catalog_images/products/PROD-011/img_2.webp",
+          "/catalog_images/products/PROD-011/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-011-TR",
-        "type": "XLRF TO 2XLRM",
+        "id": "PROD-011-TR",
+        "type": "T.C. TO B.C. — TS Tip to Bare Copper",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrf to 2xlrm for reliable audio transmission.",
+        "desc": "High quality T.C. TO B.C. — TS Tip to Bare Copper for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRF TO 2XLRM.png",
+        "image": "/catalog_images/products/PROD-011/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-011/img_0.webp",
+          "/catalog_images/products/PROD-011/img_1.webp",
+          "/catalog_images/products/PROD-011/img_2.webp",
+          "/catalog_images/products/PROD-011/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-011-M1",
-        "type": "XLRF TO 2XLRM",
+        "id": "PROD-011-M1",
+        "type": "T.C. TO B.C. — TS Tip to Bare Copper",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrf to 2xlrm for reliable audio transmission.",
+        "desc": "High quality T.C. TO B.C. — TS Tip to Bare Copper for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRF TO 2XLRM.png",
+        "image": "/catalog_images/products/PROD-011/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-011/img_0.webp",
+          "/catalog_images/products/PROD-011/img_1.webp",
+          "/catalog_images/products/PROD-011/img_2.webp",
+          "/catalog_images/products/PROD-011/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-012",
-    "type": "XLRF TO 2XLRM",
+    "id": "PROD-012",
+    "type": "XLRF TO P38 — XLR Female to TRS",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -903,80 +1175,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade xlrf to 2xlrm for reliable audio transmission.",
+    "desc": "High quality XLRF TO P38 — XLR Female to TRS for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/XLRF TO 2XLRM.png",
+    "image": "/catalog_images/products/PROD-012/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-012/img_0.webp",
+      "/catalog_images/products/PROD-012/img_1.webp",
+      "/catalog_images/products/PROD-012/img_2.webp",
+      "/catalog_images/products/PROD-012/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-012-AS",
-        "type": "XLRF TO 2XLRM",
+        "id": "PROD-012-AS",
+        "type": "XLRF TO P38 — XLR Female to TRS",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrf to 2xlrm for reliable audio transmission.",
+        "desc": "High quality XLRF TO P38 — XLR Female to TRS for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRF TO 2XLRM.png",
+        "image": "/catalog_images/products/PROD-012/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-012/img_0.webp",
+          "/catalog_images/products/PROD-012/img_1.webp",
+          "/catalog_images/products/PROD-012/img_2.webp",
+          "/catalog_images/products/PROD-012/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-012-TR",
-        "type": "XLRF TO 2XLRM",
+        "id": "PROD-012-TR",
+        "type": "XLRF TO P38 — XLR Female to TRS",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrf to 2xlrm for reliable audio transmission.",
+        "desc": "High quality XLRF TO P38 — XLR Female to TRS for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRF TO 2XLRM.png",
+        "image": "/catalog_images/products/PROD-012/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-012/img_0.webp",
+          "/catalog_images/products/PROD-012/img_1.webp",
+          "/catalog_images/products/PROD-012/img_2.webp",
+          "/catalog_images/products/PROD-012/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-012-M1",
-        "type": "XLRF TO 2XLRM",
+        "id": "PROD-012-M1",
+        "type": "XLRF TO P38 — XLR Female to TRS",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrf to 2xlrm for reliable audio transmission.",
+        "desc": "High quality XLRF TO P38 — XLR Female to TRS for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/XLRF TO 2XLRM.png",
+        "image": "/catalog_images/products/PROD-012/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-012/img_0.webp",
+          "/catalog_images/products/PROD-012/img_1.webp",
+          "/catalog_images/products/PROD-012/img_2.webp",
+          "/catalog_images/products/PROD-012/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-013",
-    "type": "CTIP TO 2RC",
+    "id": "PROD-013",
+    "type": "P38 TO RC — TRS to RCA Insert",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -984,80 +1280,108 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade ctip to 2rc for reliable audio transmission.",
+    "desc": "High quality P38 TO RC — TRS to RCA Insert for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/CTIP TO 2RC.png",
+    "image": "/catalog_images/products/PROD-013/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-013/img_0.webp",
+      "/catalog_images/products/PROD-013/img_1.webp",
+      "/catalog_images/products/PROD-013/img_2.webp",
+      "/catalog_images/products/PROD-013/img_3.webp",
+      "/catalog_images/products/PROD-013/img_4.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-013-AS",
-        "type": "CTIP TO 2RC",
+        "id": "PROD-013-AS",
+        "type": "P38 TO RC — TRS to RCA Insert",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to 2rc for reliable audio transmission.",
+        "desc": "High quality P38 TO RC — TRS to RCA Insert for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO 2RC.png",
+        "image": "/catalog_images/products/PROD-013/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-013/img_0.webp",
+          "/catalog_images/products/PROD-013/img_1.webp",
+          "/catalog_images/products/PROD-013/img_2.webp",
+          "/catalog_images/products/PROD-013/img_3.webp",
+          "/catalog_images/products/PROD-013/img_4.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-013-TR",
-        "type": "CTIP TO 2RC",
+        "id": "PROD-013-TR",
+        "type": "P38 TO RC — TRS to RCA Insert",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to 2rc for reliable audio transmission.",
+        "desc": "High quality P38 TO RC — TRS to RCA Insert for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO 2RC.png",
+        "image": "/catalog_images/products/PROD-013/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-013/img_0.webp",
+          "/catalog_images/products/PROD-013/img_1.webp",
+          "/catalog_images/products/PROD-013/img_2.webp",
+          "/catalog_images/products/PROD-013/img_3.webp",
+          "/catalog_images/products/PROD-013/img_4.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-013-M1",
-        "type": "CTIP TO 2RC",
+        "id": "PROD-013-M1",
+        "type": "P38 TO RC — TRS to RCA Insert",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to 2rc for reliable audio transmission.",
+        "desc": "High quality P38 TO RC — TRS to RCA Insert for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO 2RC.png",
+        "image": "/catalog_images/products/PROD-013/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-013/img_0.webp",
+          "/catalog_images/products/PROD-013/img_1.webp",
+          "/catalog_images/products/PROD-013/img_2.webp",
+          "/catalog_images/products/PROD-013/img_3.webp",
+          "/catalog_images/products/PROD-013/img_4.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-014",
-    "type": "CTIP TO RC",
+    "id": "PROD-014",
+    "type": "P38 TO 2RC — TRS to Dual RCA Y-Split",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -1065,80 +1389,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade ctip to rc for reliable audio transmission.",
+    "desc": "High quality P38 TO 2RC — TRS to Dual RCA Y-Split for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/CTIP TO RC.png",
+    "image": "/catalog_images/products/PROD-014/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-014/img_0.webp",
+      "/catalog_images/products/PROD-014/img_1.webp",
+      "/catalog_images/products/PROD-014/img_2.webp",
+      "/catalog_images/products/PROD-014/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-014-AS",
-        "type": "CTIP TO RC",
+        "id": "PROD-014-AS",
+        "type": "P38 TO 2RC — TRS to Dual RCA Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to rc for reliable audio transmission.",
+        "desc": "High quality P38 TO 2RC — TRS to Dual RCA Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO RC.png",
+        "image": "/catalog_images/products/PROD-014/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-014/img_0.webp",
+          "/catalog_images/products/PROD-014/img_1.webp",
+          "/catalog_images/products/PROD-014/img_2.webp",
+          "/catalog_images/products/PROD-014/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-014-TR",
-        "type": "CTIP TO RC",
+        "id": "PROD-014-TR",
+        "type": "P38 TO 2RC — TRS to Dual RCA Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to rc for reliable audio transmission.",
+        "desc": "High quality P38 TO 2RC — TRS to Dual RCA Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO RC.png",
+        "image": "/catalog_images/products/PROD-014/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-014/img_0.webp",
+          "/catalog_images/products/PROD-014/img_1.webp",
+          "/catalog_images/products/PROD-014/img_2.webp",
+          "/catalog_images/products/PROD-014/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-014-M1",
-        "type": "CTIP TO RC",
+        "id": "PROD-014-M1",
+        "type": "P38 TO 2RC — TRS to Dual RCA Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to rc for reliable audio transmission.",
+        "desc": "High quality P38 TO 2RC — TRS to Dual RCA Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO RC.png",
+        "image": "/catalog_images/products/PROD-014/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-014/img_0.webp",
+          "/catalog_images/products/PROD-014/img_1.webp",
+          "/catalog_images/products/PROD-014/img_2.webp",
+          "/catalog_images/products/PROD-014/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-015",
-    "type": "CTIP TO P38",
+    "id": "PROD-015",
+    "type": "P38 TO P38 — TRS Patch Cable",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -1146,80 +1494,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade ctip to p38 for reliable audio transmission.",
+    "desc": "High quality P38 TO P38 — TRS Patch Cable for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/CTIP TO P38.png",
+    "image": "/catalog_images/products/PROD-015/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-015/img_0.webp",
+      "/catalog_images/products/PROD-015/img_1.webp",
+      "/catalog_images/products/PROD-015/img_2.webp",
+      "/catalog_images/products/PROD-015/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-015-AS",
-        "type": "CTIP TO P38",
+        "id": "PROD-015-AS",
+        "type": "P38 TO P38 — TRS Patch Cable",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to p38 for reliable audio transmission.",
+        "desc": "High quality P38 TO P38 — TRS Patch Cable for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO P38.png",
+        "image": "/catalog_images/products/PROD-015/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-015/img_0.webp",
+          "/catalog_images/products/PROD-015/img_1.webp",
+          "/catalog_images/products/PROD-015/img_2.webp",
+          "/catalog_images/products/PROD-015/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-015-TR",
-        "type": "CTIP TO P38",
+        "id": "PROD-015-TR",
+        "type": "P38 TO P38 — TRS Patch Cable",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to p38 for reliable audio transmission.",
+        "desc": "High quality P38 TO P38 — TRS Patch Cable for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO P38.png",
+        "image": "/catalog_images/products/PROD-015/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-015/img_0.webp",
+          "/catalog_images/products/PROD-015/img_1.webp",
+          "/catalog_images/products/PROD-015/img_2.webp",
+          "/catalog_images/products/PROD-015/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-015-M1",
-        "type": "CTIP TO P38",
+        "id": "PROD-015-M1",
+        "type": "P38 TO P38 — TRS Patch Cable",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to p38 for reliable audio transmission.",
+        "desc": "High quality P38 TO P38 — TRS Patch Cable for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO P38.png",
+        "image": "/catalog_images/products/PROD-015/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-015/img_0.webp",
+          "/catalog_images/products/PROD-015/img_1.webp",
+          "/catalog_images/products/PROD-015/img_2.webp",
+          "/catalog_images/products/PROD-015/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-016",
-    "type": "CTIP TO 2P38",
+    "id": "PROD-016",
+    "type": "XLRM TO RC — XLR Male to RCA",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -1227,80 +1599,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade ctip to 2p38 for reliable audio transmission.",
+    "desc": "High quality XLRM TO RC — XLR Male to RCA for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/CTIP TO 2P38.png",
+    "image": "/catalog_images/products/PROD-016/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-016/img_0.webp",
+      "/catalog_images/products/PROD-016/img_1.webp",
+      "/catalog_images/products/PROD-016/img_2.webp",
+      "/catalog_images/products/PROD-016/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-016-AS",
-        "type": "CTIP TO 2P38",
+        "id": "PROD-016-AS",
+        "type": "XLRM TO RC — XLR Male to RCA",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to 2p38 for reliable audio transmission.",
+        "desc": "High quality XLRM TO RC — XLR Male to RCA for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO 2P38.png",
+        "image": "/catalog_images/products/PROD-016/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-016/img_0.webp",
+          "/catalog_images/products/PROD-016/img_1.webp",
+          "/catalog_images/products/PROD-016/img_2.webp",
+          "/catalog_images/products/PROD-016/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-016-TR",
-        "type": "CTIP TO 2P38",
+        "id": "PROD-016-TR",
+        "type": "XLRM TO RC — XLR Male to RCA",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to 2p38 for reliable audio transmission.",
+        "desc": "High quality XLRM TO RC — XLR Male to RCA for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO 2P38.png",
+        "image": "/catalog_images/products/PROD-016/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-016/img_0.webp",
+          "/catalog_images/products/PROD-016/img_1.webp",
+          "/catalog_images/products/PROD-016/img_2.webp",
+          "/catalog_images/products/PROD-016/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-016-M1",
-        "type": "CTIP TO 2P38",
+        "id": "PROD-016-M1",
+        "type": "XLRM TO RC — XLR Male to RCA",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to 2p38 for reliable audio transmission.",
+        "desc": "High quality XLRM TO RC — XLR Male to RCA for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO 2P38.png",
+        "image": "/catalog_images/products/PROD-016/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-016/img_0.webp",
+          "/catalog_images/products/PROD-016/img_1.webp",
+          "/catalog_images/products/PROD-016/img_2.webp",
+          "/catalog_images/products/PROD-016/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-017",
-    "type": "CTIP TO EPIN",
+    "id": "PROD-017",
+    "type": "EPIN TO RC — 3.5mm Mini Jack to RCA",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -1308,80 +1704,108 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade ctip to epin for reliable audio transmission.",
+    "desc": "High quality EPIN TO RC — 3.5mm Mini Jack to RCA for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/CTIP TO EPIN.png",
+    "image": "/catalog_images/products/PROD-017/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-017/img_0.webp",
+      "/catalog_images/products/PROD-017/img_1.webp",
+      "/catalog_images/products/PROD-017/img_2.webp",
+      "/catalog_images/products/PROD-017/img_3.webp",
+      "/catalog_images/products/PROD-017/img_4.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-017-AS",
-        "type": "CTIP TO EPIN",
+        "id": "PROD-017-AS",
+        "type": "EPIN TO RC — 3.5mm Mini Jack to RCA",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to epin for reliable audio transmission.",
+        "desc": "High quality EPIN TO RC — 3.5mm Mini Jack to RCA for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO EPIN.png",
+        "image": "/catalog_images/products/PROD-017/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-017/img_0.webp",
+          "/catalog_images/products/PROD-017/img_1.webp",
+          "/catalog_images/products/PROD-017/img_2.webp",
+          "/catalog_images/products/PROD-017/img_3.webp",
+          "/catalog_images/products/PROD-017/img_4.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-017-TR",
-        "type": "CTIP TO EPIN",
+        "id": "PROD-017-TR",
+        "type": "EPIN TO RC — 3.5mm Mini Jack to RCA",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to epin for reliable audio transmission.",
+        "desc": "High quality EPIN TO RC — 3.5mm Mini Jack to RCA for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO EPIN.png",
+        "image": "/catalog_images/products/PROD-017/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-017/img_0.webp",
+          "/catalog_images/products/PROD-017/img_1.webp",
+          "/catalog_images/products/PROD-017/img_2.webp",
+          "/catalog_images/products/PROD-017/img_3.webp",
+          "/catalog_images/products/PROD-017/img_4.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-017-M1",
-        "type": "CTIP TO EPIN",
+        "id": "PROD-017-M1",
+        "type": "EPIN TO RC — 3.5mm Mini Jack to RCA",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade ctip to epin for reliable audio transmission.",
+        "desc": "High quality EPIN TO RC — 3.5mm Mini Jack to RCA for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/CTIP TO EPIN.png",
+        "image": "/catalog_images/products/PROD-017/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-017/img_0.webp",
+          "/catalog_images/products/PROD-017/img_1.webp",
+          "/catalog_images/products/PROD-017/img_2.webp",
+          "/catalog_images/products/PROD-017/img_3.webp",
+          "/catalog_images/products/PROD-017/img_4.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-018",
-    "type": "XLRM TO 2XLRF",
+    "id": "PROD-018",
+    "type": "EPIN TO 2RC — 3.5mm to Dual RCA Y-Split",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -1389,80 +1813,104 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade xlrm to 2xlrf for reliable audio transmission.",
+    "desc": "High quality EPIN TO 2RC — 3.5mm to Dual RCA Y-Split for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/products/Wire Image Request Feb 8 2026 (18).png",
+    "image": "/catalog_images/products/PROD-018/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-018/img_0.webp",
+      "/catalog_images/products/PROD-018/img_1.webp",
+      "/catalog_images/products/PROD-018/img_2.webp",
+      "/catalog_images/products/PROD-018/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-018-AS",
-        "type": "XLRM TO 2XLRF",
+        "id": "PROD-018-AS",
+        "type": "EPIN TO 2RC — 3.5mm to Dual RCA Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrm to 2xlrf for reliable audio transmission.",
+        "desc": "High quality EPIN TO 2RC — 3.5mm to Dual RCA Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/products/Wire Image Request Feb 8 2026 (18).png",
+        "image": "/catalog_images/products/PROD-018/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-018/img_0.webp",
+          "/catalog_images/products/PROD-018/img_1.webp",
+          "/catalog_images/products/PROD-018/img_2.webp",
+          "/catalog_images/products/PROD-018/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-018-TR",
-        "type": "XLRM TO 2XLRF",
+        "id": "PROD-018-TR",
+        "type": "EPIN TO 2RC — 3.5mm to Dual RCA Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrm to 2xlrf for reliable audio transmission.",
+        "desc": "High quality EPIN TO 2RC — 3.5mm to Dual RCA Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/products/Wire Image Request Feb 8 2026 (18).png",
+        "image": "/catalog_images/products/PROD-018/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-018/img_0.webp",
+          "/catalog_images/products/PROD-018/img_1.webp",
+          "/catalog_images/products/PROD-018/img_2.webp",
+          "/catalog_images/products/PROD-018/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-018-M1",
-        "type": "XLRM TO 2XLRF",
+        "id": "PROD-018-M1",
+        "type": "EPIN TO 2RC — 3.5mm to Dual RCA Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade xlrm to 2xlrf for reliable audio transmission.",
+        "desc": "High quality EPIN TO 2RC — 3.5mm to Dual RCA Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/products/Wire Image Request Feb 8 2026 (18).png",
+        "image": "/catalog_images/products/PROD-018/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-018/img_0.webp",
+          "/catalog_images/products/PROD-018/img_1.webp",
+          "/catalog_images/products/PROD-018/img_2.webp",
+          "/catalog_images/products/PROD-018/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-019",
-    "type": "LMT 2 CORE MIC",
+    "id": "PROD-019",
+    "type": "P38 TO 2P38 — TRS to Dual TRS Y-Split",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
     "cat": "MIC AUDIO",
     "brands_available": {
@@ -1470,1608 +1918,1691 @@ export const fullCatalog = [
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade lmt 2 core mic for reliable audio transmission.",
+    "desc": "High quality P38 TO 2P38 — TRS to Dual TRS Y-Split for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/LMT 2 CORE MIC.png",
+    "image": "/catalog_images/products/PROD-019/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-019/img_0.webp",
+      "/catalog_images/products/PROD-019/img_1.webp",
+      "/catalog_images/products/PROD-019/img_2.webp",
+      "/catalog_images/products/PROD-019/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-019-AS",
-        "type": "LMT 2 CORE MIC",
+        "id": "PROD-019-AS",
+        "type": "P38 TO 2P38 — TRS to Dual TRS Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade lmt 2 core mic for reliable audio transmission.",
+        "desc": "High quality P38 TO 2P38 — TRS to Dual TRS Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/LMT 2 CORE MIC.png",
+        "image": "/catalog_images/products/PROD-019/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-019/img_0.webp",
+          "/catalog_images/products/PROD-019/img_1.webp",
+          "/catalog_images/products/PROD-019/img_2.webp",
+          "/catalog_images/products/PROD-019/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-019-TR",
-        "type": "LMT 2 CORE MIC",
+        "id": "PROD-019-TR",
+        "type": "P38 TO 2P38 — TRS to Dual TRS Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade lmt 2 core mic for reliable audio transmission.",
+        "desc": "High quality P38 TO 2P38 — TRS to Dual TRS Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/LMT 2 CORE MIC.png",
+        "image": "/catalog_images/products/PROD-019/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-019/img_0.webp",
+          "/catalog_images/products/PROD-019/img_1.webp",
+          "/catalog_images/products/PROD-019/img_2.webp",
+          "/catalog_images/products/PROD-019/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-019-M1",
-        "type": "LMT 2 CORE MIC",
+        "id": "PROD-019-M1",
+        "type": "P38 TO 2P38 — TRS to Dual TRS Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
         "cat": "MIC AUDIO",
-        "desc": "Professional grade lmt 2 core mic for reliable audio transmission.",
+        "desc": "High quality P38 TO 2P38 — TRS to Dual TRS Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/LMT 2 CORE MIC.png",
+        "image": "/catalog_images/products/PROD-019/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-019/img_0.webp",
+          "/catalog_images/products/PROD-019/img_1.webp",
+          "/catalog_images/products/PROD-019/img_2.webp",
+          "/catalog_images/products/PROD-019/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-020",
-    "type": "T.C. TO B.C.",
+    "id": "PROD-020",
+    "type": "B1-B5 TAAR",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "MIC AUDIO",
+    "cat": "CABLE",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade t.c. to b.c. for reliable audio transmission.",
+    "desc": "High quality B1-B5 TAAR for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/T.C. TO B.C..png",
+    "image": "/catalog_images/products/PROD-020/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-020/img_0.webp",
+      "/catalog_images/products/PROD-020/img_1.webp",
+      "/catalog_images/products/PROD-020/img_2.webp",
+      "/catalog_images/products/PROD-020/img_3.webp",
+      "/catalog_images/products/PROD-020/img_4.webp",
+      "/catalog_images/products/PROD-020/img_5.webp",
+      "/catalog_images/products/PROD-020/img_6.webp",
+      "/catalog_images/products/PROD-020/img_7.webp",
+      "/catalog_images/products/PROD-020/img_8.webp",
+      "/catalog_images/products/PROD-020/img_9.webp",
+      "/catalog_images/products/PROD-020/img_10.webp",
+      "/catalog_images/products/PROD-020/img_11.webp",
+      "/catalog_images/products/PROD-020/img_12.webp",
+      "/catalog_images/products/PROD-020/img_13.webp",
+      "/catalog_images/products/PROD-020/img_14.webp",
+      "/catalog_images/products/PROD-020/img_15.webp",
+      "/catalog_images/products/PROD-020/img_16.webp",
+      "/catalog_images/products/PROD-020/img_17.webp",
+      "/catalog_images/products/PROD-020/img_18.webp",
+      "/catalog_images/products/PROD-020/img_19.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-020-AS",
-        "type": "T.C. TO B.C.",
+        "id": "PROD-020-AS",
+        "type": "B1-B5 TAAR",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade t.c. to b.c. for reliable audio transmission.",
+        "cat": "CABLE",
+        "desc": "High quality B1-B5 TAAR for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/T.C. TO B.C..png",
+        "image": "/catalog_images/products/PROD-020/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-020/img_0.webp",
+          "/catalog_images/products/PROD-020/img_1.webp",
+          "/catalog_images/products/PROD-020/img_2.webp",
+          "/catalog_images/products/PROD-020/img_3.webp",
+          "/catalog_images/products/PROD-020/img_4.webp",
+          "/catalog_images/products/PROD-020/img_5.webp",
+          "/catalog_images/products/PROD-020/img_6.webp",
+          "/catalog_images/products/PROD-020/img_7.webp",
+          "/catalog_images/products/PROD-020/img_8.webp",
+          "/catalog_images/products/PROD-020/img_9.webp",
+          "/catalog_images/products/PROD-020/img_10.webp",
+          "/catalog_images/products/PROD-020/img_11.webp",
+          "/catalog_images/products/PROD-020/img_12.webp",
+          "/catalog_images/products/PROD-020/img_13.webp",
+          "/catalog_images/products/PROD-020/img_14.webp",
+          "/catalog_images/products/PROD-020/img_15.webp",
+          "/catalog_images/products/PROD-020/img_16.webp",
+          "/catalog_images/products/PROD-020/img_17.webp",
+          "/catalog_images/products/PROD-020/img_18.webp",
+          "/catalog_images/products/PROD-020/img_19.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-020-TR",
-        "type": "T.C. TO B.C.",
+        "id": "PROD-020-TR",
+        "type": "B1-B5 TAAR",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade t.c. to b.c. for reliable audio transmission.",
+        "cat": "CABLE",
+        "desc": "High quality B1-B5 TAAR for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/T.C. TO B.C..png",
+        "image": "/catalog_images/products/PROD-020/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-020/img_0.webp",
+          "/catalog_images/products/PROD-020/img_1.webp",
+          "/catalog_images/products/PROD-020/img_2.webp",
+          "/catalog_images/products/PROD-020/img_3.webp",
+          "/catalog_images/products/PROD-020/img_4.webp",
+          "/catalog_images/products/PROD-020/img_5.webp",
+          "/catalog_images/products/PROD-020/img_6.webp",
+          "/catalog_images/products/PROD-020/img_7.webp",
+          "/catalog_images/products/PROD-020/img_8.webp",
+          "/catalog_images/products/PROD-020/img_9.webp",
+          "/catalog_images/products/PROD-020/img_10.webp",
+          "/catalog_images/products/PROD-020/img_11.webp",
+          "/catalog_images/products/PROD-020/img_12.webp",
+          "/catalog_images/products/PROD-020/img_13.webp",
+          "/catalog_images/products/PROD-020/img_14.webp",
+          "/catalog_images/products/PROD-020/img_15.webp",
+          "/catalog_images/products/PROD-020/img_16.webp",
+          "/catalog_images/products/PROD-020/img_17.webp",
+          "/catalog_images/products/PROD-020/img_18.webp",
+          "/catalog_images/products/PROD-020/img_19.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-020-M1",
-        "type": "T.C. TO B.C.",
+        "id": "PROD-020-M1",
+        "type": "B1-B5 TAAR",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade t.c. to b.c. for reliable audio transmission.",
+        "cat": "CABLE",
+        "desc": "High quality B1-B5 TAAR for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/T.C. TO B.C..png",
+        "image": "/catalog_images/products/PROD-020/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-020/img_0.webp",
+          "/catalog_images/products/PROD-020/img_1.webp",
+          "/catalog_images/products/PROD-020/img_2.webp",
+          "/catalog_images/products/PROD-020/img_3.webp",
+          "/catalog_images/products/PROD-020/img_4.webp",
+          "/catalog_images/products/PROD-020/img_5.webp",
+          "/catalog_images/products/PROD-020/img_6.webp",
+          "/catalog_images/products/PROD-020/img_7.webp",
+          "/catalog_images/products/PROD-020/img_8.webp",
+          "/catalog_images/products/PROD-020/img_9.webp",
+          "/catalog_images/products/PROD-020/img_10.webp",
+          "/catalog_images/products/PROD-020/img_11.webp",
+          "/catalog_images/products/PROD-020/img_12.webp",
+          "/catalog_images/products/PROD-020/img_13.webp",
+          "/catalog_images/products/PROD-020/img_14.webp",
+          "/catalog_images/products/PROD-020/img_15.webp",
+          "/catalog_images/products/PROD-020/img_16.webp",
+          "/catalog_images/products/PROD-020/img_17.webp",
+          "/catalog_images/products/PROD-020/img_18.webp",
+          "/catalog_images/products/PROD-020/img_19.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-021",
-    "type": "80 TAAR",
+    "id": "PROD-021",
+    "type": "MASTER — 2 CORE FLAT TWIN",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "MIC AUDIO",
+    "cat": "DATA / USB",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade 80 taar for reliable audio transmission.",
+    "desc": "High quality MASTER — 2 CORE FLAT TWIN for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/80 TAAR.png",
+    "image": "/catalog_images/products/PROD-021/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-021/img_0.webp",
+      "/catalog_images/products/PROD-021/img_1.webp",
+      "/catalog_images/products/PROD-021/img_2.webp",
+      "/catalog_images/products/PROD-021/img_3.webp",
+      "/catalog_images/products/PROD-021/img_4.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-021-AS",
-        "type": "80 TAAR",
+        "id": "PROD-021-AS",
+        "type": "MASTER — 2 CORE FLAT TWIN",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 80 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality MASTER — 2 CORE FLAT TWIN for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/80 TAAR.png",
+        "image": "/catalog_images/products/PROD-021/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-021/img_0.webp",
+          "/catalog_images/products/PROD-021/img_1.webp",
+          "/catalog_images/products/PROD-021/img_2.webp",
+          "/catalog_images/products/PROD-021/img_3.webp",
+          "/catalog_images/products/PROD-021/img_4.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-021-TR",
-        "type": "80 TAAR",
+        "id": "PROD-021-TR",
+        "type": "MASTER — 2 CORE FLAT TWIN",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 80 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality MASTER — 2 CORE FLAT TWIN for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/80 TAAR.png",
+        "image": "/catalog_images/products/PROD-021/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-021/img_0.webp",
+          "/catalog_images/products/PROD-021/img_1.webp",
+          "/catalog_images/products/PROD-021/img_2.webp",
+          "/catalog_images/products/PROD-021/img_3.webp",
+          "/catalog_images/products/PROD-021/img_4.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-021-M1",
-        "type": "80 TAAR",
+        "id": "PROD-021-M1",
+        "type": "MASTER — 2 CORE FLAT TWIN",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 80 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality MASTER — 2 CORE FLAT TWIN for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/80 TAAR.png",
+        "image": "/catalog_images/products/PROD-021/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-021/img_0.webp",
+          "/catalog_images/products/PROD-021/img_1.webp",
+          "/catalog_images/products/PROD-021/img_2.webp",
+          "/catalog_images/products/PROD-021/img_3.webp",
+          "/catalog_images/products/PROD-021/img_4.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-022",
-    "type": "64 TAAR",
+    "id": "PROD-022",
+    "type": "2 CORE WITH WHITE COTTON THREAD",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "MIC AUDIO",
+    "cat": "DATA / USB",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade 64 taar for reliable audio transmission.",
+    "desc": "High quality 2 CORE WITH WHITE COTTON THREAD for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/64 TAAR.png",
+    "image": "/catalog_images/products/PROD-022/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-022/img_0.webp",
+      "/catalog_images/products/PROD-022/img_1.webp",
+      "/catalog_images/products/PROD-022/img_2.webp",
+      "/catalog_images/products/PROD-022/img_3.webp",
+      "/catalog_images/products/PROD-022/img_4.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-022-AS",
-        "type": "64 TAAR",
+        "id": "PROD-022-AS",
+        "type": "2 CORE WITH WHITE COTTON THREAD",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 64 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality 2 CORE WITH WHITE COTTON THREAD for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/64 TAAR.png",
+        "image": "/catalog_images/products/PROD-022/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-022/img_0.webp",
+          "/catalog_images/products/PROD-022/img_1.webp",
+          "/catalog_images/products/PROD-022/img_2.webp",
+          "/catalog_images/products/PROD-022/img_3.webp",
+          "/catalog_images/products/PROD-022/img_4.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-022-TR",
-        "type": "64 TAAR",
+        "id": "PROD-022-TR",
+        "type": "2 CORE WITH WHITE COTTON THREAD",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 64 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality 2 CORE WITH WHITE COTTON THREAD for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/64 TAAR.png",
+        "image": "/catalog_images/products/PROD-022/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-022/img_0.webp",
+          "/catalog_images/products/PROD-022/img_1.webp",
+          "/catalog_images/products/PROD-022/img_2.webp",
+          "/catalog_images/products/PROD-022/img_3.webp",
+          "/catalog_images/products/PROD-022/img_4.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-022-M1",
-        "type": "64 TAAR",
+        "id": "PROD-022-M1",
+        "type": "2 CORE WITH WHITE COTTON THREAD",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 64 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality 2 CORE WITH WHITE COTTON THREAD for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/64 TAAR.png",
+        "image": "/catalog_images/products/PROD-022/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-022/img_0.webp",
+          "/catalog_images/products/PROD-022/img_1.webp",
+          "/catalog_images/products/PROD-022/img_2.webp",
+          "/catalog_images/products/PROD-022/img_3.webp",
+          "/catalog_images/products/PROD-022/img_4.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-023",
-    "type": "128 TAAR",
+    "id": "PROD-023",
+    "type": "4 CORE SPEAKER CABLE",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "MIC AUDIO",
+    "cat": "DATA / USB",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade 128 taar for reliable audio transmission.",
+    "desc": "High quality 4 CORE SPEAKER CABLE for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/128 TAAR.png",
+    "image": "/catalog_images/products/PROD-023/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-023/img_0.webp",
+      "/catalog_images/products/PROD-023/img_1.webp",
+      "/catalog_images/products/PROD-023/img_2.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-023-AS",
-        "type": "128 TAAR",
+        "id": "PROD-023-AS",
+        "type": "4 CORE SPEAKER CABLE",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 128 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality 4 CORE SPEAKER CABLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/128 TAAR.png",
+        "image": "/catalog_images/products/PROD-023/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-023/img_0.webp",
+          "/catalog_images/products/PROD-023/img_1.webp",
+          "/catalog_images/products/PROD-023/img_2.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-023-TR",
-        "type": "128 TAAR",
+        "id": "PROD-023-TR",
+        "type": "4 CORE SPEAKER CABLE",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 128 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality 4 CORE SPEAKER CABLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/128 TAAR.png",
+        "image": "/catalog_images/products/PROD-023/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-023/img_0.webp",
+          "/catalog_images/products/PROD-023/img_1.webp",
+          "/catalog_images/products/PROD-023/img_2.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-023-M1",
-        "type": "128 TAAR",
+        "id": "PROD-023-M1",
+        "type": "4 CORE SPEAKER CABLE",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 128 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality 4 CORE SPEAKER CABLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/128 TAAR.png",
+        "image": "/catalog_images/products/PROD-023/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-023/img_0.webp",
+          "/catalog_images/products/PROD-023/img_1.webp",
+          "/catalog_images/products/PROD-023/img_2.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-024",
-    "type": "48 TAAR",
+    "id": "PROD-024",
+    "type": "4 CORE WITH WHITE COTTON THREAD",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "MIC AUDIO",
+    "cat": "DATA / USB",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade 48 taar for reliable audio transmission.",
+    "desc": "High quality 4 CORE WITH WHITE COTTON THREAD for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/48 TAAR.png",
+    "image": "/catalog_images/products/PROD-024/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-024/img_0.webp",
+      "/catalog_images/products/PROD-024/img_1.webp",
+      "/catalog_images/products/PROD-024/img_2.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-024-AS",
-        "type": "48 TAAR",
+        "id": "PROD-024-AS",
+        "type": "4 CORE WITH WHITE COTTON THREAD",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 48 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality 4 CORE WITH WHITE COTTON THREAD for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/48 TAAR.png",
+        "image": "/catalog_images/products/PROD-024/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-024/img_0.webp",
+          "/catalog_images/products/PROD-024/img_1.webp",
+          "/catalog_images/products/PROD-024/img_2.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-024-TR",
-        "type": "48 TAAR",
+        "id": "PROD-024-TR",
+        "type": "4 CORE WITH WHITE COTTON THREAD",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 48 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality 4 CORE WITH WHITE COTTON THREAD for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/48 TAAR.png",
+        "image": "/catalog_images/products/PROD-024/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-024/img_0.webp",
+          "/catalog_images/products/PROD-024/img_1.webp",
+          "/catalog_images/products/PROD-024/img_2.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-024-M1",
-        "type": "48 TAAR",
+        "id": "PROD-024-M1",
+        "type": "4 CORE WITH WHITE COTTON THREAD",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 48 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality 4 CORE WITH WHITE COTTON THREAD for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/48 TAAR.png",
+        "image": "/catalog_images/products/PROD-024/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-024/img_0.webp",
+          "/catalog_images/products/PROD-024/img_1.webp",
+          "/catalog_images/products/PROD-024/img_2.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "MIC-025",
-    "type": "96 TAAR",
+    "id": "PROD-025",
+    "type": "CTIP TO 2P38 — USB-C to Dual TRS Y-Split",
     "core": "OFC / Tinned Cu",
-    "area": "Standard Audio AWG",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "MIC AUDIO",
+    "cat": "DATA / USB",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade 96 taar for reliable audio transmission.",
+    "desc": "High quality CTIP TO 2P38 — USB-C to Dual TRS Y-Split for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/mic_cables/96 TAAR.png",
+    "image": "/catalog_images/products/PROD-025/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-025/img_0.webp",
+      "/catalog_images/products/PROD-025/img_1.webp",
+      "/catalog_images/products/PROD-025/img_2.webp",
+      "/catalog_images/products/PROD-025/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "MIC-025-AS",
-        "type": "96 TAAR",
+        "id": "PROD-025-AS",
+        "type": "CTIP TO 2P38 — USB-C to Dual TRS Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 96 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO 2P38 — USB-C to Dual TRS Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/96 TAAR.png",
+        "image": "/catalog_images/products/PROD-025/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-025/img_0.webp",
+          "/catalog_images/products/PROD-025/img_1.webp",
+          "/catalog_images/products/PROD-025/img_2.webp",
+          "/catalog_images/products/PROD-025/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "MIC-025-TR",
-        "type": "96 TAAR",
+        "id": "PROD-025-TR",
+        "type": "CTIP TO 2P38 — USB-C to Dual TRS Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 96 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO 2P38 — USB-C to Dual TRS Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/96 TAAR.png",
+        "image": "/catalog_images/products/PROD-025/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-025/img_0.webp",
+          "/catalog_images/products/PROD-025/img_1.webp",
+          "/catalog_images/products/PROD-025/img_2.webp",
+          "/catalog_images/products/PROD-025/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "MIC-025-M1",
-        "type": "96 TAAR",
+        "id": "PROD-025-M1",
+        "type": "CTIP TO 2P38 — USB-C to Dual TRS Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Standard Audio AWG",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "MIC AUDIO",
-        "desc": "Professional grade 96 taar for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO 2P38 — USB-C to Dual TRS Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/mic_cables/96 TAAR.png",
+        "image": "/catalog_images/products/PROD-025/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-025/img_0.webp",
+          "/catalog_images/products/PROD-025/img_1.webp",
+          "/catalog_images/products/PROD-025/img_2.webp",
+          "/catalog_images/products/PROD-025/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "SPK-026",
-    "type": "40/38 2 CORE",
+    "id": "PROD-026",
+    "type": "CTIP TO 2RC — USB-C to Dual RCA Y-Split",
     "core": "OFC / Tinned Cu",
-    "area": "Variable (See Specs)",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "SPEAKER AUDIO",
+    "cat": "DATA / USB",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade 40/38 2 core for reliable audio transmission.",
+    "desc": "High quality CTIP TO 2RC — USB-C to Dual RCA Y-Split for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/speaker_wires/40:38 2 CORE Speaker Wire.png",
+    "image": "/catalog_images/products/PROD-026/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-026/img_0.webp",
+      "/catalog_images/products/PROD-026/img_1.webp",
+      "/catalog_images/products/PROD-026/img_2.webp",
+      "/catalog_images/products/PROD-026/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "SPK-026-AS",
-        "type": "40/38 2 CORE",
+        "id": "PROD-026-AS",
+        "type": "CTIP TO 2RC — USB-C to Dual RCA Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 40/38 2 core for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO 2RC — USB-C to Dual RCA Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/40:38 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-026/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-026/img_0.webp",
+          "/catalog_images/products/PROD-026/img_1.webp",
+          "/catalog_images/products/PROD-026/img_2.webp",
+          "/catalog_images/products/PROD-026/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "SPK-026-TR",
-        "type": "40/38 2 CORE",
+        "id": "PROD-026-TR",
+        "type": "CTIP TO 2RC — USB-C to Dual RCA Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 40/38 2 core for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO 2RC — USB-C to Dual RCA Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/40:38 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-026/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-026/img_0.webp",
+          "/catalog_images/products/PROD-026/img_1.webp",
+          "/catalog_images/products/PROD-026/img_2.webp",
+          "/catalog_images/products/PROD-026/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "SPK-026-M1",
-        "type": "40/38 2 CORE",
+        "id": "PROD-026-M1",
+        "type": "CTIP TO 2RC — USB-C to Dual RCA Y-Split",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 40/38 2 core for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO 2RC — USB-C to Dual RCA Y-Split for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/40:38 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-026/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-026/img_0.webp",
+          "/catalog_images/products/PROD-026/img_1.webp",
+          "/catalog_images/products/PROD-026/img_2.webp",
+          "/catalog_images/products/PROD-026/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "SPK-027",
-    "type": "70/40 2 CORE",
+    "id": "PROD-027",
+    "type": "CTIP TO EPIN — USB-C to 3.5mm Mini Jack",
     "core": "OFC / Tinned Cu",
-    "area": "Variable (See Specs)",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "SPEAKER AUDIO",
+    "cat": "DATA / USB",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade 70/40 2 core for reliable audio transmission.",
+    "desc": "High quality CTIP TO EPIN — USB-C to 3.5mm Mini Jack for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/speaker_wires/70:40 2 CORE Speaker Wire.png",
+    "image": "/catalog_images/products/PROD-027/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-027/img_0.webp",
+      "/catalog_images/products/PROD-027/img_1.webp",
+      "/catalog_images/products/PROD-027/img_2.webp",
+      "/catalog_images/products/PROD-027/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "SPK-027-AS",
-        "type": "70/40 2 CORE",
+        "id": "PROD-027-AS",
+        "type": "CTIP TO EPIN — USB-C to 3.5mm Mini Jack",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 70/40 2 core for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO EPIN — USB-C to 3.5mm Mini Jack for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/70:40 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-027/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-027/img_0.webp",
+          "/catalog_images/products/PROD-027/img_1.webp",
+          "/catalog_images/products/PROD-027/img_2.webp",
+          "/catalog_images/products/PROD-027/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "SPK-027-TR",
-        "type": "70/40 2 CORE",
+        "id": "PROD-027-TR",
+        "type": "CTIP TO EPIN — USB-C to 3.5mm Mini Jack",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 70/40 2 core for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO EPIN — USB-C to 3.5mm Mini Jack for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/70:40 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-027/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-027/img_0.webp",
+          "/catalog_images/products/PROD-027/img_1.webp",
+          "/catalog_images/products/PROD-027/img_2.webp",
+          "/catalog_images/products/PROD-027/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "SPK-027-M1",
-        "type": "70/40 2 CORE",
+        "id": "PROD-027-M1",
+        "type": "CTIP TO EPIN — USB-C to 3.5mm Mini Jack",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 70/40 2 core for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO EPIN — USB-C to 3.5mm Mini Jack for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/70:40 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-027/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-027/img_0.webp",
+          "/catalog_images/products/PROD-027/img_1.webp",
+          "/catalog_images/products/PROD-027/img_2.webp",
+          "/catalog_images/products/PROD-027/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "SPK-028",
-    "type": "100/40 2 CORE",
+    "id": "PROD-028",
+    "type": "CTIP TO P38 — USB-C to TRS",
     "core": "OFC / Tinned Cu",
-    "area": "Variable (See Specs)",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "SPEAKER AUDIO",
+    "cat": "DATA / USB",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade 100/40 2 core for reliable audio transmission.",
+    "desc": "High quality CTIP TO P38 — USB-C to TRS for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/speaker_wires/100:40 2 CORE Speaker Wire.png",
+    "image": "/catalog_images/products/PROD-028/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-028/img_0.webp",
+      "/catalog_images/products/PROD-028/img_1.webp",
+      "/catalog_images/products/PROD-028/img_2.webp",
+      "/catalog_images/products/PROD-028/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "SPK-028-AS",
-        "type": "100/40 2 CORE",
+        "id": "PROD-028-AS",
+        "type": "CTIP TO P38 — USB-C to TRS",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 100/40 2 core for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO P38 — USB-C to TRS for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/100:40 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-028/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-028/img_0.webp",
+          "/catalog_images/products/PROD-028/img_1.webp",
+          "/catalog_images/products/PROD-028/img_2.webp",
+          "/catalog_images/products/PROD-028/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "SPK-028-TR",
-        "type": "100/40 2 CORE",
+        "id": "PROD-028-TR",
+        "type": "CTIP TO P38 — USB-C to TRS",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 100/40 2 core for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO P38 — USB-C to TRS for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/100:40 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-028/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-028/img_0.webp",
+          "/catalog_images/products/PROD-028/img_1.webp",
+          "/catalog_images/products/PROD-028/img_2.webp",
+          "/catalog_images/products/PROD-028/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "SPK-028-M1",
-        "type": "100/40 2 CORE",
+        "id": "PROD-028-M1",
+        "type": "CTIP TO P38 — USB-C to TRS",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 100/40 2 core for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO P38 — USB-C to TRS for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/100:40 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-028/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-028/img_0.webp",
+          "/catalog_images/products/PROD-028/img_1.webp",
+          "/catalog_images/products/PROD-028/img_2.webp",
+          "/catalog_images/products/PROD-028/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "SPK-029",
-    "type": "100/40 4 CORE",
+    "id": "PROD-029",
+    "type": "CTIP TO RC — USB-C to RCA",
     "core": "OFC / Tinned Cu",
-    "area": "Variable (See Specs)",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "SPEAKER AUDIO",
+    "cat": "DATA / USB",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade 100/40 4 core for reliable audio transmission.",
+    "desc": "High quality CTIP TO RC — USB-C to RCA for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/speaker_wires/100:40 4 CORE Speaker Wire.png",
+    "image": "/catalog_images/products/PROD-029/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-029/img_0.webp",
+      "/catalog_images/products/PROD-029/img_1.webp",
+      "/catalog_images/products/PROD-029/img_2.webp",
+      "/catalog_images/products/PROD-029/img_3.webp"
+    ],
     "variants": [
       {
-        "id": "SPK-029-AS",
-        "type": "100/40 4 CORE",
+        "id": "PROD-029-AS",
+        "type": "CTIP TO RC — USB-C to RCA",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 100/40 4 core for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO RC — USB-C to RCA for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/100:40 4 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-029/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-029/img_0.webp",
+          "/catalog_images/products/PROD-029/img_1.webp",
+          "/catalog_images/products/PROD-029/img_2.webp",
+          "/catalog_images/products/PROD-029/img_3.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "SPK-029-TR",
-        "type": "100/40 4 CORE",
+        "id": "PROD-029-TR",
+        "type": "CTIP TO RC — USB-C to RCA",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 100/40 4 core for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO RC — USB-C to RCA for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/100:40 4 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-029/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-029/img_0.webp",
+          "/catalog_images/products/PROD-029/img_1.webp",
+          "/catalog_images/products/PROD-029/img_2.webp",
+          "/catalog_images/products/PROD-029/img_3.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "SPK-029-M1",
-        "type": "100/40 4 CORE",
+        "id": "PROD-029-M1",
+        "type": "CTIP TO RC — USB-C to RCA",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 100/40 4 core for reliable audio transmission.",
+        "cat": "DATA / USB",
+        "desc": "High quality CTIP TO RC — USB-C to RCA for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/100:40 4 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-029/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-029/img_0.webp",
+          "/catalog_images/products/PROD-029/img_1.webp",
+          "/catalog_images/products/PROD-029/img_2.webp",
+          "/catalog_images/products/PROD-029/img_3.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "SPK-030",
-    "type": "150/40 2 CORE",
+    "id": "PROD-030",
+    "type": "MICROPHONE CABLE BUNDLE",
     "core": "OFC / Tinned Cu",
-    "area": "Variable (See Specs)",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "SPEAKER AUDIO",
+    "cat": "BUNDLE",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade 150/40 2 core for reliable audio transmission.",
+    "desc": "High quality MICROPHONE CABLE BUNDLE for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/speaker_wires/150:40 2 CORE Speaker Wire.png",
+    "image": "/catalog_images/products/PROD-030/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-030/img_0.webp",
+      "/catalog_images/products/PROD-030/img_1.webp",
+      "/catalog_images/products/PROD-030/img_2.webp",
+      "/catalog_images/products/PROD-030/img_3.webp",
+      "/catalog_images/products/PROD-030/img_4.webp",
+      "/catalog_images/products/PROD-030/img_5.webp",
+      "/catalog_images/products/PROD-030/img_6.webp",
+      "/catalog_images/products/PROD-030/img_7.webp"
+    ],
     "variants": [
       {
-        "id": "SPK-030-AS",
-        "type": "150/40 2 CORE",
+        "id": "PROD-030-AS",
+        "type": "MICROPHONE CABLE BUNDLE",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 150/40 2 core for reliable audio transmission.",
+        "cat": "BUNDLE",
+        "desc": "High quality MICROPHONE CABLE BUNDLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/150:40 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-030/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-030/img_0.webp",
+          "/catalog_images/products/PROD-030/img_1.webp",
+          "/catalog_images/products/PROD-030/img_2.webp",
+          "/catalog_images/products/PROD-030/img_3.webp",
+          "/catalog_images/products/PROD-030/img_4.webp",
+          "/catalog_images/products/PROD-030/img_5.webp",
+          "/catalog_images/products/PROD-030/img_6.webp",
+          "/catalog_images/products/PROD-030/img_7.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "SPK-030-TR",
-        "type": "150/40 2 CORE",
+        "id": "PROD-030-TR",
+        "type": "MICROPHONE CABLE BUNDLE",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 150/40 2 core for reliable audio transmission.",
+        "cat": "BUNDLE",
+        "desc": "High quality MICROPHONE CABLE BUNDLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/150:40 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-030/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-030/img_0.webp",
+          "/catalog_images/products/PROD-030/img_1.webp",
+          "/catalog_images/products/PROD-030/img_2.webp",
+          "/catalog_images/products/PROD-030/img_3.webp",
+          "/catalog_images/products/PROD-030/img_4.webp",
+          "/catalog_images/products/PROD-030/img_5.webp",
+          "/catalog_images/products/PROD-030/img_6.webp",
+          "/catalog_images/products/PROD-030/img_7.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "SPK-030-M1",
-        "type": "150/40 2 CORE",
+        "id": "PROD-030-M1",
+        "type": "MICROPHONE CABLE BUNDLE",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 150/40 2 core for reliable audio transmission.",
+        "cat": "BUNDLE",
+        "desc": "High quality MICROPHONE CABLE BUNDLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/150:40 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-030/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-030/img_0.webp",
+          "/catalog_images/products/PROD-030/img_1.webp",
+          "/catalog_images/products/PROD-030/img_2.webp",
+          "/catalog_images/products/PROD-030/img_3.webp",
+          "/catalog_images/products/PROD-030/img_4.webp",
+          "/catalog_images/products/PROD-030/img_5.webp",
+          "/catalog_images/products/PROD-030/img_6.webp",
+          "/catalog_images/products/PROD-030/img_7.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "SPK-031",
-    "type": "150/40 4 CORE",
+    "id": "PROD-031",
+    "type": "DIGITAL CABLE BUNDLE",
     "core": "OFC / Tinned Cu",
-    "area": "Variable (See Specs)",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "SPEAKER AUDIO",
+    "cat": "BUNDLE",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade 150/40 4 core for reliable audio transmission.",
+    "desc": "High quality DIGITAL CABLE BUNDLE for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/speaker_wires/150:40 4 CORE Speaker Wire.png",
+    "image": "/catalog_images/products/PROD-031/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-031/img_0.webp",
+      "/catalog_images/products/PROD-031/img_1.webp",
+      "/catalog_images/products/PROD-031/img_2.webp",
+      "/catalog_images/products/PROD-031/img_3.webp",
+      "/catalog_images/products/PROD-031/img_4.webp",
+      "/catalog_images/products/PROD-031/img_5.webp",
+      "/catalog_images/products/PROD-031/img_6.webp",
+      "/catalog_images/products/PROD-031/img_7.webp"
+    ],
     "variants": [
       {
-        "id": "SPK-031-AS",
-        "type": "150/40 4 CORE",
+        "id": "PROD-031-AS",
+        "type": "DIGITAL CABLE BUNDLE",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 150/40 4 core for reliable audio transmission.",
+        "cat": "BUNDLE",
+        "desc": "High quality DIGITAL CABLE BUNDLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/150:40 4 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-031/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-031/img_0.webp",
+          "/catalog_images/products/PROD-031/img_1.webp",
+          "/catalog_images/products/PROD-031/img_2.webp",
+          "/catalog_images/products/PROD-031/img_3.webp",
+          "/catalog_images/products/PROD-031/img_4.webp",
+          "/catalog_images/products/PROD-031/img_5.webp",
+          "/catalog_images/products/PROD-031/img_6.webp",
+          "/catalog_images/products/PROD-031/img_7.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "SPK-031-TR",
-        "type": "150/40 4 CORE",
+        "id": "PROD-031-TR",
+        "type": "DIGITAL CABLE BUNDLE",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 150/40 4 core for reliable audio transmission.",
+        "cat": "BUNDLE",
+        "desc": "High quality DIGITAL CABLE BUNDLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/150:40 4 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-031/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-031/img_0.webp",
+          "/catalog_images/products/PROD-031/img_1.webp",
+          "/catalog_images/products/PROD-031/img_2.webp",
+          "/catalog_images/products/PROD-031/img_3.webp",
+          "/catalog_images/products/PROD-031/img_4.webp",
+          "/catalog_images/products/PROD-031/img_5.webp",
+          "/catalog_images/products/PROD-031/img_6.webp",
+          "/catalog_images/products/PROD-031/img_7.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "SPK-031-M1",
-        "type": "150/40 4 CORE",
+        "id": "PROD-031-M1",
+        "type": "DIGITAL CABLE BUNDLE",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 150/40 4 core for reliable audio transmission.",
+        "cat": "BUNDLE",
+        "desc": "High quality DIGITAL CABLE BUNDLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/150:40 4 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-031/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-031/img_0.webp",
+          "/catalog_images/products/PROD-031/img_1.webp",
+          "/catalog_images/products/PROD-031/img_2.webp",
+          "/catalog_images/products/PROD-031/img_3.webp",
+          "/catalog_images/products/PROD-031/img_4.webp",
+          "/catalog_images/products/PROD-031/img_5.webp",
+          "/catalog_images/products/PROD-031/img_6.webp",
+          "/catalog_images/products/PROD-031/img_7.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "SPK-032",
-    "type": "200/40 2 CORE",
+    "id": "PROD-032",
+    "type": "AUDIO CABLE BUNDLE",
     "core": "OFC / Tinned Cu",
-    "area": "Variable (See Specs)",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "SPEAKER AUDIO",
+    "cat": "BUNDLE",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade 200/40 2 core for reliable audio transmission.",
+    "desc": "High quality AUDIO CABLE BUNDLE for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/speaker_wires/200:40 2 CORE Speaker Wire.png",
+    "image": "/catalog_images/products/PROD-032/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-032/img_0.webp",
+      "/catalog_images/products/PROD-032/img_1.webp",
+      "/catalog_images/products/PROD-032/img_2.webp",
+      "/catalog_images/products/PROD-032/img_3.webp",
+      "/catalog_images/products/PROD-032/img_4.webp",
+      "/catalog_images/products/PROD-032/img_5.webp",
+      "/catalog_images/products/PROD-032/img_6.webp",
+      "/catalog_images/products/PROD-032/img_7.webp"
+    ],
     "variants": [
       {
-        "id": "SPK-032-AS",
-        "type": "200/40 2 CORE",
+        "id": "PROD-032-AS",
+        "type": "AUDIO CABLE BUNDLE",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 200/40 2 core for reliable audio transmission.",
+        "cat": "BUNDLE",
+        "desc": "High quality AUDIO CABLE BUNDLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/200:40 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-032/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-032/img_0.webp",
+          "/catalog_images/products/PROD-032/img_1.webp",
+          "/catalog_images/products/PROD-032/img_2.webp",
+          "/catalog_images/products/PROD-032/img_3.webp",
+          "/catalog_images/products/PROD-032/img_4.webp",
+          "/catalog_images/products/PROD-032/img_5.webp",
+          "/catalog_images/products/PROD-032/img_6.webp",
+          "/catalog_images/products/PROD-032/img_7.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "SPK-032-TR",
-        "type": "200/40 2 CORE",
+        "id": "PROD-032-TR",
+        "type": "AUDIO CABLE BUNDLE",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 200/40 2 core for reliable audio transmission.",
+        "cat": "BUNDLE",
+        "desc": "High quality AUDIO CABLE BUNDLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/200:40 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-032/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-032/img_0.webp",
+          "/catalog_images/products/PROD-032/img_1.webp",
+          "/catalog_images/products/PROD-032/img_2.webp",
+          "/catalog_images/products/PROD-032/img_3.webp",
+          "/catalog_images/products/PROD-032/img_4.webp",
+          "/catalog_images/products/PROD-032/img_5.webp",
+          "/catalog_images/products/PROD-032/img_6.webp",
+          "/catalog_images/products/PROD-032/img_7.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "SPK-032-M1",
-        "type": "200/40 2 CORE",
+        "id": "PROD-032-M1",
+        "type": "AUDIO CABLE BUNDLE",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 200/40 2 core for reliable audio transmission.",
+        "cat": "BUNDLE",
+        "desc": "High quality AUDIO CABLE BUNDLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/200:40 2 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-032/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-032/img_0.webp",
+          "/catalog_images/products/PROD-032/img_1.webp",
+          "/catalog_images/products/PROD-032/img_2.webp",
+          "/catalog_images/products/PROD-032/img_3.webp",
+          "/catalog_images/products/PROD-032/img_4.webp",
+          "/catalog_images/products/PROD-032/img_5.webp",
+          "/catalog_images/products/PROD-032/img_6.webp",
+          "/catalog_images/products/PROD-032/img_7.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }
     ]
   },
   {
-    "id": "SPK-033",
-    "type": "200/40 4 CORE",
+    "id": "PROD-033",
+    "type": "SPEAKER WIRE BUNDLE",
     "core": "OFC / Tinned Cu",
-    "area": "Variable (See Specs)",
-    "rating": "Audio Line Level",
+    "area": "Standard AWG",
+    "rating": "Standard Level",
     "volt": "Low Voltage",
-    "cat": "SPEAKER AUDIO",
+    "cat": "BUNDLE",
     "brands_available": {
       "ASIAN": true,
       "TRUE_MASTER": true,
       "M1": true
     },
-    "desc": "Professional grade 200/40 4 core for reliable audio transmission.",
+    "desc": "High quality SPEAKER WIRE BUNDLE for reliable transmission.",
     "specs": {
-      "insulation": "Flexible PVC / Rubber",
+      "insulation": "Flexible PVC",
       "armor": "None",
       "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
+      "standard": "Industry Standard"
     },
-    "image": "/catalog_images/speaker_wires/200:40 4 CORE Speaker Wire.png",
+    "image": "/catalog_images/products/PROD-033/img_0.webp",
+    "images": [
+      "/catalog_images/products/PROD-033/img_0.webp",
+      "/catalog_images/products/PROD-033/img_1.webp",
+      "/catalog_images/products/PROD-033/img_2.webp",
+      "/catalog_images/products/PROD-033/img_3.webp",
+      "/catalog_images/products/PROD-033/img_4.webp",
+      "/catalog_images/products/PROD-033/img_5.webp",
+      "/catalog_images/products/PROD-033/img_6.webp",
+      "/catalog_images/products/PROD-033/img_7.webp"
+    ],
     "variants": [
       {
-        "id": "SPK-033-AS",
-        "type": "200/40 4 CORE",
+        "id": "PROD-033-AS",
+        "type": "SPEAKER WIRE BUNDLE",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 200/40 4 core for reliable audio transmission.",
+        "cat": "BUNDLE",
+        "desc": "High quality SPEAKER WIRE BUNDLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/200:40 4 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-033/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-033/img_0.webp",
+          "/catalog_images/products/PROD-033/img_1.webp",
+          "/catalog_images/products/PROD-033/img_2.webp",
+          "/catalog_images/products/PROD-033/img_3.webp",
+          "/catalog_images/products/PROD-033/img_4.webp",
+          "/catalog_images/products/PROD-033/img_5.webp",
+          "/catalog_images/products/PROD-033/img_6.webp",
+          "/catalog_images/products/PROD-033/img_7.webp"
+        ],
         "brand": "ASIAN",
         "shielding": "HEAVY_DUTY"
       },
       {
-        "id": "SPK-033-TR",
-        "type": "200/40 4 CORE",
+        "id": "PROD-033-TR",
+        "type": "SPEAKER WIRE BUNDLE",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 200/40 4 core for reliable audio transmission.",
+        "cat": "BUNDLE",
+        "desc": "High quality SPEAKER WIRE BUNDLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/200:40 4 CORE Speaker Wire.png",
+        "image": "/catalog_images/products/PROD-033/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-033/img_0.webp",
+          "/catalog_images/products/PROD-033/img_1.webp",
+          "/catalog_images/products/PROD-033/img_2.webp",
+          "/catalog_images/products/PROD-033/img_3.webp",
+          "/catalog_images/products/PROD-033/img_4.webp",
+          "/catalog_images/products/PROD-033/img_5.webp",
+          "/catalog_images/products/PROD-033/img_6.webp",
+          "/catalog_images/products/PROD-033/img_7.webp"
+        ],
         "brand": "TRUE_MASTER",
         "shielding": "BASIC"
       },
       {
-        "id": "SPK-033-M1",
-        "type": "200/40 4 CORE",
+        "id": "PROD-033-M1",
+        "type": "SPEAKER WIRE BUNDLE",
         "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
+        "area": "Standard AWG",
+        "rating": "Standard Level",
         "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 200/40 4 core for reliable audio transmission.",
+        "cat": "BUNDLE",
+        "desc": "High quality SPEAKER WIRE BUNDLE for reliable transmission.",
         "specs": {
-          "insulation": "Flexible PVC / Rubber",
+          "insulation": "Flexible PVC",
           "armor": "None",
           "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
+          "standard": "Industry Standard"
         },
-        "image": "/catalog_images/speaker_wires/200:40 4 CORE Speaker Wire.png",
-        "brand": "M1",
-        "shielding": "STANDARD"
-      }
-    ]
-  },
-  {
-    "id": "SPK-034",
-    "type": "14/38 B.C. TO B.C.",
-    "core": "OFC / Tinned Cu",
-    "area": "Variable (See Specs)",
-    "rating": "Audio Line Level",
-    "volt": "Low Voltage",
-    "cat": "SPEAKER AUDIO",
-    "brands_available": {
-      "ASIAN": true,
-      "TRUE_MASTER": true,
-      "M1": true
-    },
-    "desc": "Professional grade 14/38 b.c. to b.c. for reliable audio transmission.",
-    "specs": {
-      "insulation": "Flexible PVC / Rubber",
-      "armor": "None",
-      "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
-    },
-    "image": "/catalog_images/speaker_wires/14:38 B.C. TO B.C..png",
-    "variants": [
-      {
-        "id": "SPK-034-AS",
-        "type": "14/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 14/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/14:38 B.C. TO B.C..png",
-        "brand": "ASIAN",
-        "shielding": "HEAVY_DUTY"
-      },
-      {
-        "id": "SPK-034-TR",
-        "type": "14/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 14/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/14:38 B.C. TO B.C..png",
-        "brand": "TRUE_MASTER",
-        "shielding": "BASIC"
-      },
-      {
-        "id": "SPK-034-M1",
-        "type": "14/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 14/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/14:38 B.C. TO B.C..png",
-        "brand": "M1",
-        "shielding": "STANDARD"
-      }
-    ]
-  },
-  {
-    "id": "SPK-035",
-    "type": "23/38 B.C. TO B.C.",
-    "core": "OFC / Tinned Cu",
-    "area": "Variable (See Specs)",
-    "rating": "Audio Line Level",
-    "volt": "Low Voltage",
-    "cat": "SPEAKER AUDIO",
-    "brands_available": {
-      "ASIAN": true,
-      "TRUE_MASTER": true,
-      "M1": true
-    },
-    "desc": "Professional grade 23/38 b.c. to b.c. for reliable audio transmission.",
-    "specs": {
-      "insulation": "Flexible PVC / Rubber",
-      "armor": "None",
-      "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
-    },
-    "image": "/catalog_images/speaker_wires/23:38 B.C. TO B.C..png",
-    "variants": [
-      {
-        "id": "SPK-035-AS",
-        "type": "23/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 23/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/23:38 B.C. TO B.C..png",
-        "brand": "ASIAN",
-        "shielding": "HEAVY_DUTY"
-      },
-      {
-        "id": "SPK-035-TR",
-        "type": "23/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 23/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/23:38 B.C. TO B.C..png",
-        "brand": "TRUE_MASTER",
-        "shielding": "BASIC"
-      },
-      {
-        "id": "SPK-035-M1",
-        "type": "23/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 23/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/23:38 B.C. TO B.C..png",
-        "brand": "M1",
-        "shielding": "STANDARD"
-      }
-    ]
-  },
-  {
-    "id": "SPK-036",
-    "type": "40/38 B.C. TO B.C.",
-    "core": "OFC / Tinned Cu",
-    "area": "Variable (See Specs)",
-    "rating": "Audio Line Level",
-    "volt": "Low Voltage",
-    "cat": "SPEAKER AUDIO",
-    "brands_available": {
-      "ASIAN": true,
-      "TRUE_MASTER": true,
-      "M1": true
-    },
-    "desc": "Professional grade 40/38 b.c. to b.c. for reliable audio transmission.",
-    "specs": {
-      "insulation": "Flexible PVC / Rubber",
-      "armor": "None",
-      "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
-    },
-    "image": "/catalog_images/speaker_wires/40:38 B.C. TO B.C..png",
-    "variants": [
-      {
-        "id": "SPK-036-AS",
-        "type": "40/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 40/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/40:38 B.C. TO B.C..png",
-        "brand": "ASIAN",
-        "shielding": "HEAVY_DUTY"
-      },
-      {
-        "id": "SPK-036-TR",
-        "type": "40/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 40/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/40:38 B.C. TO B.C..png",
-        "brand": "TRUE_MASTER",
-        "shielding": "BASIC"
-      },
-      {
-        "id": "SPK-036-M1",
-        "type": "40/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 40/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/40:38 B.C. TO B.C..png",
-        "brand": "M1",
-        "shielding": "STANDARD"
-      }
-    ]
-  },
-  {
-    "id": "SPK-037",
-    "type": "70/38 B.C. TO B.C.",
-    "core": "OFC / Tinned Cu",
-    "area": "Variable (See Specs)",
-    "rating": "Audio Line Level",
-    "volt": "Low Voltage",
-    "cat": "SPEAKER AUDIO",
-    "brands_available": {
-      "ASIAN": true,
-      "TRUE_MASTER": true,
-      "M1": true
-    },
-    "desc": "Professional grade 70/38 b.c. to b.c. for reliable audio transmission.",
-    "specs": {
-      "insulation": "Flexible PVC / Rubber",
-      "armor": "None",
-      "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
-    },
-    "image": "/catalog_images/speaker_wires/70:38 B.C. TO B.C..png",
-    "variants": [
-      {
-        "id": "SPK-037-AS",
-        "type": "70/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 70/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/70:38 B.C. TO B.C..png",
-        "brand": "ASIAN",
-        "shielding": "HEAVY_DUTY"
-      },
-      {
-        "id": "SPK-037-TR",
-        "type": "70/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 70/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/70:38 B.C. TO B.C..png",
-        "brand": "TRUE_MASTER",
-        "shielding": "BASIC"
-      },
-      {
-        "id": "SPK-037-M1",
-        "type": "70/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 70/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/70:38 B.C. TO B.C..png",
-        "brand": "M1",
-        "shielding": "STANDARD"
-      }
-    ]
-  },
-  {
-    "id": "SPK-038",
-    "type": "100/38 B.C. TO B.C.",
-    "core": "OFC / Tinned Cu",
-    "area": "Variable (See Specs)",
-    "rating": "Audio Line Level",
-    "volt": "Low Voltage",
-    "cat": "SPEAKER AUDIO",
-    "brands_available": {
-      "ASIAN": true,
-      "TRUE_MASTER": true,
-      "M1": true
-    },
-    "desc": "Professional grade 100/38 b.c. to b.c. for reliable audio transmission.",
-    "specs": {
-      "insulation": "Flexible PVC / Rubber",
-      "armor": "None",
-      "temp": "-10°C to +70°C",
-      "standard": "Audio Grade Standard"
-    },
-    "image": "/catalog_images/speaker_wires/100:38 B.C. TO B.C..png",
-    "variants": [
-      {
-        "id": "SPK-038-AS",
-        "type": "100/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 100/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/100:38 B.C. TO B.C..png",
-        "brand": "ASIAN",
-        "shielding": "HEAVY_DUTY"
-      },
-      {
-        "id": "SPK-038-TR",
-        "type": "100/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 100/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/100:38 B.C. TO B.C..png",
-        "brand": "TRUE_MASTER",
-        "shielding": "BASIC"
-      },
-      {
-        "id": "SPK-038-M1",
-        "type": "100/38 B.C. TO B.C.",
-        "core": "OFC / Tinned Cu",
-        "area": "Variable (See Specs)",
-        "rating": "Audio Line Level",
-        "volt": "Low Voltage",
-        "cat": "SPEAKER AUDIO",
-        "desc": "Professional grade 100/38 b.c. to b.c. for reliable audio transmission.",
-        "specs": {
-          "insulation": "Flexible PVC / Rubber",
-          "armor": "None",
-          "temp": "-10°C to +70°C",
-          "standard": "Audio Grade Standard"
-        },
-        "image": "/catalog_images/speaker_wires/100:38 B.C. TO B.C..png",
+        "image": "/catalog_images/products/PROD-033/img_0.webp",
+        "images": [
+          "/catalog_images/products/PROD-033/img_0.webp",
+          "/catalog_images/products/PROD-033/img_1.webp",
+          "/catalog_images/products/PROD-033/img_2.webp",
+          "/catalog_images/products/PROD-033/img_3.webp",
+          "/catalog_images/products/PROD-033/img_4.webp",
+          "/catalog_images/products/PROD-033/img_5.webp",
+          "/catalog_images/products/PROD-033/img_6.webp",
+          "/catalog_images/products/PROD-033/img_7.webp"
+        ],
         "brand": "M1",
         "shielding": "STANDARD"
       }

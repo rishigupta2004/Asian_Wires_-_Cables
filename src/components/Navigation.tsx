@@ -80,10 +80,12 @@ export default function Navigation() {
             {/* Logo */}
             <Link 
               href="/" 
-              className={`relative z-[60] text-xl font-bold font-display tracking-tighter uppercase transition-colors duration-500 ${isOpen ? 'text-[var(--background-primary)]' : 'text-white mix-blend-difference'}`}
+              className={`relative z-[60] flex items-center gap-4 transition-colors duration-500 ${isOpen ? 'opacity-100' : 'mix-blend-difference'}`}
               onClick={() => setIsOpen(false)}
             >
-              Aisan Computeronics & Electronics<span className="text-[var(--accent-primary)] mix-blend-normal">.</span>
+              <img src="/Assests/Brand_Logo/PRO_ASIAN.jpeg" alt="PRO ASIAN" className="h-12 md:h-16 object-contain" />
+              <img src="/Assests/Brand_Logo/TRUE_MASTER.png" alt="TRUE MASTER" className="h-12 md:h-16 object-contain" />
+              <img src="/Assests/Brand_Logo/M1_VOICE.png" alt="M1 VOICE" className="h-12 md:h-16 object-contain" />
             </Link>
 
             {/* Menu Trigger */}

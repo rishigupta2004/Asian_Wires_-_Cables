@@ -547,25 +547,6 @@ export default function AsianCard() {
                 </div>
 
                 <div className="w-full flex-1 flex flex-col items-center justify-center my-6 preserve-3d" style={{ transform: 'translateZ(30px)' }}>
-                  <div className="relative w-52 h-52 sm:w-56 sm:h-56 flex items-center justify-center preserve-3d mb-10 deep-shadow" style={{ transform: 'translateZ(20px)' }}>
-                    <div className="absolute inset-0 border-[10px] border-white/80 rounded-full shadow-[0_15px_30px_rgba(0,0,0,0.1),inset_0_2px_4px_rgba(0,0,0,0.05)] bg-zinc-50/50 backdrop-blur-sm" style={{ transform: 'translateZ(5px)' }}/>
-                    <LensRing />
-                    
-                    <div className="relative w-36 h-36 sm:w-40 sm:h-40 bg-white rounded-full p-6 flex items-center justify-center preserve-3d border border-zinc-100 shadow-[0_10px_25px_rgba(0,0,0,0.08)] z-20" style={{ transform: 'translateZ(30px)' }}>
-                      <img 
-                        src="/Assests/Brand_Logo/LOGO-2.svg" 
-                        alt="Asian Computeronics Logo" 
-                        width={240}
-                        height={240}
-                        decoding="async"
-                        loading="eager"
-                        fetchPriority="high"
-                        className="w-full h-full object-contain pointer-events-none drop-shadow-[0_4px_8px_rgba(0,0,0,0.08)] z-10" 
-                        style={{ transform: 'translateZ(10px)' }}
-                        onError={(e: any) => { e.target.onerror = null; e.target.src = '/images/brands/ASIAN.png'; }}
-                      />
-                    </div>
-                  </div>
 
                   <div className="flex flex-col items-center w-full preserve-3d" style={{ transform: 'translateZ(30px)' }}>
                     <div className="flex items-center gap-4 w-full justify-center px-6 mb-5 opacity-70">
@@ -574,15 +555,15 @@ export default function AsianCard() {
                       <div className="flex-1 h-[1px] bg-zinc-300 shadow-[0_1px_0_white]" />
                     </div>
                     
-                    <div className="grid grid-cols-3 gap-4 w-full max-w-[360px] px-2 preserve-3d">
-                      <div className="bg-white/60 backdrop-blur-md rounded-xl p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/images/brands/ASIAN.png" alt="Wires" width={120} height={64} className="h-14 sm:h-16 max-w-full object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
+                    <div className="grid grid-cols-3 gap-8 md:gap-12 w-full max-w-[800px] px-4 preserve-3d mb-10 mt-6">
+                      <div className="bg-white/60 backdrop-blur-md rounded-full aspect-square p-2 sm:p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
+                         <img src="/Assests/Brand_Logo/PRO_ASIAN.jpeg" alt="PRO ASIAN" width={240} height={240} className="w-[85%] h-[85%] object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
                       </div>
-                      <div className="bg-white/60 backdrop-blur-md rounded-xl p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/images/brands/True_MAster.png" alt="Master" width={120} height={64} className="h-14 sm:h-16 max-w-full object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
+                      <div className="bg-white/60 backdrop-blur-md rounded-full aspect-square p-2 sm:p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
+                         <img src="/Assests/Brand_Logo/TRUE_MASTER.png" alt="TRUE MASTER" width={240} height={240} className="w-[85%] h-[85%] object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
                       </div>
-                      <div className="bg-white/60 backdrop-blur-md rounded-xl p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/images/brands/M1_VOICE.svg" alt="Voice" width={120} height={64} className="h-14 sm:h-16 max-w-full object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/images/brands/M1_VOICE.png'; }} />
+                      <div className="bg-white/60 backdrop-blur-md rounded-full aspect-square p-2 sm:p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
+                         <img src="/Assests/Brand_Logo/M1_VOICE.png" alt="M1 VOICE" width={240} height={240} className="w-[85%] h-[85%] object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/M1_VOICE.png'; }} />
                       </div>
                     </div>
                   </div>
@@ -665,7 +646,7 @@ export default function AsianCard() {
                   <div className="mt-auto mb-2 flex items-center justify-between bg-gradient-to-br from-red-900/80 to-red-950/90 p-5 rounded-2xl border border-red-800 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_10px_20px_rgba(0,0,0,0.3)] deep-shadow-vibrant" style={{ transform: 'translateZ(20px)' }}>
                     <div className="flex flex-col gap-2">
                       <span className="font-grotesk font-black text-[1.4rem] text-white tracking-wider uppercase drop-shadow-md">Asian-1953</span>
-                      <span className="font-mono text-[10px] text-red-300 tracking-[0.2em] font-bold uppercase">ISO 9001:2015 Certified</span>
+                      <span className="font-mono text-[10px] text-red-300 tracking-[0.2em] font-bold uppercase">ISO - ISO 9001:2015</span>
                     </div>
                     <div className="p-2.5 bg-white rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105 pointer-events-auto">
                       <QrCode size={54} className="text-red-950" strokeWidth={1.5} />
@@ -678,7 +659,7 @@ export default function AsianCard() {
                     <Globe size={16} className="text-amber-400 group-hover/link:text-amber-300"/> taarwale.in
                   </a>
                   <span className="font-mono flex items-center gap-2.5 uppercase tracking-[0.15em]">
-                    <MapPin size={16} className="text-amber-400"/> Delhi, India
+                    <MapPin size={16} className="text-amber-400"/> DELHI-110006,INDIA
                   </span>
                 </div>
               </div>

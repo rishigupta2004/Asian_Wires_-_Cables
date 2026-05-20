@@ -4,52 +4,36 @@ import React, { useState, useMemo, useRef } from 'react';
 import { ArrowUpRight, Search, LayoutGrid, List } from 'lucide-react';
 import Image from 'next/image';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 import { fullCatalog } from '../../../lib/catalogData';
 import { useReducedMotion } from '../../../hooks/useReducedMotion';
 import { getOptimizedCatalogImageSrc } from '@/lib/image-paths';
 
-type BrandFilter = 'ALL BRANDS' | 'ASIAN' | 'MASTER' | 'M1';
-
-const BRAND_FILTERS: BrandFilter[] = ['ALL BRANDS', 'ASIAN', 'MASTER', 'M1'];
-
-const BRAND_LABEL_BY_CODE: Record<string, 'ASIAN' | 'MASTER' | 'M1'> = {
-    ASIAN: 'ASIAN',
-    TRUE_MASTER: 'MASTER',
-    M1: 'M1',
-};
-
-const getBrandCodeFromFilter = (brandFilter: BrandFilter): 'ASIAN' | 'TRUE_MASTER' | 'M1' | null => {
-    if (brandFilter === 'ALL BRANDS') return null;
-    if (brandFilter === 'MASTER') return 'TRUE_MASTER';
-    return brandFilter;
+const BRAND_LABEL_BY_CODE: Record<string, string> = {
+    ASIAN: 'PRO ASIAN',
+    TRUE_MASTER: 'TRUE MASTER',
+    M1: 'M1 VOICE',
 };
 
 export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [filter, setFilter] = useState('ALL CATEGORIES');
-    const [brandFilter, setBrandFilter] = useState<BrandFilter>('ALL BRANDS');
     const [searchQuery, setSearchQuery] = useState('');
     const [viewMode, setViewMode] = useState<'gallery' | 'list'>('gallery');
     const prefersReducedMotion = useReducedMotion();
-    const selectedBrandCode = getBrandCodeFromFilter(brandFilter);
-
-    const getBrandAwareVariant = (item: any) => {
-        if (!item?.variants?.length) return null;
-        if (!selectedBrandCode) return item.variants[0];
-        return item.variants.find((variant: any) => variant.brand === selectedBrandCode) || item.variants[0];
-    };
 
     const filteredCatalog = useMemo(() => {
         return fullCatalog.filter(c => {
-            const isParent = c.variants && c.variants.length > 0;
-            if (!isParent) return false;
             const categoryMatch = filter === 'ALL CATEGORIES' || c.cat === filter;
-            const brandMatch = !selectedBrandCode || Boolean(c.brands_available?.[selectedBrandCode]);
             const searchMatch = c.type.toLowerCase().includes(searchQuery.toLowerCase()) || c.id.toLowerCase().includes(searchQuery.toLowerCase());
-            return categoryMatch && brandMatch && searchMatch;
+            return categoryMatch && searchMatch;
         });
-    }, [filter, searchQuery, selectedBrandCode]);
+    }, [filter, searchQuery]);
 
     const categories = useMemo(() => {
         const uniqueCats = Array.from(new Set(fullCatalog.map(c => c.cat))).sort();
@@ -59,22 +43,27 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
     useGSAP(() => {
         if (prefersReducedMotion) return;
 
-        gsap.from(".product-item", {
-            y: 28,
-            opacity: 0,
-            duration: 0.45,
-            stagger: 0.025,
-            ease: "power3.out",
-            clearProps: "all"
+        gsap.utils.toArray('.product-item').forEach((item: any, i) => {
+            gsap.fromTo(item,
+                { y: 40, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.85,
+                    ease: "power4.out",
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top 92%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
         });
-    }, { scope: containerRef, dependencies: [filter, brandFilter, viewMode, prefersReducedMotion] });
+    }, { scope: containerRef, dependencies: [filter, viewMode, prefersReducedMotion, filteredCatalog.length] });
 
     const handleProductClick = (item: any) => {
-        const selectedVariant = getBrandAwareVariant(item);
-        if (selectedVariant) {
-            setSelectedProduct(selectedVariant);
-            handleNav('PRODUCT');
-        }
+        setSelectedProduct(item);
+        handleNav('PRODUCT');
     };
 
     return (
@@ -141,22 +130,6 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                             </button>
                         ))}
                     </div>
-
-                    <div className="flex flex-wrap items-center gap-2 pt-4">
-                        <span className="font-mono text-[9px] tracking-[0.3em] font-bold uppercase text-[#1C1C19]/35 mr-2">Brand</span>
-                        {BRAND_FILTERS.map((brand) => (
-                            <button
-                                key={brand}
-                                onClick={() => setBrandFilter(brand)}
-                                className={`px-5 py-2.5 rounded-full font-mono text-[10px] font-bold tracking-[0.15em] uppercase whitespace-nowrap transition-all duration-500 md:cursor-none ${brandFilter === brand
-                                    ? 'bg-[#FF4A1C] text-white'
-                                    : 'bg-[#1C1C19]/[0.04] text-[#1C1C19]/50 hover:bg-[#1C1C19]/[0.08]'
-                                }`}
-                            >
-                                {brand}
-                            </button>
-                        ))}
-                    </div>
                 </div>
             </header>
 
@@ -168,8 +141,9 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
                         {filteredCatalog.length > 0 ? (
                             filteredCatalog.map((item, index) => {
-                                const selectedVariant = getBrandAwareVariant(item);
-                                const selectedVariantLabel = selectedVariant?.brand ? BRAND_LABEL_BY_CODE[selectedVariant.brand] || selectedVariant.brand : 'MULTI';
+                                const selectedVariantLabel = item.brands_available 
+                                    ? Object.keys(item.brands_available).map(k => BRAND_LABEL_BY_CODE[k] || k).join(' | ') 
+                                    : 'MULTI';
 
                                 return (
                                     <div
@@ -244,8 +218,9 @@ export const CatalogView = ({ handleNav, setSelectedProduct }: any) => {
                     <div className="flex flex-col">
                         {filteredCatalog.length > 0 ? (
                             filteredCatalog.map((item) => {
-                                const selectedVariant = getBrandAwareVariant(item);
-                                const selectedVariantLabel = selectedVariant?.brand ? BRAND_LABEL_BY_CODE[selectedVariant.brand] || selectedVariant.brand : 'MULTI';
+                                const selectedVariantLabel = item.brands_available 
+                                    ? Object.keys(item.brands_available).map(k => BRAND_LABEL_BY_CODE[k] || k).join(' | ') 
+                                    : 'MULTI';
 
                                 return (
                                     <div

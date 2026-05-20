@@ -26,8 +26,8 @@ interface HomeViewProps {
 const BRAND_QUALITY_ROWS = [
     {
         id: 'ASIAN',
-        display: 'ASIAN',
-        logo: '/images/brands/ASIAN.png',
+        display: 'PRO ASIAN',
+        logo: '/Assests/Brand_Logo/PRO_ASIAN.jpeg',
         qualityBand: 'Tier 01 / Premium',
         conductor: BRANDS.ASIAN.conductorGrade,
         coating: 'Heavy-duty multi-layer shielding with thicker insulation cover',
@@ -35,8 +35,8 @@ const BRAND_QUALITY_ROWS = [
     },
     {
         id: 'MASTER',
-        display: 'MASTER',
-        logo: '/images/brands/True_MAster.png',
+        display: 'TRUE MASTER',
+        logo: '/Assests/Brand_Logo/TRUE_MASTER.png',
         qualityBand: 'Tier 02 / Essential',
         conductor: BRANDS.TRUE_MASTER.conductorGrade,
         coating: 'Standard single-layer shielding with balanced PVC jacket cover',
@@ -44,8 +44,8 @@ const BRAND_QUALITY_ROWS = [
     },
     {
         id: 'M1',
-        display: 'M1',
-        logo: '/images/brands/M1_VOICE.svg',
+        display: 'M1 VOICE',
+        logo: '/Assests/Brand_Logo/M1_VOICE.png',
         qualityBand: 'Tier 03 / Performance',
         conductor: BRANDS.M1.conductorGrade,
         coating: 'Single-layer shielding tuned for commercial runs and tighter tolerances',
@@ -214,7 +214,11 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
                         clipPath: 'inset(0 0% 0 0)',
                         duration: 2,
                         ease: "expo.inOut",
-                        scrollTrigger: { trigger: el, start: "top 80%" }
+                        scrollTrigger: { 
+                            trigger: el, 
+                            start: "top 80%",
+                            toggleActions: "play none none reverse"
+                        }
                     }
                 );
             });
@@ -225,9 +229,13 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
                     { opacity: 0, y: 60 },
                     {
                         opacity: 1, y: 0,
-                        duration: 1.2,
-                        ease: "power3.out",
-                        scrollTrigger: { trigger: row, start: "top 85%" }
+                        duration: 1.5,
+                        ease: "expo.out",
+                        scrollTrigger: { 
+                            trigger: row, 
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        }
                     }
                 );
             });
@@ -235,14 +243,18 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
             gsap.utils.toArray('.brand-row').forEach((row: any) => {
                 gsap.fromTo(
                     row,
-                    { opacity: 0, y: 42, filter: 'blur(6px)' },
+                    { opacity: 0, y: 60, filter: 'blur(10px)' },
                     {
                         opacity: 1,
                         y: 0,
                         filter: 'blur(0px)',
-                        duration: 0.9,
-                        ease: 'power3.out',
-                        scrollTrigger: { trigger: row, start: 'top 88%' },
+                        duration: 1.4,
+                        ease: 'expo.out',
+                        scrollTrigger: { 
+                            trigger: row, 
+                            start: 'top 88%',
+                            toggleActions: "play none none reverse"
+                        },
                     }
                 );
             });
@@ -251,9 +263,11 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
             ScrollTrigger.create({
                 trigger: ".dark-invert-trigger",
                 start: "top 50%",
-                end: "bottom 40%",
-                onEnter: () => gsap.to(containerRef.current, { backgroundColor: "#1C1C19", color: "#F4F0EB", duration: 1.5, ease: "power3.inOut" }),
-                onLeaveBack: () => gsap.to(containerRef.current, { backgroundColor: "#F4F0EB", color: "#1C1C19", duration: 1.5, ease: "power3.inOut" }),
+                end: "bottom 30%",
+                onEnter: () => gsap.to(containerRef.current, { backgroundColor: "#1C1C19", color: "#F4F0EB", duration: 1.2, ease: "power1.inOut", overwrite: "auto" }),
+                onLeave: () => gsap.to(containerRef.current, { backgroundColor: "#F4F0EB", color: "#1C1C19", duration: 1.2, ease: "power1.inOut", overwrite: "auto" }),
+                onLeaveBack: () => gsap.to(containerRef.current, { backgroundColor: "#F4F0EB", color: "#1C1C19", duration: 1.2, ease: "power1.inOut", overwrite: "auto" }),
+                onEnterBack: () => gsap.to(containerRef.current, { backgroundColor: "#1C1C19", color: "#F4F0EB", duration: 1.2, ease: "power1.inOut", overwrite: "auto" })
             });
 
             // ─── FOOTER CTA REVEAL ─────────────────────────────────
@@ -261,11 +275,23 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
                 { opacity: 0, y: 100, scale: 0.95 },
                 {
                     opacity: 1, y: 0, scale: 1,
-                    duration: 1.5,
-                    ease: "expo.out",
-                    scrollTrigger: { trigger: ".footer-cta", start: "top 90%" }
+                        duration: 1.8,
+                        ease: "expo.out",
+                    scrollTrigger: { 
+                        trigger: ".footer-cta", 
+                        start: "top 90%",
+                        toggleActions: "play none none reverse"
+                    }
                 }
             );
+
+            // ─── MARQUEE ───────────────────────────────────────────
+            gsap.to('.marquee-content', {
+                xPercent: -100,
+                repeat: -1,
+                duration: 20,
+                ease: "none"
+            });
         });
 
         return () => mm.revert();
@@ -482,6 +508,24 @@ export const HomeView = ({ handleNav }: HomeViewProps) => {
                             );
                         })}
                     </div>
+                </div>
+            </section>
+
+            {/* ═══════════════════════════════════════════════════════════
+                INFINITE MARQUEE STRIP
+               ═══════════════════════════════════════════════════════════ */}
+            <section className="relative w-full py-16 md:py-24 overflow-hidden border-y border-[#1C1C19]/10 bg-white/30 z-10">
+                <div className="flex w-max">
+                    {[1, 2, 3].map((i) => (
+                        <div key={i} className="marquee-content flex items-center pr-12 font-grotesk font-black text-6xl md:text-[6rem] uppercase tracking-tighter text-[#1C1C19]/90 whitespace-nowrap">
+                            <span>ASIAN WIRES & CABLES</span>
+                            <span className="px-8 md:px-12 text-[#FF4A1C] opacity-50">*</span>
+                            <span className="text-[#1C1C19]/40">ARCHITECTURAL GRADE</span>
+                            <span className="px-8 md:px-12 text-[#FF4A1C] opacity-50">*</span>
+                            <span>ABSOLUTE ZERO DEFECT</span>
+                            <span className="px-8 md:px-12 text-[#FF4A1C] opacity-50">*</span>
+                        </div>
+                    ))}
                 </div>
             </section>
 

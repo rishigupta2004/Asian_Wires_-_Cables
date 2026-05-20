@@ -28,17 +28,11 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                 <div className="relative w-full h-full max-w-[1920px] mx-auto px-6 md:px-16 lg:px-32 flex items-center justify-between">
                     
                     {/* Brand */}
-                    <div className="flex items-center gap-4 md:cursor-none" onClick={() => handleNav('HOME')}>
-                        <div className="relative h-14 w-[124px] md:h-16 md:w-[150px] shrink-0">
-                            <Image
-                                src="/images/brands/ASIAN.png"
-                                alt="Asian Wires & Cables"
-                                fill
-                                priority
-                                quality={100}
-                                sizes="(max-width: 768px) 124px, 150px"
-                                className="object-contain object-left"
-                            />
+                    <div className="flex items-center gap-6 md:cursor-none" onClick={() => handleNav('HOME')}>
+                        <div className="flex gap-4 shrink-0 h-12 md:h-16">
+                            <img src="/Assests/Brand_Logo/PRO_ASIAN.jpeg" alt="PRO ASIAN" className="h-full object-contain" />
+                            <img src="/Assests/Brand_Logo/TRUE_MASTER.png" alt="TRUE MASTER" className="h-full object-contain" />
+                            <img src="/Assests/Brand_Logo/M1_VOICE.png" alt="M1 VOICE" className="h-full object-contain" />
                         </div>
                     </div>
 
