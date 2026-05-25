@@ -29,10 +29,10 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                     
                     {/* Brand */}
                     <div className="flex items-center gap-6 md:cursor-none" onClick={() => handleNav('HOME')}>
-                        <div className="flex gap-4 shrink-0 h-12 md:h-16">
-                            <img src="/Assests/Brand_Logo/PRO_ASIAN.png" alt="PRO ASIAN" className="h-full object-contain" />
-                            <img src="/Assests/Brand_Logo/True_MAster.png" alt="TRUE MASTER" className="h-full object-contain" />
-                            <img src="/Assests/Brand_Logo/M1_VOICE.png" alt="M1 VOICE" className="h-full object-contain" />
+                        <div className="flex gap-6 sm:gap-8 shrink-0 h-16 sm:h-20 md:h-24 py-2">
+                            <img src="/Assests/Brand_Logo/PRO_ASIAN.png" alt="PRO ASIAN" className="h-full object-contain transition-transform duration-500 hover:scale-105 drop-shadow-sm" />
+                            <img src="/Assests/Brand_Logo/True_MAster.png" alt="TRUE MASTER" className="h-full object-contain transition-transform duration-500 hover:scale-105 drop-shadow-sm" />
+                            <img src="/Assests/Brand_Logo/M1_VOICE.png" alt="M1 VOICE" className="h-full object-contain transition-transform duration-500 hover:scale-105 drop-shadow-sm" />
                         </div>
                     </div>
 
