@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ContactModal } from './ContactModal';
 
 interface NavbarProps {
@@ -20,188 +19,106 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
         { id: 'SPECS', label: 'Tech Data' },
     ];
 
-    const logos = [
-        { src: "/Assests/Brand_Logo/PRO_ASIAN.png", alt: "PRO ASIAN" },
-        { src: "/Assests/Brand_Logo/True_MAster.png", alt: "TRUE MASTER" },
-        { src: "/Assests/Brand_Logo/M1_VOICE.png", alt: "M1 VOICE" }
-    ];
-
     return (
         <>
-            <motion.nav 
-                initial={{ y: -100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="fixed top-0 left-0 w-full z-40 h-20 md:h-24 transition-all duration-700"
-            >
+            <nav className="fixed top-0 left-0 w-full z-40 h-20 md:h-24 transition-all duration-700">
                 {/* Glass background — extremely subtle */}
                 <div className="absolute inset-0 bg-[#F4F0EB]/80 backdrop-blur-md border-b border-[#1C1C19]/[0.04]" />
                 
                 <div className="relative w-full h-full max-w-[1920px] mx-auto px-6 md:px-16 lg:px-32 flex items-center justify-between">
                     
                     {/* Brand */}
-                    <div className="flex items-center md:cursor-pointer group z-50 shrink-0" onClick={() => handleNav('HOME')}>
-                        {/* Parent Brand Group */}
-                        <div className="flex items-center gap-3 md:gap-4">
-                            <motion.div 
-                                whileHover={{ scale: 1.05, rotate: -5 }}
-                                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                                className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-[#FF4A1C] to-[#D93811] flex items-center justify-center shadow-lg shadow-[#FF4A1C]/20 border border-white/20 shrink-0"
-                            >
-                                <span className="font-grotesk font-black text-xl md:text-2xl text-white leading-none tracking-tighter shadow-sm">A</span>
-                            </motion.div>
-                            <div className="flex flex-col justify-center">
-                                <span className="font-grotesk font-black text-lg md:text-xl tracking-tighter uppercase leading-none text-[#1C1C19]">
-                                    Asian
-                                </span>
-                                <span className="font-mono text-[7px] md:text-[8px] font-bold tracking-[0.2em] text-[#FF4A1C] uppercase leading-none mt-1">
-                                    Computeronics
-                                </span>
-                            </div>
-                        </div>
-
-                        {/* Elegantly framed division logos */}
-                        <div className="hidden xl:flex items-center gap-2 border-l border-[#1C1C19]/10 pl-5 ml-5 h-8">
-                            {logos.map((logo, i) => (
-                                <motion.div 
-                                    key={logo.alt}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.5, delay: 0.4 + (i * 0.1), ease: [0.16, 1, 0.3, 1] }}
-                                    whileHover={{ y: -2 }}
-                                    className="h-7 px-3 bg-white/40 hover:bg-white/80 backdrop-blur-md rounded-md border border-white/50 flex items-center justify-center transition-colors shadow-sm"
-                                >
-                                    <img 
-                                        src={logo.src} 
-                                        alt={logo.alt} 
-                                        className="h-3.5 w-auto max-w-[70px] object-contain mix-blend-multiply opacity-70 group-hover:opacity-100 transition-opacity" 
-                                    />
-                                </motion.div>
-                            ))}
+                    <div className="flex items-center gap-6 md:cursor-none" onClick={() => handleNav('HOME')}>
+                        <div className="flex gap-4 shrink-0 h-12 md:h-16">
+                            <img src="/Assests/Brand_Logo/PRO_ASIAN.png" alt="PRO ASIAN" className="h-full object-contain" />
+                            <img src="/Assests/Brand_Logo/True_MAster.png" alt="TRUE MASTER" className="h-full object-contain" />
+                            <img src="/Assests/Brand_Logo/M1_VOICE.png" alt="M1 VOICE" className="h-full object-contain" />
                         </div>
                     </div>
 
                     {/* Desktop Nav */}
-                    <div className="hidden lg:flex items-center justify-center flex-1 px-8 z-10">
-                        <div className="flex items-center gap-8 xl:gap-10">
-                            {navItems.map((item, i) => (
-                                <motion.button
-                                    key={item.id}
-                                    initial={{ opacity: 0, y: -10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: 0.4 + (i * 0.05), ease: [0.16, 1, 0.3, 1] }}
-                                    onClick={() => handleNav(item.id)}
-                                    className={`relative font-mono text-[9px] xl:text-[10px] tracking-[0.25em] font-bold uppercase py-2 md:cursor-pointer transition-colors duration-500 ${
-                                        activeView === item.id
-                                            ? 'text-[#1C1C19]'
-                                            : 'text-[#1C1C19]/30 hover:text-[#1C1C19]/60'
-                                    }`}
-                                >
-                                    {item.label}
-                                    {activeView === item.id && (
-                                        <motion.span 
-                                            layoutId="activeNavIndicator"
-                                            className="absolute -bottom-0.5 left-0 w-full h-[2px] bg-[#FF4A1C] rounded-full" 
-                                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                        />
-                                    )}
-                                </motion.button>
-                            ))}
-                        </div>
+                    <div className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
+                        {navItems.map((item) => (
+                            <button
+                                key={item.id}
+                                onClick={() => handleNav(item.id)}
+                                className={`relative font-mono text-[10px] tracking-[0.25em] font-bold uppercase py-2 md:cursor-none transition-all duration-500 ${
+                                    activeView === item.id
+                                        ? 'text-[#1C1C19]'
+                                        : 'text-[#1C1C19]/30 hover:text-[#1C1C19]/60'
+                                }`}
+                            >
+                                {item.label}
+                                {activeView === item.id && (
+                                    <span className="absolute -bottom-0.5 left-0 w-full h-[2px] bg-[#FF4A1C] rounded-full" />
+                                )}
+                            </button>
+                        ))}
                     </div>
 
                     {/* Right */}
-                    <div className="flex items-center gap-3 shrink-0 z-50">
-                        <motion.button 
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
+                    <div className="flex items-center gap-3">
+                        <button 
                             onClick={() => setContactOpen(true)}
-                            className="hidden md:flex items-center gap-3 px-6 py-2.5 rounded-full bg-[#1C1C19] text-[#F4F0EB] hover:bg-[#FF4A1C] transition-colors duration-500 font-mono text-[10px] uppercase font-bold tracking-[0.2em] md:cursor-pointer shadow-lg hover:shadow-xl"
+                            className="hidden md:flex items-center gap-3 px-6 py-2.5 rounded-full bg-[#1C1C19] text-[#F4F0EB] hover:bg-[#FF4A1C] transition-colors duration-500 font-mono text-[10px] uppercase font-bold tracking-[0.2em] md:cursor-none"
                         >
                             <span className="relative flex h-1.5 w-1.5">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F4F0EB] opacity-75" />
                                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#F4F0EB]" />
                             </span>
                             Contact
-                        </motion.button>
+                        </button>
 
                         <button 
-                            className="lg:hidden p-3 rounded-full bg-[#1C1C19]/[0.04] md:cursor-pointer"
+                            className="lg:hidden p-3 rounded-full bg-[#1C1C19]/[0.04] md:cursor-none"
                             onClick={() => setMobileMenu(true)}
                         >
                             <Menu className="w-5 h-5 text-[#1C1C19]" />
                         </button>
                     </div>
                 </div>
-            </motion.nav>
+            </nav>
 
             {/* Mobile slide-out */}
-            <AnimatePresence>
-                {mobileMenu && (
-                    <div className="fixed inset-0 z-50 pointer-events-auto">
-                        <motion.div 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.4 }}
-                            className="absolute inset-0 bg-[#1C1C19]/30 backdrop-blur-sm" 
-                            onClick={() => setMobileMenu(false)} 
-                        />
-                        <motion.div 
-                            initial={{ x: "100%" }}
-                            animate={{ x: 0 }}
-                            exit={{ x: "100%" }}
-                            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute inset-y-0 right-0 w-full sm:w-[400px] bg-[#F4F0EB] border-l border-[#1C1C19]/5 shadow-2xl"
-                        >
-                            <div className="p-8 flex flex-col h-full">
-                                <div className="flex justify-between items-center mb-20">
-                                    <span className="font-mono text-[10px] tracking-[0.4em] font-bold text-[#1C1C19]/30 uppercase">Menu</span>
-                                    <button onClick={() => setMobileMenu(false)} className="p-3 rounded-full bg-[#1C1C19]/[0.04] md:cursor-pointer">
-                                        <X className="w-5 h-5 text-[#1C1C19]" />
-                                    </button>
-                                </div>
+            <div className={`fixed inset-0 z-50 transition-all duration-700 ${mobileMenu ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+                <div className={`absolute inset-0 bg-[#1C1C19]/30 backdrop-blur-sm transition-opacity duration-500 ${mobileMenu ? 'opacity-100' : 'opacity-0'}`} onClick={() => setMobileMenu(false)} />
+                <div className={`absolute inset-y-0 right-0 w-full sm:w-[400px] bg-[#F4F0EB] border-l border-[#1C1C19]/5 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${mobileMenu ? 'translate-x-0' : 'translate-x-full'}`}>
+                    <div className="p-8 flex flex-col h-full">
+                        <div className="flex justify-between items-center mb-20">
+                            <span className="font-mono text-[10px] tracking-[0.4em] font-bold text-[#1C1C19]/30 uppercase">Menu</span>
+                            <button onClick={() => setMobileMenu(false)} className="p-3 rounded-full bg-[#1C1C19]/[0.04] md:cursor-none">
+                                <X className="w-5 h-5 text-[#1C1C19]" />
+                            </button>
+                        </div>
 
-                                <div className="flex flex-col gap-6">
-                                    {navItems.map((item, i) => (
-                                        <motion.button
-                                            key={item.id}
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: 0.2 + (i * 0.1), duration: 0.4 }}
-                                            onClick={() => {
-                                                handleNav(item.id);
-                                                setMobileMenu(false);
-                                            }}
-                                            className={`text-left font-grotesk font-black text-5xl uppercase tracking-tighter md:cursor-pointer hover:text-[#FF4A1C] transition-colors duration-300 ${
-                                                activeView === item.id ? 'text-[#1C1C19]' : 'text-[#1C1C19]/15'
-                                            }`}
-                                        >
-                                            {item.label}
-                                        </motion.button>
-                                    ))}
-                                </div>
+                        <div className="flex flex-col gap-4">
+                            {navItems.map((item) => (
+                                <button
+                                    key={item.id}
+                                    onClick={() => {
+                                        handleNav(item.id);
+                                        setMobileMenu(false);
+                                    }}
+                                    className={`text-left font-grotesk font-black text-5xl uppercase tracking-tighter md:cursor-none hover:text-[#FF4A1C] transition-colors duration-300 ${
+                                        activeView === item.id ? 'text-[#1C1C19]' : 'text-[#1C1C19]/15'
+                                    }`}
+                                >
+                                    {item.label}
+                                </button>
+                            ))}
+                        </div>
 
-                                <div className="mt-auto">
-                                    <motion.button
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.6, duration: 0.4 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        onClick={() => { setMobileMenu(false); setContactOpen(true); }}
-                                        className="w-full py-5 rounded-full bg-[#FF4A1C] text-white font-mono uppercase text-[10px] font-bold tracking-[0.2em] md:cursor-pointer shadow-lg hover:bg-red-600 transition-colors"
-                                    >
-                                        Contact Directory
-                                    </motion.button>
-                                </div>
-                            </div>
-                        </motion.div>
+                        <div className="mt-auto">
+                            <button
+                                onClick={() => { setMobileMenu(false); setContactOpen(true); }}
+                                className="w-full py-5 rounded-full bg-[#FF4A1C] text-white font-mono uppercase text-[10px] font-bold tracking-[0.2em] md:cursor-none"
+                            >
+                                Contact Directory
+                            </button>
+                        </div>
                     </div>
-                )}
-            </AnimatePresence>
+                </div>
+            </div>
 
             <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
         </>
