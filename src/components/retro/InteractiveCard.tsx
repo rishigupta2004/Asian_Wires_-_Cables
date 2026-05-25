@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Mail, Phone, Globe, MapPin, QrCode, ShieldCheck, Award, ArrowRight, Cpu, Zap, ChevronsRight } from "lucide-react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { motion } from "framer-motion";
 
 // --- Dynamic Glass Reflection Physics ---
 const GlassReflection = React.memo(({ dark = false }: { dark?: boolean }) => (
@@ -555,16 +556,30 @@ export default function AsianCard() {
                       <div className="flex-1 h-[1px] bg-zinc-300 shadow-[0_1px_0_white]" />
                     </div>
                     
-                    <div className="grid grid-cols-3 gap-3 w-full max-w-[360px] px-2 preserve-3d mb-8 mt-4">
-                      <div className="bg-white/60 backdrop-blur-md rounded-xl p-3 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/Assests/Brand_Logo/PRO_ASIAN.png" alt="PRO ASIAN" className="h-8 sm:h-10 w-auto object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
-                      </div>
-                      <div className="bg-white/60 backdrop-blur-md rounded-xl p-3 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/Assests/Brand_Logo/True_MAster.png" alt="TRUE MASTER" className="h-8 sm:h-10 w-auto object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
-                      </div>
-                      <div className="bg-white/60 backdrop-blur-md rounded-xl p-3 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/Assests/Brand_Logo/M1_VOICE.png" alt="M1 VOICE" className="h-8 sm:h-10 w-auto object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
-                      </div>
+                    <div className="grid grid-cols-3 gap-4 w-full max-w-[400px] px-2 preserve-3d mb-8 mt-4">
+                      {[
+                        { src: "/Assests/Brand_Logo/PRO_ASIAN.png", alt: "PRO ASIAN" },
+                        { src: "/Assests/Brand_Logo/True_MAster.png", alt: "TRUE MASTER" },
+                        { src: "/Assests/Brand_Logo/M1_VOICE.png", alt: "M1 VOICE" }
+                      ].map((logo, i) => (
+                        <motion.div 
+                          key={logo.alt}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.5 + (i * 0.1), duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                          className="bg-white/70 backdrop-blur-md rounded-2xl p-4 shadow-[0_8px_16px_rgba(0,0,0,0.04),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_12px_24px_rgba(220,38,38,0.12)] group/logo" 
+                          style={{ transform: 'translateZ(10px)' }}
+                        >
+                           <img 
+                              src={logo.src} 
+                              alt={logo.alt} 
+                              className="h-12 sm:h-16 w-auto object-contain blend-logo opacity-90 transition-transform duration-500 group-hover/logo:scale-110 drop-shadow-sm" 
+                              decoding="async" 
+                              loading="lazy" 
+                              onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} 
+                           />
+                        </motion.div>
+                      ))}
                     </div>
                   </div>
                 </div>
