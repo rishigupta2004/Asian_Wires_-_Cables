@@ -40,41 +40,41 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                 <div className="relative w-full h-full max-w-[1920px] mx-auto px-6 md:px-16 lg:px-32 flex items-center justify-between">
                     
                     {/* Brand */}
-                    <div className="flex items-center gap-6 md:cursor-pointer group" onClick={() => handleNav('HOME')}>
+                    <div className="flex items-center md:cursor-pointer group z-50 shrink-0" onClick={() => handleNav('HOME')}>
                         {/* Parent Brand Group */}
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-3 md:gap-4">
                             <motion.div 
                                 whileHover={{ scale: 1.05, rotate: -5 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                                className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-[#FF4A1C] to-[#D93811] flex items-center justify-center shadow-lg shadow-[#FF4A1C]/20 border border-white/20"
+                                className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-[#FF4A1C] to-[#D93811] flex items-center justify-center shadow-lg shadow-[#FF4A1C]/20 border border-white/20 shrink-0"
                             >
-                                <span className="font-grotesk font-black text-2xl md:text-3xl text-white leading-none tracking-tighter shadow-sm">A</span>
+                                <span className="font-grotesk font-black text-xl md:text-2xl text-white leading-none tracking-tighter shadow-sm">A</span>
                             </motion.div>
-                            <div className="flex flex-col">
-                                <span className="font-grotesk font-black text-xl md:text-2xl tracking-tighter uppercase leading-none text-[#1C1C19]">
+                            <div className="flex flex-col justify-center">
+                                <span className="font-grotesk font-black text-lg md:text-xl tracking-tighter uppercase leading-none text-[#1C1C19]">
                                     Asian
                                 </span>
-                                <span className="font-mono text-[8px] md:text-[9px] font-bold tracking-[0.2em] text-[#FF4A1C] uppercase leading-none mt-1">
+                                <span className="font-mono text-[7px] md:text-[8px] font-bold tracking-[0.2em] text-[#FF4A1C] uppercase leading-none mt-1">
                                     Computeronics
                                 </span>
                             </div>
                         </div>
 
                         {/* Elegantly framed division logos */}
-                        <div className="hidden xl:flex items-center gap-3 border-l border-[#1C1C19]/10 pl-6 ml-2">
+                        <div className="hidden xl:flex items-center gap-2 border-l border-[#1C1C19]/10 pl-5 ml-5 h-8">
                             {logos.map((logo, i) => (
                                 <motion.div 
                                     key={logo.alt}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
                                     transition={{ duration: 0.5, delay: 0.4 + (i * 0.1), ease: [0.16, 1, 0.3, 1] }}
-                                    whileHover={{ y: -2, scale: 1.05 }}
-                                    className="h-11 px-4 bg-white/60 backdrop-blur-md rounded-xl border border-white flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.03)]"
+                                    whileHover={{ y: -2 }}
+                                    className="h-7 px-3 bg-white/40 hover:bg-white/80 backdrop-blur-md rounded-md border border-white/50 flex items-center justify-center transition-colors shadow-sm"
                                 >
                                     <img 
                                         src={logo.src} 
                                         alt={logo.alt} 
-                                        className="h-7 w-auto object-contain drop-shadow-sm mix-blend-multiply" 
+                                        className="h-3.5 w-auto max-w-[70px] object-contain mix-blend-multiply opacity-70 group-hover:opacity-100 transition-opacity" 
                                     />
                                 </motion.div>
                             ))}
@@ -82,34 +82,36 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                     </div>
 
                     {/* Desktop Nav */}
-                    <div className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
-                        {navItems.map((item, i) => (
-                            <motion.button
-                                key={item.id}
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: 0.4 + (i * 0.05), ease: [0.16, 1, 0.3, 1] }}
-                                onClick={() => handleNav(item.id)}
-                                className={`relative font-mono text-[10px] tracking-[0.25em] font-bold uppercase py-2 md:cursor-pointer transition-colors duration-500 ${
-                                    activeView === item.id
-                                        ? 'text-[#1C1C19]'
-                                        : 'text-[#1C1C19]/30 hover:text-[#1C1C19]/60'
-                                }`}
-                            >
-                                {item.label}
-                                {activeView === item.id && (
-                                    <motion.span 
-                                        layoutId="activeNavIndicator"
-                                        className="absolute -bottom-0.5 left-0 w-full h-[2px] bg-[#FF4A1C] rounded-full" 
-                                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                    />
-                                )}
-                            </motion.button>
-                        ))}
+                    <div className="hidden lg:flex items-center justify-center flex-1 px-8 z-10">
+                        <div className="flex items-center gap-8 xl:gap-10">
+                            {navItems.map((item, i) => (
+                                <motion.button
+                                    key={item.id}
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.4 + (i * 0.05), ease: [0.16, 1, 0.3, 1] }}
+                                    onClick={() => handleNav(item.id)}
+                                    className={`relative font-mono text-[9px] xl:text-[10px] tracking-[0.25em] font-bold uppercase py-2 md:cursor-pointer transition-colors duration-500 ${
+                                        activeView === item.id
+                                            ? 'text-[#1C1C19]'
+                                            : 'text-[#1C1C19]/30 hover:text-[#1C1C19]/60'
+                                    }`}
+                                >
+                                    {item.label}
+                                    {activeView === item.id && (
+                                        <motion.span 
+                                            layoutId="activeNavIndicator"
+                                            className="absolute -bottom-0.5 left-0 w-full h-[2px] bg-[#FF4A1C] rounded-full" 
+                                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                        />
+                                    )}
+                                </motion.button>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Right */}
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 shrink-0 z-50">
                         <motion.button 
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
