@@ -40,19 +40,43 @@ export const Navbar = ({ activeView, handleNav }: NavbarProps) => {
                 <div className="relative w-full h-full max-w-[1920px] mx-auto px-6 md:px-16 lg:px-32 flex items-center justify-between">
                     
                     {/* Brand */}
-                    <div className="flex items-center gap-6 md:cursor-pointer" onClick={() => handleNav('HOME')}>
-                        <div className="flex items-center gap-6 md:gap-8 h-14 md:h-20">
+                    <div className="flex items-center gap-6 md:cursor-pointer group" onClick={() => handleNav('HOME')}>
+                        {/* Parent Brand Group */}
+                        <div className="flex items-center gap-4">
+                            <motion.div 
+                                whileHover={{ scale: 1.05, rotate: -5 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                                className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-[#FF4A1C] to-[#D93811] flex items-center justify-center shadow-lg shadow-[#FF4A1C]/20 border border-white/20"
+                            >
+                                <span className="font-grotesk font-black text-2xl md:text-3xl text-white leading-none tracking-tighter shadow-sm">A</span>
+                            </motion.div>
+                            <div className="flex flex-col">
+                                <span className="font-grotesk font-black text-xl md:text-2xl tracking-tighter uppercase leading-none text-[#1C1C19]">
+                                    Asian
+                                </span>
+                                <span className="font-mono text-[8px] md:text-[9px] font-bold tracking-[0.2em] text-[#FF4A1C] uppercase leading-none mt-1">
+                                    Computeronics
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Elegantly framed division logos */}
+                        <div className="hidden xl:flex items-center gap-3 border-l border-[#1C1C19]/10 pl-6 ml-2">
                             {logos.map((logo, i) => (
-                                <motion.img 
+                                <motion.div 
                                     key={logo.alt}
-                                    src={logo.src} 
-                                    alt={logo.alt} 
-                                    className="h-[75%] md:h-[90%] w-auto object-contain drop-shadow-sm" 
-                                    initial={{ opacity: 0, scale: 0.8, filter: 'blur(4px)' }}
-                                    animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                                    transition={{ duration: 0.7, delay: 0.2 + (i * 0.1), ease: [0.16, 1, 0.3, 1] }}
-                                    whileHover={{ scale: 1.05, filter: 'brightness(1.1)' }}
-                                />
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.5, delay: 0.4 + (i * 0.1), ease: [0.16, 1, 0.3, 1] }}
+                                    whileHover={{ y: -2, scale: 1.05 }}
+                                    className="h-11 px-4 bg-white/60 backdrop-blur-md rounded-xl border border-white flex items-center justify-center shadow-[0_4px_10px_rgba(0,0,0,0.03)]"
+                                >
+                                    <img 
+                                        src={logo.src} 
+                                        alt={logo.alt} 
+                                        className="h-7 w-auto object-contain drop-shadow-sm mix-blend-multiply" 
+                                    />
+                                </motion.div>
                             ))}
                         </div>
                     </div>

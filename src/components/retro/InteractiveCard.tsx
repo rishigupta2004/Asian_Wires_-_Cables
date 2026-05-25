@@ -556,28 +556,33 @@ export default function AsianCard() {
                       <div className="flex-1 h-[1px] bg-zinc-300 shadow-[0_1px_0_white]" />
                     </div>
                     
-                    <div className="grid grid-cols-3 gap-4 w-full max-w-[400px] px-2 preserve-3d mb-8 mt-4">
+                    <div className="grid grid-cols-3 gap-4 sm:gap-6 w-full max-w-[460px] px-2 preserve-3d mb-8 mt-4">
                       {[
-                        { src: "/Assests/Brand_Logo/PRO_ASIAN.png", alt: "PRO ASIAN" },
-                        { src: "/Assests/Brand_Logo/True_MAster.png", alt: "TRUE MASTER" },
-                        { src: "/Assests/Brand_Logo/M1_VOICE.png", alt: "M1 VOICE" }
+                        { src: "/Assests/Brand_Logo/PRO_ASIAN.png", alt: "PRO ASIAN", name: "Pro Asian" },
+                        { src: "/Assests/Brand_Logo/True_MAster.png", alt: "TRUE MASTER", name: "True Master" },
+                        { src: "/Assests/Brand_Logo/M1_VOICE.png", alt: "M1 VOICE", name: "M1 Voice" }
                       ].map((logo, i) => (
                         <motion.div 
                           key={logo.alt}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.5 + (i * 0.1), duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                          className="bg-white/70 backdrop-blur-md rounded-2xl p-4 shadow-[0_8px_16px_rgba(0,0,0,0.04),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_12px_24px_rgba(220,38,38,0.12)] group/logo" 
-                          style={{ transform: 'translateZ(10px)' }}
+                          className="bg-white/80 backdrop-blur-xl rounded-2xl p-4 sm:p-5 shadow-[0_8px_20px_rgba(0,0,0,0.06),inset_0_1px_1px_white] border border-white/60 flex flex-col items-center justify-center gap-3 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(220,38,38,0.15)] group/logo" 
+                          style={{ transform: 'translateZ(15px)' }}
                         >
-                           <img 
-                              src={logo.src} 
-                              alt={logo.alt} 
-                              className="h-12 sm:h-16 w-auto object-contain blend-logo opacity-90 transition-transform duration-500 group-hover/logo:scale-110 drop-shadow-sm" 
-                              decoding="async" 
-                              loading="lazy" 
-                              onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} 
-                           />
+                           <div className="h-12 sm:h-16 w-full flex items-center justify-center">
+                             <img 
+                                src={logo.src} 
+                                alt={logo.alt} 
+                                className="max-h-full max-w-full object-contain mix-blend-multiply transition-transform duration-500 group-hover/logo:scale-110 drop-shadow-sm" 
+                                decoding="async" 
+                                loading="lazy" 
+                                onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} 
+                             />
+                           </div>
+                           <span className="font-mono text-[9px] sm:text-[10px] font-bold tracking-widest text-zinc-500 uppercase group-hover/logo:text-red-600 transition-colors">
+                             {logo.name}
+                           </span>
                         </motion.div>
                       ))}
                     </div>
