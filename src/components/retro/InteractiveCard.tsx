@@ -555,15 +555,15 @@ export default function AsianCard() {
                       <div className="flex-1 h-[1px] bg-zinc-300 shadow-[0_1px_0_white]" />
                     </div>
                     
-                    <div className="grid grid-cols-3 gap-8 md:gap-12 w-full max-w-[800px] px-4 preserve-3d mb-10 mt-6">
-                      <div className="bg-white/60 backdrop-blur-md rounded-full aspect-square p-2 sm:p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/Assests/Brand_Logo/PRO_ASIAN.jpeg" alt="PRO ASIAN" width={240} height={240} className="w-[85%] h-[85%] object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
+                    <div className="grid grid-cols-3 gap-3 w-full max-w-[360px] px-2 preserve-3d mb-8 mt-4">
+                      <div className="bg-white/60 backdrop-blur-md rounded-xl p-3 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
+                         <img src="/Assests/Brand_Logo/PRO_ASIAN.png" alt="PRO ASIAN" className="h-8 sm:h-10 w-auto object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
                       </div>
-                      <div className="bg-white/60 backdrop-blur-md rounded-full aspect-square p-2 sm:p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/Assests/Brand_Logo/TRUE_MASTER.png" alt="TRUE MASTER" width={240} height={240} className="w-[85%] h-[85%] object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
+                      <div className="bg-white/60 backdrop-blur-md rounded-xl p-3 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
+                         <img src="/Assests/Brand_Logo/True_MAster.png" alt="TRUE MASTER" className="h-8 sm:h-10 w-auto object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
                       </div>
-                      <div className="bg-white/60 backdrop-blur-md rounded-full aspect-square p-2 sm:p-4 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
-                         <img src="/Assests/Brand_Logo/M1_VOICE.png" alt="M1 VOICE" width={240} height={240} className="w-[85%] h-[85%] object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/M1_VOICE.png'; }} />
+                      <div className="bg-white/60 backdrop-blur-md rounded-xl p-3 shadow-[0_4px_10px_rgba(0,0,0,0.03),inset_0_1px_1px_white] border border-white flex items-center justify-center transition-transform duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_rgba(220,38,38,0.1)]" style={{ transform: 'translateZ(10px)' }}>
+                         <img src="/Assests/Brand_Logo/M1_VOICE.png" alt="M1 VOICE" className="h-8 sm:h-10 w-auto object-contain blend-logo opacity-90" decoding="async" loading="lazy" onError={(e: any) => { e.target.onerror = null; e.target.src='/Assests/Brand_Logo/LOGO-2.svg'; }} />
                       </div>
                     </div>
                   </div>

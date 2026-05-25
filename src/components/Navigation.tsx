@@ -83,8 +83,8 @@ export default function Navigation() {
               className={`relative z-[60] flex items-center gap-4 transition-colors duration-500 ${isOpen ? 'opacity-100' : 'mix-blend-difference'}`}
               onClick={() => setIsOpen(false)}
             >
-              <img src="/Assests/Brand_Logo/PRO_ASIAN.jpeg" alt="PRO ASIAN" className="h-12 md:h-16 object-contain" />
-              <img src="/Assests/Brand_Logo/TRUE_MASTER.png" alt="TRUE MASTER" className="h-12 md:h-16 object-contain" />
+              <img src="/Assests/Brand_Logo/PRO_ASIAN.png" alt="PRO ASIAN" className="h-12 md:h-16 object-contain" />
+              <img src="/Assests/Brand_Logo/True_MAster.png" alt="TRUE MASTER" className="h-12 md:h-16 object-contain" />
               <img src="/Assests/Brand_Logo/M1_VOICE.png" alt="M1 VOICE" className="h-12 md:h-16 object-contain" />
             </Link>
 

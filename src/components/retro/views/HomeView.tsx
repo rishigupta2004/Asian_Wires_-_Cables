@@ -27,7 +27,7 @@ const BRAND_QUALITY_ROWS = [
     {
         id: 'ASIAN',
         display: 'PRO ASIAN',
-        logo: '/Assests/Brand_Logo/PRO_ASIAN.jpeg',
+        logo: '/Assests/Brand_Logo/PRO_ASIAN.png',
         qualityBand: 'Tier 01 / Premium',
         conductor: BRANDS.ASIAN.conductorGrade,
         coating: 'Heavy-duty multi-layer shielding with thicker insulation cover',
@@ -36,7 +36,7 @@ const BRAND_QUALITY_ROWS = [
     {
         id: 'MASTER',
         display: 'TRUE MASTER',
-        logo: '/Assests/Brand_Logo/TRUE_MASTER.png',
+        logo: '/Assests/Brand_Logo/True_MAster.png',
         qualityBand: 'Tier 02 / Essential',
         conductor: BRANDS.TRUE_MASTER.conductorGrade,
         coating: 'Standard single-layer shielding with balanced PVC jacket cover',
